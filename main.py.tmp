@@ -1,0 +1,76 @@
+"""
+DikiliGeothermal SCADA System
+==============================
+Industrial geothermal district heating monitoring & control system
+Location: Dikili, Izmir, Turkey
+
+Entry Point: main.py
+"""
+
+import sys
+import time
+import signal
+import logging
+from pathlib import Path
+
+# Ensure project root is on PYTHONPATH
+sys.path.insert(0, str(Path(__file__).parent))
+
+from scada.system import SCADASystem
+from scada.config import SystemConfig
+from analytics.reporter import ReportGenerator
+from control.scheduler import ControlScheduler
+
+# ─── Logging Setup ────────────────────────────────────────────────────────────
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler("data/logs/scada.log", mode="a"),
+    ],
+)
+logger = logging.getLogger("DikiliGeothermal")
+
+
+# ─── Graceful Shutdown ────────────────────────────────────────────────────────
+def signal_handler(sig, frame):
+    logger.info("Shutdown signal received. Stopping SCADA system...")
+    scada.stop()
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
+
+
+# ─── Main ─────────────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    logger.info("=" * 60)
+    logger.info("  DikiliGeothermal SCADA System — Starting Up")
+    logger.info("  Location : Dikili, Izmir, Turkey")
+    logger.info("  System   : Geothermal District Heating Plant")
+    logger.info("=" * 60)
+
+    # Load system configuration
+    config = SystemConfig.load("data/config/system_config.json")
+
+    # Initialise SCADA system
+    scada = SCADASystem(config)
+    scheduler = ControlScheduler(scada)
+    reporter = ReportGenerator(scada)
+
+    # Start subsystems
+    scada.start()
+    scheduler.start()
+
+    logger.info("SCADA system online. Press Ctrl+C to stop.")
+
+    try:
+        while scada.is_running():
+            scada.tick()
+            reporter.update()
+            time.sleep(config.scan_interval)
+    except KeyboardInterrupt:
+        logger.info("Keyboard interrupt — shutting down.")
+        scada.stop()

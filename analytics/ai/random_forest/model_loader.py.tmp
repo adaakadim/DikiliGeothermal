@@ -1,0 +1,32 @@
+"""
+analytics/ai/random_forest/model_loader.py
+==========================================
+Provides an efficient, cached loading mechanism for real-time SCADA integration.
+Ensures models are only loaded from disk once.
+"""
+
+import logging
+from analytics.ai.random_forest.version_manager import load_latest_model
+
+logger = logging.getLogger(__name__)
+
+class ModelCache:
+    """Singleton cache for loaded AI models."""
+    _models = {}
+
+    @classmethod
+    def get_model(cls, model_name: str):
+        """Returns the loaded model, fetching from disk if not already cached."""
+        if model_name not in cls._models:
+            model = load_latest_model(model_name)
+            if model is not None:
+                cls._models[model_name] = model
+            else:
+                logger.error(f"Failed to load model into cache: {model_name}")
+        return cls._models.get(model_name)
+
+    @classmethod
+    def clear_cache(cls):
+        """Forces models to be reloaded from disk on next request."""
+        cls._models.clear()
+        logger.info("Model cache cleared.")

@@ -1,0 +1,7 @@
+Training Report for Maintenance_RF
+========================================
+Accuracy:  99.80%
+Precision: 99.80%
+Recall:    99.80%
+F1 Score:  99.80%
+ROC AUC:   1.0000

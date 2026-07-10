@@ -1,0 +1,7 @@
+Training Report for PumpFailure_RF
+========================================
+Accuracy:  100.00%
+Precision: 100.00%
+Recall:    100.00%
+F1 Score:  100.00%
+ROC AUC:   1.0000

@@ -1,0 +1,2 @@
+Timestamp,AI_Pump_Failure_Risk_Pct,AI_Confidence_Pct,Plant_Status,Overall_Plant_Health_Pct,Pump_Health_Pct,Maintenance_Risk_Level,Maintenance_Recommendations,Active_Alarms_Count,Critical_Alarms_Active
+2026-07-08T10:41:38.429237,40.0,73.5,WARNING,54.0,60.0,LOW,Pressure variation detected: Check pipeline blockage or filter clogging. | Inspect motor electrical systems. | Check pump flow stability and cavitation risk.,0,False

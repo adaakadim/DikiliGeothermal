@@ -1,0 +1,119 @@
+"""
+scada/config.py
+System configuration — loaded from JSON, with sensible defaults.
+"""
+
+import json
+import logging
+from dataclasses import dataclass, field, asdict
+from pathlib import Path
+from typing import List
+
+logger = logging.getLogger(__name__)
+
+# ─── Well / Source Definition ─────────────────────────────────────────────────
+@dataclass
+class GeothermalWell:
+    well_id: str
+    name: str
+    depth_m: float               # metres
+    reservoir_temp_c: float      # °C at reservoir depth
+    max_flow_m3h: float          # m³/h
+    nominal_pressure_bar: float  # bar
+
+# ─── Network Zone ─────────────────────────────────────────────────────────────
+@dataclass
+class DistrictHeatingZone:
+    zone_id: str
+    name: str
+    subscriber_count: int
+    design_load_mw: float        # MW
+
+# ─── Main Config ──────────────────────────────────────────────────────────────
+@dataclass
+class SystemConfig:
+    plant_name: str = "Dikili Geothermal District Heating Plant"
+    location: str = "Dikili, Izmir, Turkey"
+    latitude: float = 39.0706
+    longitude: float = 26.8905
+    scan_interval: float = 2.0          # seconds per SCADA tick
+    alarm_check_interval: float = 1.0   # seconds
+    historian_flush_interval: float = 10.0  # seconds
+    simulation_mode: bool = True
+    log_level: str = "INFO"
+    theme: str = "dark"                 # "dark" or "light"
+    
+    # Comms settings
+    opcua_endpoint: str = "opc.tcp://localhost:4840"
+    modbus_host: str = "127.0.0.1"
+    modbus_port: int = 502
+    mqtt_broker: str = "mqtt://localhost:1883"
+    
+    # Database settings
+    db_path: str = "data/historian.db"
+    
+    # AI Thresholds
+    ai_risk_warning_threshold: float = 40.0
+    ai_risk_critical_threshold: float = 70.0
+
+    # Process limits
+    max_wellhead_temp_c: float = 115.0
+    min_wellhead_temp_c: float = 60.0
+    max_system_pressure_bar: float = 16.0
+    min_system_pressure_bar: float = 2.5
+    max_flow_m3h: float = 350.0
+    min_flow_m3h: float = 20.0
+
+    # Heat exchanger
+    hx_efficiency: float = 0.92         # 92 %
+    target_supply_temp_c: float = 85.0
+    target_return_temp_c: float = 55.0
+
+    # Geothermal wells
+    wells: List[GeothermalWell] = field(default_factory=lambda: [
+        GeothermalWell("W-01", "Dikili-1", 950, 105, 180, 8.5),
+        GeothermalWell("W-02", "Dikili-2", 1100, 112, 210, 9.2),
+        GeothermalWell("W-03", "Dikili-3", 870,  98, 140, 7.8),
+    ])
+
+    # District heating zones
+    zones: List[DistrictHeatingZone] = field(default_factory=lambda: [
+        DistrictHeatingZone("Z-A", "Zone A — Residential North",  1240, 4.2),
+        DistrictHeatingZone("Z-B", "Zone B — Commercial Centre",   320, 2.8),
+        DistrictHeatingZone("Z-C", "Zone C — Residential South",   890, 3.1),
+        DistrictHeatingZone("Z-D", "Zone D — Industrial West",     150, 5.6),
+    ])
+
+    # ── Serialisation helpers ─────────────────────────────────────────────────
+    @classmethod
+    def load(cls, path: str) -> "SystemConfig":
+        p = Path(path)
+        if p.exists():
+            try:
+                with open(p, "r", encoding="utf-8") as fh:
+                    data = json.load(fh)
+                # Rebuild nested objects
+                wells = [GeothermalWell(**w) for w in data.pop("wells", [])]
+                zones = [DistrictHeatingZone(**z) for z in data.pop("zones", [])]
+                cfg = cls(**{k: v for k, v in data.items() if k in cls.__dataclass_fields__})
+                if wells:
+                    cfg.wells = wells
+                if zones:
+                    cfg.zones = zones
+                logger.info("Configuration loaded from %s", p)
+                return cfg
+            except Exception as exc:
+                logger.warning("Failed to load config (%s) — using defaults.", exc)
+        else:
+            logger.info("No config file found at %s — writing defaults.", p)
+            cfg = cls()
+            cfg.save(path)
+            return cfg
+
+    def save(self, path: str):
+        p = Path(path)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        data = asdict(self)
+        with open(p, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, indent=2)
+        logger.info("Configuration saved to %s", p)

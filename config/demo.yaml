@@ -1,0 +1,11 @@
+# config/demo.yaml
+
+app:
+  name: "Dikili Geothermal (DEMO)"
+
+logging:
+  level: "INFO"
+
+scada:
+  simulation_mode: true
+  scan_interval_sec: 1.0 # Faster for demo purposes

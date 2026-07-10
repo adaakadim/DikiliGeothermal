@@ -1,0 +1,16 @@
+{
+    "Timestamp": "2026-07-08T12:08:48.661965",
+    "AI_Pump_Failure_Risk_Pct": 41.0,
+    "AI_Confidence_Pct": 74.0,
+    "Plant_Status": "WARNING",
+    "Overall_Plant_Health_Pct": 50.4,
+    "Pump_Health_Pct": 59.0,
+    "Maintenance_Risk_Level": "MEDIUM",
+    "Maintenance_Recommendations": [
+        "Increase monitoring frequency for pump system.",
+        "Pressure variation detected: Check pipeline blockage or filter clogging.",
+        "Inspect motor electrical systems."
+    ],
+    "Active_Alarms_Count": 0,
+    "Critical_Alarms_Active": false
+}

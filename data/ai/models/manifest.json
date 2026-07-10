@@ -1,0 +1,40 @@
+{
+  "PumpFailure_RF": {
+    "model_name": "PumpFailure_RF",
+    "algorithm": "RandomForestClassifier",
+    "version": "1.0.0",
+    "training_date": "2026-07-09T08:00:00",
+    "dataset_version": "1.0.0",
+    "feature_count": 21,
+    "expected_features": [
+      "Temperature (°C)", "Pressure (bar)", "Flow Rate (m3/h)", "Pump Speed (%)", 
+      "Pump Running (0/1)", "Motor Current (A)", "Motor Voltage (V)", "Motor Power (kW)", 
+      "Pump Operating Hours", "Heat Exchanger Inlet Temperature", "Heat Exchanger Outlet Temperature", 
+      "Heat Exchanger Efficiency", "District Heating Supply Temperature", "District Heating Return Temperature", 
+      "Thermal Power (MW)", "Pressure Drop", "Daily Energy", "Outside Air Temperature", 
+      "Plant Load", "Alarm Count", "Health Score"
+    ],
+    "sha256": "6cc92226105687c3733136f5db57fb8b68ebbf9e4e76c26b8eb149d3638fbe16",
+    "file_size_bytes": 184678,
+    "description": "Random forest classifier to predict geothermal well pump failures."
+  },
+  "Maintenance_RF": {
+    "model_name": "Maintenance_RF",
+    "algorithm": "RandomForestClassifier",
+    "version": "1.0.0",
+    "training_date": "2026-07-09T08:00:00",
+    "dataset_version": "1.0.0",
+    "feature_count": 21,
+    "expected_features": [
+      "Temperature (°C)", "Pressure (bar)", "Flow Rate (m3/h)", "Pump Speed (%)", 
+      "Pump Running (0/1)", "Motor Current (A)", "Motor Voltage (V)", "Motor Power (kW)", 
+      "Pump Operating Hours", "Heat Exchanger Inlet Temperature", "Heat Exchanger Outlet Temperature", 
+      "Heat Exchanger Efficiency", "District Heating Supply Temperature", "District Heating Return Temperature", 
+      "Thermal Power (MW)", "Pressure Drop", "Daily Energy", "Outside Air Temperature", 
+      "Plant Load", "Alarm Count", "Health Score"
+    ],
+    "sha256": "38f75a422ee93c1f39ec58d219ac74c54f457066a168b14f7412ff8135d4e94b",
+    "file_size_bytes": 546557,
+    "description": "Random forest classifier to identify pending maintenance requirements."
+  }
+}

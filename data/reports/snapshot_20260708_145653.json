@@ -1,0 +1,448 @@
+{
+  "generated_at": "2026-07-08T11:56:53Z",
+  "plant": "Dikili Geothermal (DEV)",
+  "kpis": {
+    "thermal_power_mw": 14.234,
+    "design_capacity_mw": 15.7,
+    "capacity_factor_pct": 90.7,
+    "hx_efficiency_pct": 100.0,
+    "supply_temp_c": 93.06,
+    "supply_temp_dev_k": 8.06,
+    "delta_t_k": 27.04,
+    "daily_energy_mwh": 28.2611,
+    "uptime_pct": 11.1,
+    "cop": 33.3,
+    "alarm_rate_per_hour": 1.87
+  },
+  "alarms": {
+    "total_active": 1,
+    "unacknowledged": 1,
+    "critical": false,
+    "alarms": [
+      {
+        "id": "TAG_DH.TOTAL_FLOW",
+        "description": "DH Total Distribution Flow HI: 355.4 m\u00b3/h",
+        "priority": "WARNING",
+        "category": "TRADITIONAL",
+        "state": "ACTIVE",
+        "age_s": 612.3
+      }
+    ]
+  },
+  "tags": {
+    "W-01.TEMP": {
+      "value": 101.73,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-01.PRES": {
+      "value": 8.34,
+      "unit": "bar",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-01.FLOW": {
+      "value": 160.5,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-01.PUMP_ST": {
+      "value": "RUNNING",
+      "unit": "",
+      "quality": "GOOD",
+      "alarm": "UNKNOWN",
+      "ts": 1783511813.8657572
+    },
+    "W-01.PUMP_SP": {
+      "value": 75.0,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-02.TEMP": {
+      "value": 105.54,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-02.PRES": {
+      "value": 9.09,
+      "unit": "bar",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-02.FLOW": {
+      "value": 192.1,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-02.PUMP_ST": {
+      "value": "RUNNING",
+      "unit": "",
+      "quality": "GOOD",
+      "alarm": "UNKNOWN",
+      "ts": 1783511813.8657572
+    },
+    "W-02.PUMP_SP": {
+      "value": 75.0,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-03.TEMP": {
+      "value": 93.79,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-03.PRES": {
+      "value": 7.91,
+      "unit": "bar",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-03.FLOW": {
+      "value": 125.6,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "W-03.PUMP_ST": {
+      "value": "RUNNING",
+      "unit": "",
+      "quality": "GOOD",
+      "alarm": "UNKNOWN",
+      "ts": 1783511813.8657572
+    },
+    "W-03.PUMP_SP": {
+      "value": 75.0,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "HX.SUPPLY_TEMP": {
+      "value": 101.28,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "HX.RETURN_TEMP": {
+      "value": 83.17,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "HX.SEC_SUPPLY": {
+      "value": 93.06,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "HX.SEC_RETURN": {
+      "value": 66.02,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "HX.EFFICIENCY": {
+      "value": 100.0,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "HX.THERMAL_POWER": {
+      "value": 14.234,
+      "unit": "MW",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "DH.SUPPLY_PRES": {
+      "value": 5.89,
+      "unit": "bar",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "DH.RETURN_PRES": {
+      "value": 4.09,
+      "unit": "bar",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "DH.TOTAL_FLOW": {
+      "value": 452.7,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "HI_HI",
+      "ts": 1783511813.8657572
+    },
+    "DH.DELTA_T": {
+      "value": 27.04,
+      "unit": "K",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-A.FLOW": {
+      "value": 121.3,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-A.SUPPLY_T": {
+      "value": 92.88,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-A.RETURN_T": {
+      "value": 68.88,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-A.VALVE_POS": {
+      "value": 20.0,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-B.FLOW": {
+      "value": 80.6,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-B.SUPPLY_T": {
+      "value": 91.78,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-B.RETURN_T": {
+      "value": 67.78,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-B.VALVE_POS": {
+      "value": 14.2,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-C.FLOW": {
+      "value": 89.0,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-C.SUPPLY_T": {
+      "value": 90.63,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-C.RETURN_T": {
+      "value": 66.8,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-C.VALVE_POS": {
+      "value": 16.2,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-D.FLOW": {
+      "value": 161.2,
+      "unit": "m\u00b3/h",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-D.SUPPLY_T": {
+      "value": 90.11,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-D.RETURN_T": {
+      "value": 65.68,
+      "unit": "\u00b0C",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "Z-D.VALVE_POS": {
+      "value": 29.6,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "PLANT.TOTAL_POWER": {
+      "value": 14.234,
+      "unit": "MW",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "PLANT.DAILY_ENERGY": {
+      "value": 28.2611,
+      "unit": "MWh",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "PLANT.UPTIME_PCT": {
+      "value": 11.1,
+      "unit": "%",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "PLANT.ALARM_COUNT": {
+      "value": 1,
+      "unit": "",
+      "quality": "GOOD",
+      "alarm": "NORMAL",
+      "ts": 1783511813.8657572
+    },
+    "PLANT.COP": {
+      "value": null,
+      "unit": "",
+      "quality": "GOOD",
+      "alarm": "UNKNOWN",
+      "ts": 1783502208.6675732
+    }
+  },
+  "trends": {
+    "W-01.TEMP": {
+      "tag_id": "W-01.TEMP",
+      "current": 101.73,
+      "ma_10": 100.947,
+      "ma_30": 101.164,
+      "roc": 0.2297,
+      "std_dev": 0.5443,
+      "anomaly": false
+    },
+    "W-02.TEMP": {
+      "tag_id": "W-02.TEMP",
+      "current": 105.54,
+      "ma_10": 104.843,
+      "ma_30": 105.237,
+      "roc": 0.2147,
+      "std_dev": 0.5334,
+      "anomaly": false
+    },
+    "W-03.TEMP": {
+      "tag_id": "W-03.TEMP",
+      "current": 93.79,
+      "ma_10": 94.351,
+      "ma_30": 93.837,
+      "roc": -0.1049,
+      "std_dev": 0.5321,
+      "anomaly": false
+    },
+    "HX.SEC_SUPPLY": {
+      "tag_id": "HX.SEC_SUPPLY",
+      "current": 93.06,
+      "ma_10": 92.821,
+      "ma_30": 92.792,
+      "roc": -0.1298,
+      "std_dev": 0.4074,
+      "anomaly": false
+    },
+    "HX.SEC_RETURN": {
+      "tag_id": "HX.SEC_RETURN",
+      "current": 66.02,
+      "ma_10": 66.214,
+      "ma_30": 66.48,
+      "roc": 0.0749,
+      "std_dev": 0.6101,
+      "anomaly": false
+    },
+    "HX.THERMAL_POWER": {
+      "tag_id": "HX.THERMAL_POWER",
+      "current": 14.234,
+      "ma_10": 14.016,
+      "ma_30": 13.592,
+      "roc": -0.1378,
+      "std_dev": 0.4082,
+      "anomaly": false
+    },
+    "DH.TOTAL_FLOW": {
+      "tag_id": "DH.TOTAL_FLOW",
+      "current": 452.7,
+      "ma_10": 453.05,
+      "ma_30": 444.217,
+      "roc": -0.9486,
+      "std_dev": 7.9456,
+      "anomaly": false
+    },
+    "DH.SUPPLY_PRES": {
+      "tag_id": "DH.SUPPLY_PRES",
+      "current": 5.89,
+      "ma_10": 5.814,
+      "ma_30": 5.81,
+      "roc": 0.035,
+      "std_dev": 0.0419,
+      "anomaly": false
+    },
+    "DH.DELTA_T": {
+      "tag_id": "DH.DELTA_T",
+      "current": 27.04,
+      "ma_10": 26.607,
+      "ma_30": 26.311,
+      "roc": -0.2047,
+      "std_dev": 0.4893,
+      "anomaly": false
+    },
+    "PLANT.TOTAL_POWER": {
+      "tag_id": "PLANT.TOTAL_POWER",
+      "current": 14.234,
+      "ma_10": 14.016,
+      "ma_30": 13.592,
+      "roc": -0.1378,
+      "std_dev": 0.4082,
+      "anomaly": false
+    }
+  }
+}

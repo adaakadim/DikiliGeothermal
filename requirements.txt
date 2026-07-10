@@ -1,0 +1,26 @@
+# DikiliGeothermal — Python Dependencies
+# ========================================
+# Core: no external deps (stdlib only)
+# Optional hardware drivers (install as needed):
+
+# Modbus TCP/RTU communication
+# pymodbus>=3.5.0
+
+# OPC-UA client (for historian / MES integration)
+# asyncua>=1.0.0
+
+# Data analysis & visualisation (optional analytics extensions)
+# numpy>=1.24.0
+# pandas>=2.0.0
+# matplotlib>=3.7.0
+
+# Web dashboard (optional, future)
+# fastapi>=0.100.0
+# uvicorn>=0.23.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Configuration
+pyyaml>=6.0

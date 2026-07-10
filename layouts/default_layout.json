@@ -1,0 +1,199 @@
+{
+  "facility_id": "dikili_geothermal_01",
+  "version": "1.0.0",
+  "description": "Default Process Flow Diagram layout for Dikili Geothermal Twin.",
+  "equipment": [
+    {
+      "id": "GW-01",
+      "type": "box",
+      "name": "Production Well",
+      "tag": "interactive_GW-01",
+      "x_factor": 0.5,
+      "y_offset": 0.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "sensor"
+    },
+    {
+      "id": "V-101",
+      "type": "valve",
+      "name": "Production Valve",
+      "tag": "interactive_V-101",
+      "x_factor": 0.5,
+      "y_offset": 30.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "pipeline"
+    },
+    {
+      "id": "P-101",
+      "type": "pump",
+      "name": "Production Pump",
+      "tag": "interactive_P-101",
+      "x_factor": 0.5,
+      "y_offset": 72.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "pipeline"
+    },
+    {
+      "id": "SEP-01",
+      "type": "box",
+      "name": "Brine Separator",
+      "tag": "interactive_SEP-01",
+      "x_factor": 0.5,
+      "y_offset": 170.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "sensor"
+    },
+    {
+      "id": "HX-101",
+      "type": "box",
+      "name": "Primary Heat Exchanger",
+      "tag": "interactive_HX-101",
+      "x_factor": 0.5,
+      "y_offset": 241.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "sensor"
+    },
+    {
+      "id": "P-201",
+      "type": "pump",
+      "name": "DH Circulation Pump",
+      "tag": "interactive_P-201",
+      "x_factor": 0.5,
+      "y_offset": 313.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "pipeline"
+    },
+    {
+      "id": "V-201",
+      "type": "valve",
+      "name": "DH Return Valve",
+      "tag": "interactive_V-201",
+      "x_factor": 0.5,
+      "y_offset": 363.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "pipeline"
+    },
+    {
+      "id": "DH-NET",
+      "type": "box",
+      "name": "District Heating Network",
+      "tag": "interactive_DH-NET",
+      "x_factor": 0.5,
+      "y_offset": 411.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "sensor"
+    },
+    {
+      "id": "P-301",
+      "type": "pump",
+      "name": "Reinjection Pump",
+      "tag": "interactive_P-301",
+      "x_factor": 0.5,
+      "y_offset": 483.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "pipeline"
+    },
+    {
+      "id": "RW-01",
+      "type": "box",
+      "name": "Reinjection Well",
+      "tag": "interactive_RW-01",
+      "x_factor": 0.5,
+      "y_offset": 581.0,
+      "rotation": 0.0,
+      "scale": 1.0,
+      "visibility": true,
+      "layer": "sensor"
+    }
+  ],
+  "pipelines": [
+    {
+      "id": "prod_1",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 0.0,
+      "from_add": 24.0,
+      "to_y_offset": 72.0,
+      "to_add": -26.0,
+      "temp": "hot"
+    },
+    {
+      "id": "prod_2",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 72.0,
+      "from_add": 26.0,
+      "to_y_offset": 170.0,
+      "to_add": -24.0,
+      "temp": "hot"
+    },
+    {
+      "id": "prod_3",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 170.0,
+      "from_add": 24.0,
+      "to_y_offset": 241.0,
+      "to_add": -24.0,
+      "temp": "hot"
+    },
+    {
+      "id": "dh_1",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 241.0,
+      "from_add": 24.0,
+      "to_y_offset": 313.0,
+      "to_add": -26.0,
+      "temp": "warm"
+    },
+    {
+      "id": "dh_2",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 313.0,
+      "from_add": 26.0,
+      "to_y_offset": 411.0,
+      "to_add": -24.0,
+      "temp": "warm"
+    },
+    {
+      "id": "ret_1",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 411.0,
+      "from_add": 24.0,
+      "to_y_offset": 483.0,
+      "to_add": -26.0,
+      "temp": "cool"
+    },
+    {
+      "id": "ret_2",
+      "type": "pipe_vertical",
+      "x_factor": 0.5,
+      "from_y_offset": 483.0,
+      "from_add": 26.0,
+      "to_y_offset": 581.0,
+      "to_add": -24.0,
+      "temp": "cool"
+    }
+  ]
+}

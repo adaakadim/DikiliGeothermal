@@ -1,0 +1,28 @@
+Feature,Importance
+Heat Exchanger Efficiency,0.19788502176792688
+Feature_HX_Temp_Diff,0.19294545176745098
+Pressure Drop,0.14895903004270009
+Feature_Thermal_Efficiency,0.12773584086357923
+Thermal Power (MW),0.10259261556774409
+Feature_Energy_Efficiency_Index,0.09359964077264481
+Daily Energy,0.05406418631432605
+Outside Air Temperature,0.029160957247658832
+Heat Exchanger Outlet Temperature,0.020413953569884756
+Pump Operating Hours,0.013144747525085616
+Plant Load,0.006965214822044213
+Feature_Operating_Time_Index,0.0030965281787050597
+District Heating Supply Temperature,0.0012699747425181616
+Heat Exchanger Inlet Temperature,0.001165930983853627
+Temperature (°C),0.0011464539357887928
+Pressure (bar),0.0010084122898417977
+Health Score,0.0009562256920514212
+Flow Rate (m3/h),0.0006823228394608642
+District Heating Return Temperature,0.0006626509386105924
+Motor Current (A),0.0006191812795005213
+Feature_Flow_Stability_Index,0.0005824293211144086
+Motor Voltage (V),0.00041051491317629696
+Motor Power (kW),0.0004044252469376888
+Feature_Pump_Load_Index,0.00038539406546046995
+Alarm Count,0.0001428953119348259
+Pump Running (0/1),0.0
+Pump Speed (%),0.0

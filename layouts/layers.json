@@ -1,0 +1,67 @@
+{
+  "layers": [
+    {
+      "layer_name": "background",
+      "display_name": "Background Grid",
+      "default_visibility": true,
+      "rendering_order": 1,
+      "description": "Background grid lines and structural drawings."
+    },
+    {
+      "layer_name": "pipeline",
+      "display_name": "Pipelines",
+      "default_visibility": true,
+      "rendering_order": 2,
+      "description": "Plant fluid flow pipeline connections."
+    },
+    {
+      "layer_name": "equipment",
+      "display_name": "Equipment Shapes",
+      "default_visibility": true,
+      "rendering_order": 3,
+      "description": "Primary physical equipment containers and nodes."
+    },
+    {
+      "layer_name": "label",
+      "display_name": "Equipment Labels",
+      "default_visibility": true,
+      "rendering_order": 4,
+      "description": "Process names and static text tags."
+    },
+    {
+      "layer_name": "sensor",
+      "display_name": "Sensors",
+      "default_visibility": true,
+      "rendering_order": 5,
+      "description": "Live telemetry readings and engineering values."
+    },
+    {
+      "layer_name": "ai",
+      "display_name": "AI Layer",
+      "default_visibility": true,
+      "rendering_order": 6,
+      "description": "AI prediction markers and health index alerts."
+    },
+    {
+      "layer_name": "alarm",
+      "display_name": "Alarm Layer",
+      "default_visibility": true,
+      "rendering_order": 7,
+      "description": "Active process alarm alerts and criticality banners."
+    },
+    {
+      "layer_name": "maintenance",
+      "display_name": "Maintenance Layer",
+      "default_visibility": true,
+      "rendering_order": 8,
+      "description": "Maintenance recommendations and pending tasks overlay."
+    },
+    {
+      "layer_name": "thermal",
+      "display_name": "Thermal Layer",
+      "default_visibility": true,
+      "rendering_order": 9,
+      "description": "Thermal power and heat transfer metrics."
+    }
+  ]
+}

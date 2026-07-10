@@ -1,0 +1,31 @@
+{
+  "plant_name": "Dikili Geothermal District Heating Plant",
+  "location": "Dikili, Izmir, Turkey",
+  "latitude": 39.0706,
+  "longitude": 26.8905,
+  "scan_interval": 2.0,
+  "alarm_check_interval": 1.0,
+  "historian_flush_interval": 10.0,
+  "simulation_mode": true,
+  "log_level": "INFO",
+  "max_wellhead_temp_c": 115.0,
+  "min_wellhead_temp_c": 60.0,
+  "max_system_pressure_bar": 16.0,
+  "min_system_pressure_bar": 2.5,
+  "max_flow_m3h": 350.0,
+  "min_flow_m3h": 20.0,
+  "hx_efficiency": 0.92,
+  "target_supply_temp_c": 85.0,
+  "target_return_temp_c": 55.0,
+  "wells": [
+    {"well_id": "GW-01", "name": "Dikili-1", "depth_m": 950,  "reservoir_temp_c": 105, "max_flow_m3h": 180, "nominal_pressure_bar": 8.5},
+    {"well_id": "GW-02", "name": "Dikili-2", "depth_m": 1100, "reservoir_temp_c": 112, "max_flow_m3h": 210, "nominal_pressure_bar": 9.2},
+    {"well_id": "GW-03", "name": "Dikili-3", "depth_m": 870,  "reservoir_temp_c": 98,  "max_flow_m3h": 140, "nominal_pressure_bar": 7.8}
+  ],
+  "zones": [
+    {"zone_id": "Z-A", "name": "Zone A — Residential North",  "subscriber_count": 1240, "design_load_mw": 4.2},
+    {"zone_id": "Z-B", "name": "Zone B — Commercial Centre",  "subscriber_count":  320, "design_load_mw": 2.8},
+    {"zone_id": "Z-C", "name": "Zone C — Residential South",  "subscriber_count":  890, "design_load_mw": 3.1},
+    {"zone_id": "Z-D", "name": "Zone D — Industrial West",    "subscriber_count":  150, "design_load_mw": 5.6}
+  ]
+}

@@ -1,0 +1,84 @@
+{
+    "DIKILI GEOTHERMAL HMI": "DİKİLİ JEOTERMAL HMI",
+    "Process Overview": "Proses Özeti",
+    "Operator Dashboard": "Operatör Panosu",
+    "Trend Workspace": "Trend Ekranı",
+    "Alarm Center": "Alarm Merkezi",
+    "Event Timeline": "Olay Günlüğü",
+    "System Diagnostics": "Sistem Tanılama",
+    "ADVANCED AI": "GELİŞMİŞ YAPAY ZEKA",
+    "Explainable AI": "Açıklanabilir YZ",
+    "RUL Estimates": "Kalan Ömür (RUL)",
+    "Generate AI Report": "YZ Raporu Üret",
+    "INITIALISING...": "BAŞLATILIYOR...",
+    
+    "Plant Overview": "Tesis Özeti",
+    "Production Well 1": "Üretim Kuyusu 1",
+    "Production Well 2": "Üretim Kuyusu 2",
+    "Production Well 3": "Üretim Kuyusu 3",
+    "Reinjection Well 1": "Reenjeksiyon Kuyusu 1",
+    
+    "PLANT STATUS": "TESİS DURUMU",
+    "HEALTH INDEX": "SAĞLIK İNDEKSİ",
+    "HIGHEST RISK EQ": "EN YÜKSEK RİSK",
+    "CRITICAL ALARM": "KRİTİK ALARM",
+    "THERMAL POWER": "TERMAL GÜÇ",
+    "DAILY ENERGY": "GÜNLÜK ENERJİ",
+    
+    "Normal": "Normal",
+    "Warning": "Uyarı",
+    "Critical": "Kritik",
+    "None": "Yok",
+    
+    "Live Trends": "Canlı Trendler",
+    "Predictive Signals": "Tahmin Sinyalleri",
+    
+    "Active Alarms": "Aktif Alarmlar",
+    "Acknowledge All": "Tümünü Onayla",
+    "Clear Inactive": "Pasifleri Temizle",
+    "Severity": "Önem",
+    "Time": "Zaman",
+    "Description": "Açıklama",
+    
+    "System Event Log": "Sistem Olay Günlüğü",
+    "Level": "Seviye",
+    "Message": "Mesaj",
+    
+    "Subsystem Status": "Alt Sistem Durumu",
+    "Diagnostics": "Tanılama",
+    "Status": "Durum",
+    
+    "AI FEATURE IMPORTANCE (SHAP)": "YZ ÖZNİTELİK ÖNEMİ (SHAP)",
+    "Feature": "Öznitelik",
+    "Impact": "Etki",
+    "Top Risk Contributors": "En Yüksek Risk Faktörleri",
+    
+    "REMAINING USEFUL LIFE (RUL) ESTIMATES": "KALAN YARARLI ÖMÜR TAHMİNLERİ",
+    "Equipment": "Ekipman",
+    "RUL (Hours)": "Kalan (Saat)",
+    "Confidence (%)": "Güven (%)",
+    "Degradation": "Bozulma",
+    "Maintenance Status": "Bakım Durumu",
+    "Priority": "Öncelik",
+    
+    "Equipment Details": "Ekipman Detayları",
+    "Live Data": "Canlı Veri",
+    "AI Insights": "YZ Analizleri",
+    
+    "Status": "Durum",
+    "Health Score": "Sağlık Puanı",
+    "Operating Hours": "Çalışma Saati",
+    "Motor Current": "Motor Akımı",
+    "Power Load": "Güç Yükü",
+    
+    "Failure Risk": "Arıza Riski",
+    "Remaining Useful Life": "Kalan Yararlı Ömür",
+    "RUL Confidence": "RUL Güveni",
+    "Degradation Trend": "Bozulma Eğilimi",
+    "AI Confidence": "YZ Güveni",
+    "AI Advice": "YZ Tavsiyesi",
+    "AI Explanation": "YZ Açıklaması",
+    
+    "No predictive models active for this component.": "Bu bileşen için aktif tahmin modeli yok.",
+    "Unknown": "Bilinmiyor"
+}

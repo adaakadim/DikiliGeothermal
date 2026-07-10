@@ -1,0 +1,124 @@
+{
+  "mappings": [
+    {
+      "equipment_id": "GW-01",
+      "plc_tag": "PLC.Wells.Prod_01.Temp",
+      "scada_tag": "SCADA.Wells.GW01.Temp",
+      "opc_ua_node_id": "ns=2;s=GW-01.Temperature",
+      "modbus_address": "40001",
+      "mqtt_topic": "dikili/wells/gw01/temp",
+      "signal_type": "Analog",
+      "permission": "Read-Only",
+      "unit": "Celsius",
+      "description": "Geothermal fluid wellhead temperature."
+    },
+    {
+      "equipment_id": "V-101",
+      "plc_tag": "PLC.Valves.V101.Pos",
+      "scada_tag": "SCADA.Valves.V101.State",
+      "opc_ua_node_id": "ns=2;s=V-101.Position",
+      "modbus_address": "40002",
+      "mqtt_topic": "dikili/valves/v101/pos",
+      "signal_type": "Analog",
+      "permission": "Read-Write",
+      "unit": "%",
+      "description": "Production flow control valve position."
+    },
+    {
+      "equipment_id": "P-101",
+      "plc_tag": "PLC.Pumps.P101.Speed",
+      "scada_tag": "SCADA.Pumps.P101.Hz",
+      "opc_ua_node_id": "ns=2;s=P-101.Speed",
+      "modbus_address": "40003",
+      "mqtt_topic": "dikili/pumps/p101/speed",
+      "signal_type": "Analog",
+      "permission": "Read-Write",
+      "unit": "Hz",
+      "description": "Production pump variable speed drive frequency."
+    },
+    {
+      "equipment_id": "SEP-01",
+      "plc_tag": "PLC.Separators.SEP01.Level",
+      "scada_tag": "SCADA.Separators.SEP01.Lvl",
+      "opc_ua_node_id": "ns=2;s=SEP-01.Level",
+      "modbus_address": "40004",
+      "mqtt_topic": "dikili/separators/sep01/level",
+      "signal_type": "Analog",
+      "permission": "Read-Only",
+      "unit": "meters",
+      "description": "Separator water level."
+    },
+    {
+      "equipment_id": "HX-101",
+      "plc_tag": "PLC.HX.HX101.TempIn",
+      "scada_tag": "SCADA.HX.HX101.Efficiency",
+      "opc_ua_node_id": "ns=2;s=HX-101.TempIn",
+      "modbus_address": "40005",
+      "mqtt_topic": "dikili/hx/hx101/tempin",
+      "signal_type": "Analog",
+      "permission": "Read-Only",
+      "unit": "Celsius",
+      "description": "Primary heat exchanger geothermal inlet temperature."
+    },
+    {
+      "equipment_id": "P-201",
+      "plc_tag": "PLC.Pumps.P201.Speed",
+      "scada_tag": "SCADA.Pumps.P201.State",
+      "opc_ua_node_id": "ns=2;s=P-201.Speed",
+      "modbus_address": "40006",
+      "mqtt_topic": "dikili/pumps/p201/speed",
+      "signal_type": "Analog",
+      "permission": "Read-Write",
+      "unit": "Hz",
+      "description": "District heating circulation pump speed."
+    },
+    {
+      "equipment_id": "V-201",
+      "plc_tag": "PLC.Valves.V201.Pos",
+      "scada_tag": "SCADA.Valves.V201.State",
+      "opc_ua_node_id": "ns=2;s=V-201.Position",
+      "modbus_address": "40007",
+      "mqtt_topic": "dikili/valves/v201/pos",
+      "signal_type": "Analog",
+      "permission": "Read-Write",
+      "unit": "%",
+      "description": "District heating return control valve position."
+    },
+    {
+      "equipment_id": "DH-NET",
+      "plc_tag": "PLC.Net.SupplyTemp",
+      "scada_tag": "SCADA.Net.Load",
+      "opc_ua_node_id": "ns=2;s=DH-NET.SupplyTemp",
+      "modbus_address": "40008",
+      "mqtt_topic": "dikili/network/dhnet/temp",
+      "signal_type": "Analog",
+      "permission": "Read-Only",
+      "unit": "Celsius",
+      "description": "District heating grid supply temperature."
+    },
+    {
+      "equipment_id": "P-301",
+      "plc_tag": "PLC.Pumps.P301.Speed",
+      "scada_tag": "SCADA.Pumps.P301.Amps",
+      "opc_ua_node_id": "ns=2;s=P-301.Speed",
+      "modbus_address": "40009",
+      "mqtt_topic": "dikili/pumps/p301/speed",
+      "signal_type": "Analog",
+      "permission": "Read-Write",
+      "unit": "Hz",
+      "description": "Reinjection pump motor frequency."
+    },
+    {
+      "equipment_id": "RW-01",
+      "plc_tag": "PLC.Wells.Reinj_01.Pres",
+      "scada_tag": "SCADA.Wells.RW01.Flow",
+      "opc_ua_node_id": "ns=2;s=RW-01.Pressure",
+      "modbus_address": "40010",
+      "mqtt_topic": "dikili/wells/rw01/pres",
+      "signal_type": "Analog",
+      "permission": "Read-Only",
+      "unit": "bar",
+      "description": "Reinjection wellhead pressure."
+    }
+  ]
+}

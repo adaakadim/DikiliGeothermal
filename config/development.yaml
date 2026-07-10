@@ -1,0 +1,10 @@
+# config/development.yaml
+
+app:
+  name: "Dikili Geothermal (DEV)"
+
+logging:
+  level: "DEBUG"
+
+scada:
+  simulation_mode: true

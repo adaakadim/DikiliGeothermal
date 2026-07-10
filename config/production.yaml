@@ -1,0 +1,10 @@
+# config/production.yaml
+
+app:
+  name: "Dikili Geothermal (PROD)"
+
+logging:
+  level: "INFO"
+
+scada:
+  simulation_mode: false

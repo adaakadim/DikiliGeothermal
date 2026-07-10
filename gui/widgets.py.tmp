@@ -1,0 +1,305 @@
+"""
+gui/widgets.py
+==============
+Custom dashboard widgets for the Dikili Geothermal SCADA GUI.
+
+Implements reusable components using Tkinter Canvas (wrapped in Frames
+to avoid Tcl naming conflicts):
+  - GaugeWidget
+  - KPICard
+  - PumpIcon
+  - ValveIcon
+  - PipeSegment
+  - StatusIndicator
+"""
+
+from __future__ import annotations
+
+import math
+import tkinter as tk
+
+from gui.theme import (
+    BG_SECONDARY, BG_TERTIARY, BORDER, BORDER_LIGHT,
+    TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED,
+    CLR_NORMAL, CLR_WARNING, CLR_CRITICAL, CLR_OFFLINE,
+    CLR_HOT_FLUID, CLR_COOL_FLUID,
+    FONT_MONO_MD, FONT_MONO_LG, FONT_LABEL_SM, FONT_LABEL,
+    GAUGE_SIZE, KPI_CARD_W, KPI_CARD_H,
+    PUMP_ICON_SIZE, VALVE_ICON_SIZE, PIPE_WIDTH, STATUS_LED_R,
+    value_color,
+)
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  GAUGE WIDGET
+# ═════════════════════════════════════════════════════════════════════════════
+
+class GaugeWidget(tk.Frame):
+    """Circular gauge showing value on an arc with colored zones."""
+    def __init__(self, parent: tk.Widget, label: str, unit: str,
+                 min_val: float, max_val: float,
+                 warn_lo: float, warn_hi: float,
+                 crit_lo: float | None = None, crit_hi: float | None = None,
+                 size: int = GAUGE_SIZE, **kwargs):
+        super().__init__(parent, bg=BG_SECONDARY, **kwargs)
+        
+        cw = size + 20
+        ch = size + 50
+        self.canvas = tk.Canvas(self, width=cw, height=ch, bg=BG_SECONDARY, highlightthickness=0)
+        self.canvas.pack()
+
+        self._label   = label
+        self._unit    = unit
+        self._min     = min_val
+        self._max     = max_val
+        self._warn_lo = warn_lo
+        self._warn_hi = warn_hi
+        self._crit_lo = crit_lo if crit_lo is not None else warn_lo
+        self._crit_hi = crit_hi if crit_hi is not None else warn_hi
+        self._size    = size
+        self._value   = min_val
+        self._cx      = cw // 2
+        self._cy      = size // 2 + 10
+        self._radius  = (size - 20) // 2
+
+        self._draw_static()
+        self._needle_id = None
+        self._value_id  = None
+        self.set_value(min_val)
+
+    def _draw_static(self):
+        cx, cy, r = self._cx, self._cy, self._radius
+        bbox = (cx - r, cy - r, cx + r, cy + r)
+        span = 240
+        start = -210
+        thickness = 8
+
+        def draw_band(v1, v2, color):
+            v1_c = max(self._min, min(self._max, v1))
+            v2_c = max(self._min, min(self._max, v2))
+            if v1_c >= v2_c: return
+            p1 = (v1_c - self._min) / (self._max - self._min)
+            p2 = (v2_c - self._min) / (self._max - self._min)
+            extent = (p2 - p1) * span
+            astart = start - (p1 * span)
+            self.canvas.create_arc(*bbox, start=astart, extent=-extent, style="arc",
+                                   outline=color, width=thickness)
+
+        draw_band(self._min, self._crit_lo, CLR_CRITICAL)
+        draw_band(self._crit_lo, self._warn_lo, CLR_WARNING)
+        draw_band(self._warn_lo, self._warn_hi, CLR_NORMAL)
+        draw_band(self._warn_hi, self._crit_hi, CLR_WARNING)
+        draw_band(self._crit_hi, self._max, CLR_CRITICAL)
+
+        self.canvas.create_text(cx, ch := (cy + r + 24), text=self._label,
+                                fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center")
+
+    def set_value(self, value: float):
+        self._value = max(self._min, min(self._max, value))
+        self.canvas.delete(self._needle_id)
+        self.canvas.delete(self._value_id)
+
+        cx, cy = self._cx, self._cy
+        span = 240
+        start = -210
+        fraction = (self._value - self._min) / (self._max - self._min)
+        angle_deg = start - (fraction * span)
+        angle_rad = math.radians(angle_deg)
+
+        needle_color = value_color(self._value, self._warn_lo, self._warn_hi, self._crit_lo, self._crit_hi)
+        
+        nx = cx + (self._radius - 12) * math.cos(angle_rad)
+        ny = cy - (self._radius - 12) * math.sin(angle_rad)
+        self._needle_id = self.canvas.create_line(cx, cy, nx, ny, fill=needle_color, width=3, arrow="last", arrowshape=(8, 10, 3))
+        self.canvas.create_oval(cx - 4, cy - 4, cx + 4, cy + 4, fill=BORDER_LIGHT, outline="")
+        self._value_id = self.canvas.create_text(cx, cy + 22, text=f"{self._value:.1f} {self._unit}",
+                                                 fill=needle_color, font=FONT_MONO_MD, anchor="center")
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  KPI CARD
+# ═════════════════════════════════════════════════════════════════════════════
+
+class KPICard(tk.Frame):
+    def __init__(self, parent: tk.Widget, label: str = "KPI", unit: str = "",
+                 card_width: int = KPI_CARD_W, card_height: int = KPI_CARD_H, **kwargs):
+        super().__init__(parent, bg=BG_TERTIARY, **kwargs)
+        self.canvas = tk.Canvas(self, width=card_width, height=card_height,
+                                bg=BG_TERTIARY, highlightthickness=1, highlightbackground=BORDER)
+        self.canvas.pack()
+
+        self._width = card_width
+        self._height = card_height
+        self._label = label
+        self._unit  = unit
+        self._prev_value: float | None = None
+
+        self.canvas.create_text(self._width // 2, 14, text=label, fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center")
+        self._val_id = self.canvas.create_text(self._width // 2, self._height // 2 + 2, text="---",
+                                               fill=TEXT_PRIMARY, font=FONT_MONO_LG, anchor="center")
+        self._unit_id = self.canvas.create_text(self._width // 2, self._height - 14, text=unit,
+                                                fill=TEXT_MUTED, font=FONT_LABEL_SM, anchor="center")
+        self._trend_id = None
+
+    def set_value(self, value: float, color: str = TEXT_PRIMARY):
+        if value >= 1000:
+            val_str = f"{value:,.0f}"
+        elif value >= 100:
+            val_str = f"{value:.1f}"
+        else:
+            val_str = f"{value:.2f}"
+            
+        self.canvas.itemconfig(self._val_id, text=val_str, fill=color)
+
+        if self._prev_value is not None:
+            diff = value - self._prev_value
+            self.canvas.delete(self._trend_id)
+            if abs(diff) > 0.01:
+                icon = "▲" if diff > 0 else "▼"
+                tcolor = CLR_CRITICAL if diff > 0 and color == CLR_CRITICAL else (CLR_NORMAL if diff > 0 else CLR_WARNING)
+                self._trend_id = self.canvas.create_text(self._width - 14, self._height // 2 + 2, text=icon, fill=tcolor, font=FONT_LABEL_SM)
+        self._prev_value = value
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  PUMP ICON
+# ═════════════════════════════════════════════════════════════════════════════
+
+class PumpIcon(tk.Frame):
+    def __init__(self, parent: tk.Widget, label: str = "P1", size: int = PUMP_ICON_SIZE, **kwargs):
+        super().__init__(parent, bg=BG_SECONDARY, **kwargs)
+        self.canvas = tk.Canvas(self, width=size + 4, height=size + 20, bg=BG_SECONDARY, highlightthickness=0)
+        self.canvas.pack()
+
+        self._size   = size
+        self._label  = label
+        self._angle  = 0.0
+        self._state  = "RUNNING"
+        self._cx     = size // 2 + 2
+        self._cy     = size // 2 + 2
+        self._r      = size // 2 - 2
+
+        self.canvas.create_text(self._cx, size + 12, text=label, fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center")
+        self._draw()
+
+    def _draw(self):
+        self.canvas.delete("pump_parts")
+        cx, cy, r = self._cx, self._cy, self._r
+
+        colors = {"RUNNING": CLR_NORMAL, "STARTING": CLR_WARNING, "FAULT": CLR_CRITICAL, "OFF": CLR_OFFLINE}
+        color = colors.get(self._state, CLR_OFFLINE)
+
+        self.canvas.create_oval(cx - r, cy - r, cx + r, cy + r, outline=BORDER_LIGHT, width=2, tags="pump_parts")
+        self.canvas.create_oval(cx - r+2, cy - r+2, cx + r-2, cy + r-2, fill=BG_TERTIARY, outline="", tags="pump_parts")
+
+        if self._state != "OFF" and self._state != "FAULT":
+            a1 = math.radians(self._angle)
+            a2 = math.radians(self._angle + 120)
+            a3 = math.radians(self._angle + 240)
+            r_in = 4
+            r_out = r - 4
+            for a in (a1, a2, a3):
+                x1, y1 = cx + r_in * math.cos(a), cy + r_in * math.sin(a)
+                x2, y2 = cx + r_out * math.cos(a), cy + r_out * math.sin(a)
+                self.canvas.create_line(x1, y1, x2, y2, fill=color, width=3, tags="pump_parts")
+
+    def set_state(self, state: str, speed_rpm: float = 1450.0):
+        self._state = state
+        if state == "RUNNING" or state == "STARTING":
+            step = 15.0 if speed_rpm > 1000 else 8.0
+            self._angle = (self._angle + step) % 360
+        self._draw()
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  VALVE ICON
+# ═════════════════════════════════════════════════════════════════════════════
+
+class ValveIcon(tk.Frame):
+    def __init__(self, parent: tk.Widget, label: str = "V1", size: int = VALVE_ICON_SIZE, **kwargs):
+        super().__init__(parent, bg=BG_SECONDARY, **kwargs)
+        self.canvas = tk.Canvas(self, width=size + 4, height=size + 16, bg=BG_SECONDARY, highlightthickness=0)
+        self.canvas.pack()
+
+        self._size   = size
+        self._label  = label
+        self._state  = "OPEN"
+        self._cx     = size // 2 + 2
+        self._cy     = size // 2 + 2
+
+        self.canvas.create_text(self._cx, size + 10, text=label, fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center")
+        self._draw()
+
+    def _draw(self):
+        self.canvas.delete("valve_parts")
+        cx, cy = self._cx, self._cy
+        hs = self._size // 2 - 2
+
+        colors = {"OPEN": CLR_NORMAL, "CLOSED": CLR_CRITICAL, "THROTTLED": CLR_WARNING}
+        color = colors.get(self._state, CLR_OFFLINE)
+
+        self.canvas.create_polygon(cx - hs, cy - hs, cx, cy, cx - hs, cy + hs, fill=color, outline=BORDER_LIGHT, width=1, tags="valve_parts")
+        self.canvas.create_polygon(cx + hs, cy - hs, cx, cy, cx + hs, cy + hs, fill=color, outline=BORDER_LIGHT, width=1, tags="valve_parts")
+        self.canvas.create_oval(cx - 3, cy - 3, cx + 3, cy + 3, fill=BORDER, outline="")
+
+    def set_state(self, state: str):
+        self._state = state
+        self._draw()
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  PIPE SEGMENT
+# ═════════════════════════════════════════════════════════════════════════════
+
+class PipeSegment(tk.Frame):
+    def __init__(self, parent: tk.Widget, length: int = 80, orientation: str = "vertical", fluid_type: str = "hot", **kwargs):
+        super().__init__(parent, bg=BG_SECONDARY, **kwargs)
+        w = PIPE_WIDTH + 8 if orientation == "vertical" else length
+        h = length if orientation == "vertical" else PIPE_WIDTH + 8
+        self.canvas = tk.Canvas(self, width=w, height=h, bg=BG_SECONDARY, highlightthickness=0)
+        self.canvas.pack()
+
+        self._length      = length
+        self._orientation = orientation
+        self._fluid_color = CLR_HOT_FLUID if fluid_type == "hot" else CLR_COOL_FLUID
+        self._flow_offset = 0
+        self._flowing     = True
+        self._draw()
+
+    def _draw(self):
+        self.canvas.delete("all")
+        w, h = int(self.canvas["width"]), int(self.canvas["height"])
+        pw = PIPE_WIDTH
+        
+        if self._orientation == "vertical":
+            cx = w // 2
+            self.canvas.create_rectangle(cx - pw//2, 0, cx + pw//2, h, fill=self._fluid_color, outline=BORDER)
+            if self._flowing:
+                for y in range(self._flow_offset, h, 20):
+                    self.canvas.create_line(cx - pw//2 + 2, y, cx + pw//2 - 2, y + 6, fill=BORDER_LIGHT, width=2)
+                    self.canvas.create_line(cx - pw//2 + 2, y + 6, cx + pw//2 - 2, y, fill=BORDER_LIGHT, width=2)
+        else:
+            cy = h // 2
+            self.canvas.create_rectangle(0, cy - pw//2, w, cy + pw//2, fill=self._fluid_color, outline=BORDER)
+            if self._flowing:
+                for x in range(self._flow_offset, w, 20):
+                    self.canvas.create_line(x, cy - pw//2 + 2, x + 6, cy + pw//2 - 2, fill=BORDER_LIGHT, width=2)
+                    self.canvas.create_line(x + 6, cy - pw//2 + 2, x, cy + pw//2 - 2, fill=BORDER_LIGHT, width=2)
+
+    def set_flowing(self, is_flowing: bool):
+        self._flowing = is_flowing
+        if self._flowing:
+            self._flow_offset = (self._flow_offset + 5) % 20
+        self._draw()
+
+# ═════════════════════════════════════════════════════════════════════════════
+#  STATUS INDICATOR
+# ═════════════════════════════════════════════════════════════════════════════
+
+class StatusIndicator(tk.Frame):
+    def __init__(self, parent: tk.Widget, size: int = STATUS_LED_R * 2 + 4, **kwargs):
+        super().__init__(parent, bg=BG_SECONDARY, **kwargs)
+        self.canvas = tk.Canvas(self, width=size, height=size, bg=BG_SECONDARY, highlightthickness=0)
+        self.canvas.pack()
+
+        self._size = size
+        self._led_id = self.canvas.create_oval(2, 2, size - 2, size - 2, fill=CLR_OFFLINE, outline=BORDER_LIGHT, width=1)
+
+    def set_status(self, health: str):
+        colors = {"GOOD": CLR_NORMAL, "WARNING": CLR_WARNING, "CRITICAL": CLR_CRITICAL, "OFFLINE": CLR_OFFLINE}
+        self.canvas.itemconfig(self._led_id, fill=colors.get(health, CLR_OFFLINE))

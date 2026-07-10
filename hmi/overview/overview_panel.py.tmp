@@ -1,0 +1,24 @@
+"""
+hmi/overview/overview_panel.py
+==============================
+Main process overview screen for the HMI.
+Embeds the Digital Twin Process Diagram and provides dedicated animation ticks.
+"""
+
+import tkinter as tk
+from gui.theme import BG_PRIMARY, BG_SECONDARY, BG_HEADER, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, FONT_SUBTITLE
+from digital_twin.visualization.diagram import ProcessDiagram
+
+class OverviewPanel(tk.Frame):
+    def __init__(self, parent: tk.Widget, well_ids: list, on_equip_click=None, **kwargs):
+        super().__init__(parent, bg=BG_PRIMARY, **kwargs)
+        
+        self.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=1)
+        
+        # We wrap the existing Process Diagram and center it
+        self.diagram = ProcessDiagram(self, on_equip_click=on_equip_click)
+        self.diagram.grid(row=0, column=0)
+        
+    def update_from_twin(self, facility):
+        self.diagram.update_from_twin(facility)

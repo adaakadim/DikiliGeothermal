@@ -1,0 +1,265 @@
+2026-07-06 14:30:24,087 [INFO] DikiliGeothermal: ============================================================
+2026-07-06 14:30:24,087 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-06 14:30:24,087 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-06 14:30:24,087 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-06 14:30:24,087 [INFO] DikiliGeothermal: ============================================================
+2026-07-06 14:30:24,087 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-06 14:30:24,087 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-06 14:30:24,094 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-06 14:30:24,094 [INFO] scada.system: SCADA system STARTED.
+2026-07-06 14:30:24,094 [ERROR] control.scheduler: Control cycle error: unsupported operand type(s) for -: 'float' and 'NoneType'
+Traceback (most recent call last):
+  File "c:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\scheduler.py", line 74, in _run_loop
+    self._control_cycle()
+  File "c:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\scheduler.py", line 89, in _control_cycle
+    pump_sp     = self.pump_pids[wid].compute(actual_flow)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\pid_controller.py", line 59, in compute
+    error = self.setpoint - process_value
+            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'NoneType'
+2026-07-06 14:30:24,094 [INFO] control.scheduler: ControlScheduler started.
+2026-07-06 14:30:24,094 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-06 14:30:24,100 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260706_143024.json
+2026-07-06 15:10:58,310 [INFO] DikiliGeothermal: ============================================================
+2026-07-06 15:10:58,310 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-06 15:10:58,310 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-06 15:10:58,310 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-06 15:10:58,312 [INFO] DikiliGeothermal: ============================================================
+2026-07-06 15:10:58,312 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-06 15:10:58,312 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-06 15:10:58,313 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-06 15:10:58,313 [INFO] scada.system: SCADA system STARTED.
+2026-07-06 15:10:58,313 [ERROR] control.scheduler: Control cycle error: unsupported operand type(s) for -: 'float' and 'NoneType'
+Traceback (most recent call last):
+  File "c:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\scheduler.py", line 74, in _run_loop
+    self._control_cycle()
+  File "c:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\scheduler.py", line 89, in _control_cycle
+    pump_sp     = self.pump_pids[wid].compute(actual_flow)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\pid_controller.py", line 59, in compute
+    error = self.setpoint - process_value
+            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'NoneType'
+2026-07-06 15:10:58,313 [INFO] control.scheduler: ControlScheduler started.
+2026-07-06 15:10:58,315 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-06 15:10:58,317 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260706_151058.json
+2026-07-06 15:32:53,349 [INFO] DikiliGeothermal: ============================================================
+2026-07-06 15:32:53,349 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-06 15:32:53,349 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-06 15:32:53,349 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-06 15:32:53,349 [INFO] DikiliGeothermal: ============================================================
+2026-07-06 15:32:53,349 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-06 15:32:53,349 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-06 15:32:53,357 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-06 15:32:53,357 [INFO] scada.system: SCADA system STARTED.
+2026-07-06 15:32:53,359 [ERROR] control.scheduler: Control cycle error: unsupported operand type(s) for -: 'float' and 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\scheduler.py", line 74, in _run_loop
+    self._control_cycle()
+  File "C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\scheduler.py", line 89, in _control_cycle
+    pump_sp     = self.pump_pids[wid].compute(actual_flow)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\control\pid_controller.py", line 59, in compute
+    error = self.setpoint - process_value
+            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'NoneType'
+2026-07-06 15:32:53,359 [INFO] control.scheduler: ControlScheduler started.
+2026-07-06 15:32:53,361 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-06 15:32:53,363 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260706_153253.json
+2026-07-06 15:37:54,042 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260706_153754.json
+2026-07-06 15:39:40,192 [WARNING] scada.alarm_manager: [ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 350.1 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-06 15:39:44,196 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-06 15:40:12,276 [WARNING] scada.alarm_manager: [ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 353.2 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-06 15:40:46,304 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-06 15:40:48,306 [WARNING] scada.alarm_manager: [ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 356.4 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-06 15:42:54,516 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260706_154254.json
+2026-07-07 08:30:02,314 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_083002.json
+2026-07-07 08:33:11,037 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 08:33:11,037 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 08:33:11,037 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 08:33:11,037 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 08:33:11,037 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 08:33:11,037 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 08:33:11,037 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 08:33:11,037 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 08:33:11,037 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 08:33:11,037 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 08:33:11,037 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 08:33:11,037 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 08:33:11,037 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 08:33:11,037 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 08:33:11,037 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_083311.json
+2026-07-07 08:35:02,649 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_083502.json
+2026-07-07 08:40:03,170 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_084003.json
+2026-07-07 08:42:21,359 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 08:42:27,366 [WARNING] scada.alarm_manager: [ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 355.2 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 08:42:55,392 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 08:43:03,396 [WARNING] scada.alarm_manager: [ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 351.5 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 08:43:07,411 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 08:43:11,413 [WARNING] scada.alarm_manager: [ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 351.3 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 08:43:15,419 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 08:45:03,555 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_084503.json
+2026-07-07 08:45:04,637 [INFO] DikiliGeothermal: Shutdown signal received. Stopping SCADA system...
+2026-07-07 08:45:04,637 [INFO] scada.system: SCADA system STOPPED. Total ticks: 900
+2026-07-07 09:09:13,208 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:09:13,208 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 09:09:13,208 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 09:09:13,208 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 09:09:13,208 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:09:13,218 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 09:09:13,218 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 09:09:13,218 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 09:09:13,218 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 09:09:13,220 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:09:13,220 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 09:09:13,220 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:09:13,220 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 09:09:13,220 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:09:13,220 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_090913.json
+2026-07-07 09:10:59,602 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:10:59,602 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 09:10:59,602 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 09:10:59,602 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 09:10:59,603 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:10:59,603 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 09:10:59,603 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 09:10:59,604 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 09:10:59,604 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 09:10:59,604 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:10:59,606 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 09:10:59,606 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:10:59,606 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 09:10:59,606 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:10:59,609 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_091059.json
+2026-07-07 09:12:08,338 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:12:08,339 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 09:12:08,339 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 09:12:08,339 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 09:12:08,339 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:12:08,339 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 09:12:08,339 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 09:12:08,340 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 09:12:08,340 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 09:12:08,341 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:12:08,341 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 09:12:08,341 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:12:08,341 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 09:12:08,341 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:12:08,344 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_091208.json
+2026-07-07 09:15:04,173 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:15:04,173 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 09:15:04,173 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 09:15:04,173 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 09:15:04,173 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:15:04,173 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 09:15:04,173 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 09:15:04,175 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 09:15:04,175 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 09:15:04,175 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:15:04,175 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 09:15:04,176 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:15:04,176 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 09:15:04,176 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:15:04,178 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_091504.json
+2026-07-07 09:26:20,887 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:26:20,901 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 09:26:20,901 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 09:26:20,901 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 09:26:20,901 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 09:26:20,901 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 09:26:20,901 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 09:26:20,901 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 09:26:20,901 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 09:26:20,903 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:26:20,903 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 09:26:20,903 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:26:20,903 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 09:26:20,903 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 09:26:20,911 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_092620.json
+2026-07-07 14:52:58,431 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 14:52:58,431 [INFO] DikiliGeothermal:   DikiliGeothermal SCADA System — Starting Up
+2026-07-07 14:52:58,431 [INFO] DikiliGeothermal:   Location : Dikili, Izmir, Turkey
+2026-07-07 14:52:58,431 [INFO] DikiliGeothermal:   System   : Geothermal District Heating Plant
+2026-07-07 14:52:58,431 [INFO] DikiliGeothermal: ============================================================
+2026-07-07 14:52:58,431 [INFO] scada.config: Configuration loaded from data\config\system_config.json
+2026-07-07 14:52:58,431 [INFO] scada.system: SCADA system initialised — 46 tags registered
+2026-07-07 14:52:58,432 [INFO] simulation.plant_simulator: Plant simulator initialised with 3 wells.
+2026-07-07 14:52:58,432 [INFO] scada.system: SCADA system STARTED.
+2026-07-07 14:52:58,433 [WARNING] control.pid_controller: PID 'W-01_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 14:52:58,433 [INFO] control.scheduler: ControlScheduler started.
+2026-07-07 14:52:58,433 [WARNING] control.pid_controller: PID 'W-02_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 14:52:58,433 [INFO] DikiliGeothermal: SCADA system online. Press Ctrl+C to stop.
+2026-07-07 14:52:58,433 [WARNING] control.pid_controller: PID 'W-03_PUMP_SPEED' received None for process_value; skipping update.
+2026-07-07 14:52:58,434 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_145258.json
+2026-07-07 14:57:58,601 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_145758.json
+2026-07-07 14:59:00,628 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 354.2 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 14:59:14,633 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 14:59:16,634 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 352.8 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 14:59:28,638 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 14:59:30,639 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 353.8 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 15:02:58,738 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_150258.json
+2026-07-07 15:07:58,919 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_150758.json
+2026-07-07 15:12:59,030 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_151259.json
+2026-07-07 15:17:59,140 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_151759.json
+2026-07-07 15:22:59,257 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_152259.json
+2026-07-07 15:27:59,615 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_152759.json
+2026-07-07 15:33:00,004 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_153259.json
+2026-07-07 15:33:20,089 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 15:33:22,091 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 355.7 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 15:33:46,102 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 15:38:00,503 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_153800.json
+2026-07-07 15:43:00,992 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_154300.json
+2026-07-07 15:46:35,121 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 350.5 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 15:46:39,136 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 15:47:41,179 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 351.0 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 15:47:43,180 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 15:48:01,221 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_154801.json
+2026-07-07 15:48:05,224 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 352.0 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 15:53:01,532 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_155301.json
+2026-07-07 15:58:01,949 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_155801.json
+2026-07-07 16:03:02,239 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_160302.json
+2026-07-07 16:04:52,373 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_W-03.FLOW] W-03 Production Flow HI: 141.5 m³/h | Tag: W-03.FLOW | Priority: MEDIUM
+2026-07-07 16:04:54,374 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_W-03.FLOW
+2026-07-07 16:08:02,534 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_160802.json
+2026-07-07 16:13:02,965 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_161302.json
+2026-07-07 16:18:03,335 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_161803.json
+2026-07-07 16:20:27,446 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:20:29,453 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 350.6 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:20:35,455 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:20:39,458 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 356.8 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:20:43,467 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:20:45,468 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 351.3 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:20:47,469 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:20:57,483 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 352.0 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:21:01,487 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:21:15,504 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 350.3 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:21:19,506 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:21:31,528 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 353.6 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:21:51,548 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:21:53,554 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 352.7 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:21:59,632 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:22:03,634 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 352.0 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:22:09,642 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:22:13,644 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 354.1 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:22:17,646 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:23:03,698 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_162303.json
+2026-07-07 16:28:04,087 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_162804.json
+2026-07-07 16:33:04,283 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_163304.json
+2026-07-07 16:33:30,289 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 351.5 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:33:40,292 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:33:42,293 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 353.6 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:33:48,296 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 16:33:50,297 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 353.1 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 16:38:04,395 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_163804.json
+2026-07-07 16:43:04,499 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_164304.json
+2026-07-07 16:48:04,606 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_164804.json
+2026-07-07 16:53:04,722 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_165304.json
+2026-07-07 16:58:04,850 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_165804.json
+2026-07-07 17:03:04,953 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_170304.json
+2026-07-07 17:06:33,069 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 17:06:35,080 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 357.3 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 17:06:53,087 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 17:06:59,093 [WARNING] scada.alarm_manager: [TRADITIONAL ALARM TAG_DH.TOTAL_FLOW] DH Total Distribution Flow HI: 351.7 m³/h | Tag: DH.TOTAL_FLOW | Priority: MEDIUM
+2026-07-07 17:08:05,121 [INFO] scada.alarm_manager: [ALARM CLEAR] TAG_DH.TOTAL_FLOW
+2026-07-07 17:08:05,130 [INFO] analytics.reporter: Snapshot saved: data\reports\snapshot_20260707_170805.json
