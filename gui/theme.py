@@ -218,11 +218,43 @@ def status_color(health_value: str) -> str:
     """Return the appropriate colour for a SystemHealth value string."""
     mapping = {
         "GOOD":     CLR_NORMAL,
-        "WARNING":  CLR_WARNING,
-        "CRITICAL": CLR_CRITICAL,
+        "warning": CLR_WARNING,
+        "info": CLR_INFO,
     }
     return mapping.get(health_value, CLR_OFFLINE)
 
+# ─── Style Functions ────────────────────────────────────────────────────────────
+def setup_theme(root):
+    """Apply global enterprise ttk styling to the root window."""
+    style = __import__("tkinter").ttk.Style(root)
+    if "clam" in style.theme_names():
+        style.theme_use("clam")
+        
+    style.configure(".", font=FONT_LABEL, background=BG_PRIMARY, foreground=TEXT_PRIMARY)
+    
+    # Frames
+    style.configure("TFrame", background=BG_PRIMARY)
+    style.configure("Card.TFrame", background=BG_SECONDARY, borderwidth=1, relief="ridge")
+    
+    # LabelFrames
+    style.configure("TLabelframe", background=BG_PRIMARY, bordercolor=BORDER)
+    style.configure("TLabelframe.Label", background=BG_PRIMARY, foreground=TEXT_PRIMARY, font=FONT_SUBTITLE)
+    
+    # Buttons
+    style.configure("TButton", background="#334155", foreground="#f8fafc", borderwidth=0, padding=5, font=FONT_LABEL)
+    style.map("TButton", background=[("active", "#475569"), ("disabled", "#1e293b")])
+    
+    # Treeview
+    style.configure("Treeview", background=BG_SECONDARY, fieldbackground=BG_SECONDARY, foreground=TEXT_PRIMARY, rowheight=25)
+    style.configure("Treeview.Heading", background="#334155", foreground="#f8fafc", font=FONT_LABEL)
+    style.map("Treeview", background=[('selected', '#3b82f6')])
+    
+    # Inputs (Entry, Combobox)
+    style.configure("TEntry", fieldbackground=BG_INPUT, foreground=TEXT_PRIMARY, insertcolor=TEXT_PRIMARY)
+    style.configure("TCombobox", fieldbackground=BG_INPUT, foreground=TEXT_PRIMARY, selectbackground="#3b82f6")
+    style.map("TCombobox", fieldbackground=[("readonly", BG_INPUT)], foreground=[("readonly", TEXT_PRIMARY)])
+    
+    return style
 
 def value_color(value: float, lo_warn: float, hi_warn: float,
                 lo_crit: float | None = None, hi_crit: float | None = None) -> str:

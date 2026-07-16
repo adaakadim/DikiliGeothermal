@@ -10,6 +10,7 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional, Dict
+from scada.event_engine import event_engine, EventType, EventSeverity
 
 logger = logging.getLogger(__name__)
 
@@ -128,6 +129,18 @@ class AlarmManager:
                 "[%s ALARM %s] %s | Tag: %s | Priority: %s",
                 category.name, alarm_id, description, tag_id, priority.name,
             )
+            
+            severity_map = {
+                AlarmPriority.CRITICAL: EventSeverity.CRITICAL,
+                AlarmPriority.HIGH: EventSeverity.WARNING,
+                AlarmPriority.WARNING: EventSeverity.WARNING,
+                AlarmPriority.INFO: EventSeverity.INFO,
+            }
+            event_engine.log_event(
+                EventType.ALARM_GENERATED, tag_id, description, 
+                severity_map.get(priority, EventSeverity.INFO),
+                metadata={"alarm_id": alarm_id, "priority": priority.name, "category": category.name}
+            )
             return evt
         return self._active[alarm_id]
 
@@ -138,6 +151,12 @@ class AlarmManager:
             evt.cleared_at = time.time()
             self._history.append(evt)
             logger.info("[ALARM CLEAR] %s", alarm_id)
+            
+            event_engine.log_event(
+                EventType.ALARM_CLEARED, evt.tag_id, f"Alarm {alarm_id} cleared.", 
+                EventSeverity.INFO,
+                metadata={"alarm_id": alarm_id}
+            )
 
 
     def acknowledge(self, alarm_id: str, operator: str = "SYSTEM") -> bool:
@@ -148,6 +167,13 @@ class AlarmManager:
             logger.info("[ACK] Alarm %s acknowledged by %s", alarm_id, operator)
             from security.audit import AuditLogger
             AuditLogger.log_event("Alarm Acknowledgement", "scada.alarms", "SUCCESS", "INFO", operator, details=f"Alarm ID: {alarm_id}")
+            
+            event_engine.log_event(
+                EventType.ALARM_ACKNOWLEDGED, self._active[alarm_id].tag_id, 
+                f"Alarm {alarm_id} acknowledged by {operator}.", 
+                EventSeverity.INFO,
+                metadata={"alarm_id": alarm_id, "operator": operator}
+            )
             return True
         return False
 

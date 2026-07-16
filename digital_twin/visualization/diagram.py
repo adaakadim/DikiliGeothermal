@@ -121,6 +121,14 @@ class ProcessDiagram(tk.Frame):
         # Click event
         def _handle_click(e, eid=equip_id, etyp=equip_type):
             self._selected_equip_id = eid
+            import time
+            self._highlight_expire_time = time.time() + 3.0
+            
+            # Hide old focuses
+            for key in self._equip_boxes.keys():
+                self.canvas.itemconfig(f"focus&&{key}", state="hidden")
+            self.canvas.itemconfig(f"focus&&{eid}", state="normal")
+            
             if self._on_click_cb:
                 self._on_click_cb(eid, etyp)
             if hasattr(self, '_facility') and self._facility:
@@ -142,7 +150,7 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 280
+        w = 240
         h = 48
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
@@ -154,11 +162,11 @@ class ProcessDiagram(tk.Frame):
         self.canvas.create_text(cx, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=FONT_LABEL, anchor="center", tags=(tag,))
         lbl = self.canvas.create_text(cx, cy + 12, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="center", tags=(tag,))
         
-        # Layer labels - Moved sensor to left, removed AI
-        sensor_lbl = self.canvas.create_text(cx - 150, cy, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="e", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx, cy - 30, text="", fill=CLR_CRITICAL, font=FONT_LABEL_SM, anchor="s", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + 150, cy - 10, text="", fill="#34d399", font=FONT_MONO_SM, anchor="sw", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + 150, cy + 10, text="", fill="#f87171", font=FONT_MONO_SM, anchor="nw", tags=(tag, "layer_thermal"))
+        # Layer labels - Placed on left/right flanks to prevent vertical overlap
+        sensor_lbl = self.canvas.create_text(cx - w // 2 - 15, cy - 8, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="e", justify="right", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx - w // 2 - 15, cy + 12, text="", fill=CLR_CRITICAL, font=FONT_LABEL_SM, anchor="e", justify="right", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + w // 2 + 15, cy - 8, text="", fill="#34d399", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + w // 2 + 15, cy + 12, text="", fill="#f87171", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_thermal"))
         
         self._labels[wid] = {
             "info": lbl,
@@ -178,7 +186,7 @@ class ProcessDiagram(tk.Frame):
         return box
 
     def _draw_pump(self, cx, cy, pid, name, tag):
-        r = 26
+        r = 30
         box = self.canvas.create_oval(
             cx - r, cy - r, cx + r, cy + r,
             fill=BG_TERTIARY, outline=CLR_NORMAL, width=2, tags=("equip", tag)
@@ -187,19 +195,19 @@ class ProcessDiagram(tk.Frame):
         self._register_interactive(tag, pid, name)
         
         # Draw dynamic rotor lines (will animate)
-        l1 = self.canvas.create_line(cx-16, cy, cx+16, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
-        l2 = self.canvas.create_line(cx, cy-16, cx, cy+16, fill=TEXT_PRIMARY, width=2, tags=(tag,))
-        self._pump_rotors[pid] = [l1, l2]
+        l1 = self.canvas.create_line(cx-20, cy, cx+20, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l2 = self.canvas.create_line(cx, cy-20, cx, cy+20, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        self._pump_rotors[pid] = [l1, l2, cx, cy]
         
-        # Draw text to the right of the pump to avoid overlapping with the vertical pipe
-        self.canvas.create_text(cx + r + 20, cy - 8, text=name.upper(), fill=TEXT_PRIMARY, font=FONT_LABEL_SM, anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 20, cy + 8, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", tags=(tag,))
+        # Text to right (still fine if horizontal pipes go top/bottom or left)
+        self.canvas.create_text(cx + r + 15, cy - 10, text=name.upper(), fill=TEXT_PRIMARY, font=FONT_LABEL_SM, anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 15, cy + 10, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", tags=(tag,))
         
-        # Layer labels - Moved sensor to left, removed AI
-        sensor_lbl = self.canvas.create_text(cx - r - 20, cy, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="e", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx, cy - r - 10, text="", fill=CLR_CRITICAL, font=FONT_LABEL_SM, anchor="s", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + r + 150, cy - 10, text="", fill="#34d399", font=FONT_MONO_SM, anchor="sw", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + r + 150, cy + 10, text="", fill="#f87171", font=FONT_MONO_SM, anchor="nw", tags=(tag, "layer_thermal"))
+        # Layer labels
+        sensor_lbl = self.canvas.create_text(cx - r - 15, cy - 8, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="e", justify="right", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx - r - 15, cy + 12, text="", fill=CLR_CRITICAL, font=FONT_LABEL_SM, anchor="e", justify="right", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + r + 110, cy - 8, text="", fill="#34d399", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + r + 110, cy + 12, text="", fill="#f87171", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_thermal"))
 
         self._labels[pid] = {
             "info": lbl,
@@ -219,10 +227,10 @@ class ProcessDiagram(tk.Frame):
 
     def _draw_static(self):
         # Dynamic responsive vertical scaling
-        eff_height = max(self._height, 650)
+        eff_height = max(self._height, 800)
         start_y = 50 # Roughly 2 lines below the title
         total_span = eff_height - 110 # End ~60px from bottom
-        s = total_span / 581.0
+        s = total_span / 750.0
 
         # Store for animation
         p101_meta = self._layout_engine.get_equipment("P-101")
@@ -235,10 +243,16 @@ class ProcessDiagram(tk.Frame):
 
         # Draw pipelines first (so equipment boxes stack on top of them)
         for pipe in self._layout_engine.get_all_pipelines():
-            x = int(self._width * pipe["x_factor"])
-            y1 = int(start_y + pipe["from_y_offset"] * s + pipe["from_add"])
-            y2 = int(start_y + pipe["to_y_offset"] * s + pipe["to_add"])
-            self._draw_pipe_vertical(x, y1, y2, pipe["id"], pipe["temp"])
+            from_x = int(self._width * pipe.get("from_x_factor", pipe.get("x_factor", 0.5)))
+            to_x = int(self._width * pipe.get("to_x_factor", pipe.get("x_factor", 0.5)))
+            from_y = int(start_y + pipe["from_y_offset"] * s + pipe.get("from_add", 0))
+            to_y = int(start_y + pipe["to_y_offset"] * s + pipe.get("to_add", 0))
+            
+            # Additional rigid horizontal offset (if needed for elbows)
+            from_x += pipe.get("from_x_add", 0)
+            to_x += pipe.get("to_x_add", 0)
+            
+            self._draw_pipe_segment(from_x, from_y, to_x, to_y, pipe["id"], pipe.get("temp", "hot"))
 
         # Draw equipment
         for eq in self._layout_engine.get_all_equipment():
@@ -256,14 +270,14 @@ class ProcessDiagram(tk.Frame):
 
 
     def _draw_valve(self, cx, cy, vid, name, tag):
-        w = 16
-        h = 12
+        w = 20
+        h = 16
         # Bowtie shape
         bg = self.canvas.create_polygon(cx-w, cy-h, cx-w, cy+h, cx+w, cy-h, cx+w, cy+h, fill=BG_SECONDARY, outline=BORDER, width=2, tags=(tag, "valve_bg", vid))
         # Center circle
-        c = self.canvas.create_oval(cx-4, cy-4, cx+4, cy+4, fill=TEXT_PRIMARY, tags=(tag, "valve_center", vid))
+        c = self.canvas.create_oval(cx-5, cy-5, cx+5, cy+5, fill=TEXT_PRIMARY, tags=(tag, "valve_center", vid))
         
-        lbl = self.canvas.create_text(cx + 30, cy, text=name, fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + w + 15, cy, text=name, fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", justify="left", tags=(tag,))
         self._equip_boxes[vid] = bg
         
         # Flap for animation
@@ -275,17 +289,25 @@ class ProcessDiagram(tk.Frame):
         if not hasattr(self, '_valves'): self._valves = {}
         self._valves[vid] = {"flap": flap, "angle": 90, "target_angle": 90, "icon": icon, "bg": bg, "cx": cx, "cy": cy}
 
-    def _draw_pipe_vertical(self, x: int, y1: int, y2: int, pipe_id: str, default_temp: str = "hot"):
+    def _draw_pipe_segment(self, start_x: int, start_y: int, end_x: int, end_y: int, pipe_id: str, default_temp: str = "hot"):
         colors = {"hot": CLR_HOT_FLUID, "warm": CLR_WARM_FLUID, "cool": CLR_COOL_FLUID}
         bg_col = colors.get(default_temp, CLR_PIPE_BG)
-        bg = self.canvas.create_rectangle(x - PIPE_WIDTH // 2, y1, x + PIPE_WIDTH // 2, y2, fill=bg_col, outline=BORDER, tags=("layer_pipeline", f"pipe_bg_{pipe_id}"))
-        line = self.canvas.create_line(x, y1, x, y2, fill="", tags=("pipe_line", "layer_pipeline", f"pipe_line_{pipe_id}"))
+        
+        is_vert = abs(start_x - end_x) < 2
+        
+        if is_vert:
+            bg = self.canvas.create_rectangle(start_x - PIPE_WIDTH // 2, min(start_y, end_y), start_x + PIPE_WIDTH // 2, max(start_y, end_y), fill=bg_col, outline=BORDER, tags=("layer_pipeline", f"pipe_bg_{pipe_id}"))
+        else:
+            bg = self.canvas.create_rectangle(min(start_x, end_x), start_y - PIPE_WIDTH // 2, max(start_x, end_x), start_y + PIPE_WIDTH // 2, fill=bg_col, outline=BORDER, tags=("layer_pipeline", f"pipe_bg_{pipe_id}"))
+            
+        line = self.canvas.create_line(start_x, start_y, end_x, end_y, fill="", tags=("pipe_line", "layer_pipeline", f"pipe_line_{pipe_id}"))
         
         if not hasattr(self, '_pipe_segments'): self._pipe_segments = {}
         self._pipe_segments[pipe_id] = {
-            "bg": bg, "line": line, "x": x, "y1": y1, "y2": y2,
+            "bg": bg, "line": line, "x1": start_x, "y1": start_y, "x2": end_x, "y2": end_y,
             "flow_offset": 0.0, "flow_speed": 0.0, 
-            "current_color": bg_col, "target_color": bg_col
+            "current_color": bg_col, "target_color": bg_col,
+            "is_vert": is_vert
         }
 
 
@@ -387,9 +409,9 @@ class ProcessDiagram(tk.Frame):
                     s_txt = "OFFLINE"
                 else:
                     if eq.type == "WELL":
-                        s_txt = f"T: {eq.sensors.get('Temperature', 0):.1f}°C | P: {eq.sensors.get('Pressure', 0):.1f}bar\\nF: {eq.sensors.get('Flow Rate', 0):.1f}m³/h"
+                        s_txt = f"T: {eq.sensors.get('Temperature', 0):.1f}°C | P: {eq.sensors.get('Pressure', 0):.1f}bar\nF: {eq.sensors.get('Flow Rate', 0):.1f}m³/h"
                     elif eq.type == "PUMP":
-                        s_txt = f"F: {eq.sensors.get('Flow Rate', 0):.1f}m³/h | I: {eq.motor_current:.1f}A\\nP: {eq.power_consumption:.1f}kW"
+                        s_txt = f"F: {eq.sensors.get('Flow Rate', 0):.1f}m³/h | I: {eq.motor_current:.1f}A\nP: {eq.power_consumption:.1f}kW"
                     elif eq.type == "SEPARATOR":
                         s_txt = f"P: {eq.sensors.get('Pressure', 0):.1f}bar"
                     elif eq.type == "HX":
@@ -504,11 +526,24 @@ class ProcessDiagram(tk.Frame):
                 # Chevrons
                 if pipe["flow_speed"] > 0.1:
                     pipe["flow_offset"] = (pipe["flow_offset"] + pipe["flow_speed"] * dt * 0.1) % 20
-                    x = pipe["x"]
-                    y1 = pipe["y1"]
-                    y2 = pipe["y2"]
-                    for y in range(int(y1) + int(pipe["flow_offset"]), int(y2) - 4, 20):
-                        self.canvas.create_line(x - 4, y, x, y + 6, x + 4, y, fill=BORDER_LIGHT, width=2, tags=("chevron", "layer_pipeline"))
+                    x1, y1, x2, y2 = pipe["x1"], pipe["y1"], pipe["x2"], pipe["y2"]
+                    length = int(math.hypot(x2 - x1, y2 - y1))
+                    
+                    if length > 0:
+                        dx = (x2 - x1) / length
+                        dy = (y2 - y1) / length
+                        
+                        off = int(pipe["flow_offset"])
+                        for dist in range(off, length - 4, 20):
+                            cx = x1 + dx * dist
+                            cy = y1 + dy * dist
+                            
+                            if pipe["is_vert"]:
+                                dir_sign = 1 if dy > 0 else -1
+                                self.canvas.create_line(cx - 4, cy, cx, cy + 6 * dir_sign, cx + 4, cy, fill=BORDER_LIGHT, width=2, tags=("chevron", "layer_pipeline"))
+                            else:
+                                dir_sign = 1 if dx > 0 else -1
+                                self.canvas.create_line(cx, cy - 4, cx + 6 * dir_sign, cy, cx, cy + 4, fill=BORDER_LIGHT, width=2, tags=("chevron", "layer_pipeline"))
 
         # 2. Equipment Animations (Colors, Alarms, Rotors, Valves)
         pulse = (math.sin(now * 5) + 1) / 2 # 0.0 to 1.0 fast pulse for alarms
@@ -549,14 +584,9 @@ class ProcessDiagram(tk.Frame):
                 rad = math.radians(anim["angle"])
                 rad2 = math.radians(anim["angle"] + 90)
                 
-                l1, l2 = self._pump_rotors[eq_id]
+                l1, l2, cx, cy = self._pump_rotors[eq_id]
                 rl = 14
                 
-                if eq_id == "P-101": cy = self._y_p101
-                elif eq_id == "P-201": cy = self._y_p201
-                elif eq_id == "P-301": cy = self._y_p301
-                
-                cx = self._width // 2
                 self.canvas.coords(l1, cx - rl*math.cos(rad), cy - rl*math.sin(rad), cx + rl*math.cos(rad), cy + rl*math.sin(rad))
                 self.canvas.coords(l2, cx - rl*math.cos(rad2), cy - rl*math.sin(rad2), cx + rl*math.cos(rad2), cy + rl*math.sin(rad2))
 

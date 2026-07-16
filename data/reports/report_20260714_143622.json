@@ -1,0 +1,16 @@
+{
+    "Timestamp": "2026-07-14T14:36:22.118526",
+    "AI_Pump_Failure_Risk_Pct": 95.0,
+    "AI_Confidence_Pct": 88.0,
+    "Plant_Status": "CRITICAL",
+    "Overall_Plant_Health_Pct": 32.0,
+    "Pump_Health_Pct": 5.0,
+    "Maintenance_Risk_Level": "HIGH",
+    "Maintenance_Recommendations": [
+        "Schedule emergency pump inspection.",
+        "Pressure variation detected: Check pipeline blockage or filter clogging.",
+        "Inspect motor electrical systems."
+    ],
+    "Active_Alarms_Count": 4,
+    "Critical_Alarms_Active": true
+}

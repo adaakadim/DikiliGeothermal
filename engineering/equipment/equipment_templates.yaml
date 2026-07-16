@@ -1,0 +1,46 @@
+# engineering/equipment/equipment_templates.yaml
+# Standard equipment templates
+
+templates:
+  production_well:
+    type: "Production Well"
+    design_lifetime_years: 30
+    maintenance_interval_days: 180
+    default_casing_diameter_mm: 250.0
+    tags:
+      - "TEMP"
+      - "PRES"
+      - "FLOW"
+      - "STATUS"
+  
+  injection_well:
+    type: "Injection Well"
+    design_lifetime_years: 30
+    maintenance_interval_days: 180
+    tags:
+      - "TEMP"
+      - "PRES"
+      - "FLOW"
+      - "STATUS"
+
+  circulation_pump:
+    type: "Centrifugal Pump"
+    design_lifetime_years: 15
+    maintenance_interval_days: 90
+    tags:
+      - "CURRENT"
+      - "VOLTAGE"
+      - "POWER"
+      - "RPM"
+      - "VIB"
+      - "BRG_TEMP"
+
+  heat_exchanger:
+    type: "Plate Heat Exchanger"
+    design_lifetime_years: 25
+    maintenance_interval_days: 365
+    tags:
+      - "SUPPLY_TEMP"
+      - "RETURN_TEMP"
+      - "PRES_DROP"
+      - "FOULING"

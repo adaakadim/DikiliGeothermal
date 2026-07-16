@@ -1,0 +1,2 @@
+Timestamp,AI_Pump_Failure_Risk_Pct,AI_Confidence_Pct,Plant_Status,Overall_Plant_Health_Pct,Pump_Health_Pct,Maintenance_Risk_Level,Maintenance_Recommendations,Active_Alarms_Count,Critical_Alarms_Active
+2026-07-14T14:36:22.118526,95.0,88.0,CRITICAL,32.0,5.0,HIGH,Schedule emergency pump inspection. | Pressure variation detected: Check pipeline blockage or filter clogging. | Inspect motor electrical systems.,4,True

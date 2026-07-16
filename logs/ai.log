@@ -4220,3 +4220,436 @@ Feature names unseen at fit time:
 2026-07-10 11:51:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
 2026-07-10 11:51:51 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
 2026-07-10 11:51:52 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 10:07:10 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 10:07:35 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 10:07:35 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 10:07:35 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 10:07:35 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 10:07:35 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 10:07:35 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 10:07:35 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 10:07:35 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 10:07:35 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 10:07:46 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:04:19 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:04:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:04:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:04:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:04:21 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 14:04:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:04:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:04:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:04:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 14:04:21 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 14:04:22 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:04:33 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- Data Quality Score
+
+2026-07-14 14:12:55 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:12:55 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:12:55 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 14:12:55 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 14:12:55 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 14:12:55 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:12:55 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 14:12:55 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:18:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:18:28 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:18:28 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:18:28 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:18:28 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 14:18:28 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:18:28 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:18:28 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:18:28 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 14:18:28 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 14:18:29 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:33:20 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:33:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:33:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:33:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:33:22 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 14:33:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:33:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:33:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:33:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 14:33:22 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 14:33:23 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:36:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:36:40 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:36:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:36:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:36:40 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 14:36:40 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:36:40 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:36:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:36:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 14:36:40 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 14:36:40 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:41:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:41:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:41:27 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 14:41:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 14:41:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 14:41:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:41:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 14:41:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:42:20 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:42:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:42:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:42:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:42:22 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 14:42:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:42:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:42:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:42:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 14:42:22 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 14:42:22 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:47:28 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:47:30 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:47:30 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:47:30 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 14:47:30 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 14:47:30 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:47:30 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:47:30 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 14:47:30 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 14:47:30 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 14:47:30 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 14:58:55 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:58:55 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 14:58:55 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 14:58:55 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 14:58:55 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 14:58:55 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 14:58:55 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 14:58:55 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:01:02 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:01:03 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:01:03 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:01:03 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:01:03 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 15:01:03 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:01:03 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:01:03 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:01:03 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 15:01:03 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 15:01:04 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 15:08:08 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:08:08 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:08:08 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 15:08:08 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 15:08:08 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 15:08:08 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:08:08 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 15:08:08 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:34:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:34:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:34:27 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 15:34:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 15:34:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 15:34:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:34:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 15:34:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:40:26 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:40:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:40:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:40:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:40:27 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 15:40:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:40:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:40:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:40:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 15:40:27 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 15:40:28 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 15:55:11 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:55:18 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:55:18 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:55:18 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:55:18 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 15:55:18 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:55:18 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:55:18 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:55:18 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 15:55:18 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 15:55:21 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 15:57:51 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:57:51 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 15:57:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:57:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 15:57:51 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 15:57:51 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:57:51 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 15:57:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 15:57:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 15:57:51 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 15:57:52 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 16:04:43 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 16:04:44 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 16:04:44 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-14 16:04:44 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 16:04:44 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-14 16:04:44 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 16:04:44 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 16:04:44 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-14 16:04:44 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-14 16:04:44 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-14 16:04:44 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-14 16:16:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 16:16:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 16:16:38 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 16:16:38 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 16:16:38 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 16:16:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 16:16:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 16:16:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-14 16:25:48 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 16:25:48 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-14 16:25:48 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-14 16:25:48 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-14 16:25:48 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-14 16:25:48 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-14 16:25:48 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-14 16:25:48 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 08:47:59 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 08:47:59 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 08:47:59 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 08:47:59 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 08:47:59 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 08:47:59 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 08:47:59 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 08:47:59 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 08:56:51 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 08:57:06 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 08:57:06 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 08:57:06 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 08:57:06 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 08:57:06 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 08:57:06 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 08:57:06 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 08:57:06 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 08:57:06 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-16 08:57:06 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 08:57:08 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 08:57:08 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 08:57:08 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 08:57:08 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 09:01:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 09:01:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 09:01:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 09:01:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 09:01:21 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 09:01:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 09:01:21 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 09:01:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 09:01:21 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 09:01:21 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-16 09:01:21 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 09:57:00 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 09:57:00 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 09:57:00 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 09:57:00 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 09:57:00 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 09:57:00 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 09:57:00 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 09:57:00 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 10:08:25 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:08:25 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 10:08:25 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 10:08:25 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 10:08:25 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 10:08:25 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:08:25 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 10:08:25 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 10:17:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:17:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 10:17:38 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 10:17:38 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 10:17:38 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 10:17:38 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:17:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 10:17:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 10:40:56 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:40:56 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 10:40:56 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 10:40:56 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 10:40:56 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 10:40:56 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:40:56 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 10:40:56 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 10:54:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:54:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 10:54:27 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 10:54:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 10:54:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 10:54:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 10:54:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 10:54:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 11:10:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 11:10:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 11:10:27 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 11:10:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 11:10:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 11:10:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 11:10:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 11:10:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 11:23:47 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 11:23:47 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 11:23:47 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 11:23:47 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 11:23:47 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 11:23:47 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 11:23:47 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 11:23:47 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 11:45:24 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 11:45:24 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 11:45:24 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 11:45:24 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 11:45:24 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 11:45:24 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 11:45:24 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 11:45:24 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 12:08:08 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:08:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:08:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 12:08:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 12:08:22 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 12:08:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:08:22 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:08:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 12:08:22 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 12:08:22 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-16 12:08:23 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 12:08:23 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 12:08:23 [ERROR] analytics.ai.random_forest.predictor [NO-CORRELATION] - Error during AI Prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Alarm Count
+- Daily Energy
+- District Heating Return Temperature
+- District Heating Supply Temperature
+- Flow Rate (m3/h)
+- ...
+
+2026-07-16 12:08:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:08:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:08:27 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 12:08:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 12:08:27 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 12:08:27 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:08:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 12:08:27 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 12:14:36 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:14:36 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:14:36 [CRITICAL] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Failed: Checksum mismatch for 'Corrupt_RF'. Expected: wrong_expected_hash, Actual: 8067c56c9786aff9b2cd0bbdb5996536014b2544c50ff7d1e15afc68da5da51f
+2026-07-16 12:14:36 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Metadata Missing: manifest.json not found in model directory.
+2026-07-16 12:14:36 [ERROR] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Integrity Failure: manifest.json missing or corrupted.
+2026-07-16 12:14:36 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:14:36 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 10, manifest expects 21.
+2026-07-16 12:14:36 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 12:20:59 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:21:00 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:21:00 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 12:21:00 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 12:21:00 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 12:21:00 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:21:00 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:21:00 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 12:21:00 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 12:21:00 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-16 12:21:06 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-16 12:22:39 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:22:40 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 12:22:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 12:22:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 12:22:40 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 12:22:40 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:22:40 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 12:22:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 12:22:40 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 12:22:40 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-16 12:22:40 [INFO] analytics.ai.random_forest.explainability.shap_engine [NO-CORRELATION] - SHAP TreeExplainer initialized successfully.
+2026-07-16 16:56:36 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 16:56:54 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 16:56:54 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:56:54 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 16:56:54 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 16:56:54 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 16:56:54 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 16:56:54 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:56:54 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 16:56:54 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.
+2026-07-16 16:57:06 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 16:57:07 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'PumpFailure_RF' matches manifest hash.
+2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 16:57:07 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'PumpFailure_RF' successfully loaded and verified.
+2026-07-16 16:57:07 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 16:57:07 [INFO] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Checksum Verified: 'Maintenance_RF' matches manifest hash.
+2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 16:57:07 [INFO] analytics.ai.random_forest.version_manager [NO-CORRELATION] - Model Loaded: 'Maintenance_RF' successfully loaded and verified.

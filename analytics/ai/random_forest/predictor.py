@@ -68,7 +68,21 @@ def predict_plant_state(live_features: Dict[str, Any], lifecycle_engine=None) ->
 
     try:
         # Convert to DataFrame to ensure scikit-learn aligns column names properly
+        # Fix missing features dynamically based on what the model expects
+        if hasattr(pump_model, "feature_names_in_"):
+            for col in pump_model.feature_names_in_:
+                if col not in live_features:
+                    # Handle encoding mismatches (e.g. Temperature (C) vs Temperature (°C))
+                    alt_col = col.replace("", "°")
+                    if alt_col in live_features:
+                        live_features[col] = live_features[alt_col]
+                    else:
+                        live_features[col] = 0.0
+                        
         df = pd.DataFrame([live_features])
+        if hasattr(pump_model, "feature_names_in_"):
+            # Ensure exact column order and subset
+            df = df[list(pump_model.feature_names_in_)]
         
         # 1. Pump Failure Prediction
         pump_pred = int(pump_model.predict(df)[0])

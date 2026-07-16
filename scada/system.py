@@ -16,9 +16,9 @@ from .alarm_manager import AlarmManager, AlarmPriority
 logger = logging.getLogger(__name__)
 
 
-def _tag(tag_id, desc, unit, lo_lo=None, lo=None, hi=None, hi_hi=None) -> Tag:
+def _tag(tag_id, desc, unit, lo_lo=None, lo=None, hi=None, hi_hi=None, metadata=None) -> Tag:
     return Tag(tag_id, desc, unit,
-               lo_lo=lo_lo, lo=lo, hi=hi, hi_hi=hi_hi)
+               lo_lo=lo_lo, lo=lo, hi=hi, hi_hi=hi_hi, metadata=metadata or {})
 
 
 class SCADASystem:
@@ -110,6 +110,47 @@ class SCADASystem:
             self.db.register(_tag(f"{wid}.PUMP_ST", f"{wid} Production Pump Status",    ""))
             self.db.register(_tag(f"{wid}.PUMP_SP", f"{wid} Production Pump Setpoint",  "%",
                                   lo_lo=0, lo=10, hi=95, hi_hi=100))
+
+        # Phase 9.7.1.A - Production Wells Engineering Database
+        for asset in getattr(cfg, 'production_wells', []):
+            pw = asset.asset_id
+            
+            # Common metadata for engineering tags
+            meta_default = {
+                "Scan Rate": cfg.scan_interval,
+                "Historian Enabled": True,
+                "Alarm Enabled": True,
+                "AI Enabled": True,
+                "Dashboard Visible": True,
+                "Digital Twin Visible": True,
+                "Trend Enabled": True,
+                "Accuracy": "+/- 0.5%",
+                "Deadband": "0.1",
+                "Asset ID": pw,
+                "Asset Type": asset.asset_type
+            }
+
+            self.db.register(_tag(f"{pw}.STATUS", f"{pw} Status", "", metadata=meta_default))
+            self.db.register(_tag(f"{pw}.TEMP", f"{pw} Temperature", "°C", 
+                                  lo_lo=asset.min_temperature_c-10, lo=asset.min_temperature_c, 
+                                  hi=asset.max_temperature_c, hi_hi=asset.max_temperature_c+10, metadata=meta_default))
+            self.db.register(_tag(f"{pw}.PRES", f"{pw} Pressure", "bar", 
+                                  lo_lo=asset.min_pressure_bar-2, lo=asset.min_pressure_bar, 
+                                  hi=asset.max_pressure_bar, hi_hi=asset.max_pressure_bar+2, metadata=meta_default))
+            self.db.register(_tag(f"{pw}.FLOW", f"{pw} Flow", "m³/h", 
+                                  lo_lo=0, lo=asset.min_flow_m3h, hi=asset.max_flow_m3h, hi_hi=asset.max_flow_m3h*1.1, metadata=meta_default))
+            self.db.register(_tag(f"{pw}.TOT_FLOW", f"{pw} Totalized Flow", "m³", metadata=meta_default))
+            self.db.register(_tag(f"{pw}.OP_HOURS", f"{pw} Operating Hours", "h", metadata=meta_default))
+            self.db.register(_tag(f"{pw}.AVAILABILITY", f"{pw} Availability", "%", metadata=meta_default))
+            self.db.register(_tag(f"{pw}.LAST_MAINT", f"{pw} Last Maintenance", "", metadata=meta_default))
+            self.db.register(_tag(f"{pw}.RES_CONN", f"{pw} Reservoir Connection", "", metadata=meta_default))
+            self.db.register(_tag(f"{pw}.HEALTH_IDX", f"{pw} Well Health Index", "%", lo_lo=20, lo=50, metadata=meta_default))
+        
+        self.db.register(_tag("PROD.TOT_FLOW", "Total Production Flow", "m³/h", metadata={"Historian Enabled": True}))
+        self.db.register(_tag("PROD.AVG_TEMP", "Average Production Temperature", "°C", metadata={"Historian Enabled": True}))
+        self.db.register(_tag("PROD.AVG_PRES", "Average Production Pressure", "bar", metadata={"Historian Enabled": True}))
+        self.db.register(_tag("PROD.TOT_THERMAL", "Total Thermal Production", "MW", metadata={"Historian Enabled": True}))
+        self.db.register(_tag("PROD.AVAILABILITY", "Production Availability", "%", metadata={"Historian Enabled": True}))
 
         # Heat exchanger / plate heat exchanger tags
         self.db.register(_tag("HX.SUPPLY_TEMP",  "HX Primary Supply Temperature",  "°C",
@@ -221,6 +262,60 @@ class SCADASystem:
 
     # ── Derived Tag Calculations ──────────────────────────────────────────────
     def _calculate_derived(self):
+        # Phase 9.7.1.A - Production Wells Aggregation
+        production_wells = [asset.asset_id for asset in getattr(self.config, 'production_wells', [])]
+        total_flow = 0.0
+        sum_temp = 0.0
+        sum_pres = 0.0
+        sum_avail = 0.0
+        active_wells = 0
+        
+        for pw in production_wells:
+            flow = self.db.read_value(f"{pw}.FLOW", 0.0)
+            if flow is None: flow = 0.0
+            
+            temp = self.db.read_value(f"{pw}.TEMP", 0.0)
+            if temp is None: temp = 0.0
+            
+            pres = self.db.read_value(f"{pw}.PRES", 0.0)
+            if pres is None: pres = 0.0
+            
+            avail = self.db.read_value(f"{pw}.AVAILABILITY", 0.0)
+            if avail is None: avail = 0.0
+            
+            total_flow += flow
+            if flow > 0:
+                sum_temp += temp * flow
+                sum_pres += pres * flow
+                active_wells += 1
+            sum_avail += avail
+
+        avg_temp = 0.0
+        avg_pres = 0.0
+        if total_flow > 0:
+            avg_temp = sum_temp / total_flow
+            avg_pres = sum_pres / total_flow
+            
+        avg_avail = 0.0
+        if len(production_wells) > 0:
+            avg_avail = sum_avail / len(production_wells)
+
+        self.db.write("PROD.TOT_FLOW", round(total_flow, 2))
+        self.db.write("PROD.AVG_TEMP", round(avg_temp, 2))
+        self.db.write("PROD.AVG_PRES", round(avg_pres, 2))
+        self.db.write("PROD.AVAILABILITY", round(avg_avail, 2))
+        
+        # Simple thermal calculation Q = m_dot * Cp * deltaT, assuming ref temp 20C
+        # kg/s = total_flow * 1000 / 3600
+        # Cp = 4.186 kJ/(kg*K)
+        ref_temp = 20.0
+        if total_flow > 0 and avg_temp > ref_temp:
+            mass_flow = total_flow * 1000.0 / 3600.0
+            power_mw = (mass_flow * 4.186 * (avg_temp - ref_temp)) / 1000.0
+            self.db.write("PROD.TOT_THERMAL", round(power_mw, 2))
+        else:
+            self.db.write("PROD.TOT_THERMAL", 0.0)
+
         supply = self.db.read_value("HX.SEC_SUPPLY", 0.0)
         ret    = self.db.read_value("HX.SEC_RETURN", 0.0)
         flow   = self.db.read_value("DH.TOTAL_FLOW", 0.0)

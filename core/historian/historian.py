@@ -181,6 +181,41 @@ class DataHistorian:
         except sqlite3.Error as e:
             logger.error(f"Historian query_sensor_history error: {e}")
             return []
+            
+    def get_time_range(self):
+        """Returns the earliest and latest timestamps in the DB."""
+        self.flush()
+        if not self._conn: return None, None
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute("SELECT MIN(timestamp), MAX(timestamp) FROM sensor_readings")
+            row = cursor.fetchone()
+            return row[0], row[1]
+        except sqlite3.Error as e:
+            logger.error(f"Historian get_time_range error: {e}")
+            return None, None
+            
+    def get_snapshot_at(self, target_iso: str) -> list:
+        """Returns the most recent sensor reading for each well at or before target_iso."""
+        self.flush()
+        if not self._conn: return []
+        try:
+            cursor = self._conn.cursor()
+            cursor.execute('''
+                SELECT t1.timestamp, t1.well_id, t1.temperature_c, t1.pressure_bar, t1.flow_m3h, t1.is_healthy
+                FROM sensor_readings t1
+                INNER JOIN (
+                    SELECT well_id, MAX(timestamp) as max_ts
+                    FROM sensor_readings
+                    WHERE timestamp <= ?
+                    GROUP BY well_id
+                ) t2 ON t1.well_id = t2.well_id AND t1.timestamp = t2.max_ts
+            ''', (target_iso,))
+            columns = [column[0] for column in cursor.description]
+            return [dict(zip(columns, row)) for row in cursor.fetchall()]
+        except sqlite3.Error as e:
+            logger.error(f"Historian get_snapshot_at error: {e}")
+            return []
 
     def export_sensor_history_csv(self, start_iso: str, end_iso: str, well_id: str = None) -> str:
         # Query calls flush automatically

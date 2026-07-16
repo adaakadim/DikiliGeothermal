@@ -44,9 +44,12 @@ if __name__ == "__main__":
         logger.critical(f"Startup aborted: {e}")
         import sys
         sys.exit(1)
-    
     config = SystemConfig.load()
     well_ids = [w.well_id for w in config.wells]
+    
+    # 4. Splash Screen
+    from gui.splash_screen import run_splash_sequence
+    run_splash_sequence()
     
     app = SCADAGuiApp(well_ids=well_ids)
     app.run()

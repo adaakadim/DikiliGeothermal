@@ -21,6 +21,33 @@ class GeothermalWell:
     max_flow_m3h: float          # m³/h
     nominal_pressure_bar: float  # bar
 
+@dataclass
+class ProductionWellAsset:
+    asset_id: str
+    display_name: str
+    asset_type: str = "Production Well"
+    status: str = "ACTIVE"
+    installation_year: int = 2020
+    design_lifetime_years: int = 30
+    reservoir_name: str = "Dikili Main Reservoir"
+    well_depth_m: float = 1500.0
+    reservoir_depth_m: float = 1450.0
+    casing_diameter_mm: float = 250.0
+    design_flow_m3h: float = 150.0
+    min_flow_m3h: float = 30.0
+    max_flow_m3h: float = 200.0
+    nominal_temperature_c: float = 110.0
+    min_temperature_c: float = 90.0
+    max_temperature_c: float = 120.0
+    nominal_pressure_bar: float = 12.0
+    min_pressure_bar: float = 8.0
+    max_pressure_bar: float = 16.0
+    availability_pct: float = 99.5
+    health_index_pct: float = 98.0
+    operating_hours: float = 15000.0
+    last_maintenance: str = "2025-10-01"
+    maintenance_interval_days: int = 180
+
 # ─── Network Zone ─────────────────────────────────────────────────────────────
 @dataclass
 class DistrictHeatingZone:
@@ -144,6 +171,14 @@ class SystemConfig:
         GeothermalWell("W-01", "Dikili-1", 950, 105, 180, 8.5),
         GeothermalWell("W-02", "Dikili-2", 1100, 112, 210, 9.2),
         GeothermalWell("W-03", "Dikili-3", 870,  98, 140, 7.8),
+    ])
+
+    # Phase 9.7.1.A - Production Wells Engineering Assets
+    production_wells: List[ProductionWellAsset] = field(default_factory=lambda: [
+        ProductionWellAsset(asset_id="PW-101", display_name="Production Well 101", well_depth_m=1250, nominal_temperature_c=105.0),
+        ProductionWellAsset(asset_id="PW-102", display_name="Production Well 102", well_depth_m=1350, nominal_temperature_c=108.0),
+        ProductionWellAsset(asset_id="PW-103", display_name="Production Well 103", well_depth_m=1450, nominal_temperature_c=112.0),
+        ProductionWellAsset(asset_id="PW-104", display_name="Production Well 104", well_depth_m=1550, nominal_temperature_c=115.0),
     ])
 
     # District heating zones

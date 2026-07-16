@@ -1,0 +1,33 @@
+# engineering/ranges/operating_ranges.yaml
+# Operating ranges for geothermal plant variables
+
+temperature:
+  wellhead:
+    normal: [90.0, 115.0]
+    warning: [80.0, 120.0]
+    critical: [70.0, 130.0]
+    unit: "°C"
+  district_heating_supply:
+    normal: [80.0, 95.0]
+    warning: [75.0, 100.0]
+    critical: [70.0, 105.0]
+    unit: "°C"
+
+pressure:
+  system:
+    normal: [8.0, 15.0]
+    warning: [5.0, 16.0]
+    critical: [2.0, 18.0]
+    unit: "bar"
+  district_heating:
+    normal: [3.0, 6.0]
+    warning: [2.0, 8.0]
+    critical: [1.5, 10.0]
+    unit: "bar"
+
+flow:
+  production_well:
+    normal: [30.0, 180.0]
+    warning: [15.0, 200.0]
+    critical: [0.0, 250.0]
+    unit: "m³/h"

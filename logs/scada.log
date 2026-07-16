@@ -1452,3 +1452,1339 @@
 2026-07-10 11:51:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
 2026-07-10 11:51:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
 2026-07-10 11:51:51 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 10:04:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 10:04:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 10:04:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 10:04:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 10:04:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 10:04:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 10:07:36 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:04:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:04:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:04:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:04:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:04:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:04:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:04:21 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:13:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:13:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:13:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 14:13:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 14:18:02 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:18:02 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:18:02 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:18:02 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:18:02 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:18:02 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:18:28 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:33:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:33:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:33:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:33:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:33:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:33:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:33:22 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:36:27 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:36:27 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:36:27 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:36:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:36:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:36:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:36:40 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:41:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:41:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:41:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 14:41:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 14:42:05 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:42:05 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:42:05 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:42:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:42:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:42:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:42:22 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:47:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:47:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:47:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:47:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:47:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:47:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:47:30 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 14:59:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 14:59:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 14:59:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 14:59:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 15:00:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 15:00:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 15:00:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 15:00:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 15:00:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 15:00:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 15:01:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 15:08:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 15:08:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 15:08:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 15:08:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 15:34:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 15:34:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 15:34:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 15:34:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 15:35:31 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 15:35:31 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 15:35:31 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 15:35:31 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 15:35:31 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 15:35:31 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 15:40:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 15:54:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 15:54:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 15:54:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 15:54:52 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 15:54:52 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 15:54:52 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 15:55:19 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 15:57:41 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 15:57:41 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 15:57:41 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 15:57:41 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 15:57:41 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 15:57:41 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 15:57:51 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 16:04:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 16:04:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 16:04:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 16:04:33 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 16:04:33 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 16:04:33 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 16:04:44 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 16:16:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 16:16:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 16:16:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 16:16:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 16:25:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 16:25:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 16:25:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-14 16:25:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-14 16:26:05 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 16:26:05 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 16:26:05 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 16:26:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 16:26:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 16:26:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 16:26:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-14 16:26:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-14 16:26:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-14 16:26:55 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-14 16:26:55 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-14 16:26:55 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-14 16:27:11 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 08:39:20 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 08:39:20 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 08:39:20 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 08:39:20 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 08:39:20 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 08:39:20 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 08:39:44 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 08:48:07 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 08:48:07 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 08:48:07 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 08:48:07 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 08:50:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 08:50:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 08:50:03 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 08:50:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 08:50:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 08:50:03 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 08:50:18 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 08:52:54 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 08:52:54 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 08:52:54 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 08:52:54 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 08:52:54 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 08:52:54 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 08:53:08 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 08:55:14 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 08:55:14 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 08:55:14 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 08:55:14 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 08:55:14 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 08:55:14 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 08:55:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 08:57:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 08:57:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 08:57:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 08:57:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 08:57:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 08:57:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 08:57:23 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 09:40:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 09:40:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 09:40:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 09:40:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 09:40:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 09:40:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 09:44:53 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 09:57:08 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 09:57:08 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 09:57:08 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 09:57:08 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 10:08:33 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 10:08:33 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 10:08:33 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 10:08:33 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 10:17:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 10:17:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 10:17:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 10:17:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 10:41:04 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 10:41:04 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 10:41:04 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 10:41:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 10:54:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 10:54:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 10:54:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 10:54:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 11:10:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 11:10:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 11:10:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 11:10:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 11:23:55 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 11:23:55 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 11:23:55 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 11:23:55 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 11:45:32 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 11:45:32 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 11:45:32 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 11:45:32 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 12:07:14 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:07:14 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:07:14 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:07:14 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:07:14 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:07:14 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-01.ENTHALPY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.CURRENT
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Motor Current (A)
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VOLTAGE
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.POWER
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.Power (kW)
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.EFF
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RPM
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.VIB
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.BRG_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.RUNTIME
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-101.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-101.VALVE_DP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-02.ENTHALPY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.CURRENT
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Motor Current (A)
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VOLTAGE
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.POWER
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.Power (kW)
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.EFF
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RPM
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.VIB
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.BRG_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.RUNTIME
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-102.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-102.VALVE_DP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: W-03.ENTHALPY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.CURRENT
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Motor Current (A)
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VOLTAGE
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.POWER
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.Power (kW)
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.EFF
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RPM
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.VIB
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.BRG_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.RUNTIME
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: P-103.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: V-103.VALVE_DP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.TOT_FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.OP_HOURS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.AVAILABILITY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-101.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.TOT_FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.OP_HOURS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.AVAILABILITY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-102.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.TOT_FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.OP_HOURS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.AVAILABILITY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-103.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.TOT_FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.OP_HOURS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.AVAILABILITY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: PW-104.STATUS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.STEAM_FRAC
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.BRINE_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: SEP.LEVEL
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.EFF
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.FOULING
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.PRES_DROP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.HEAT_RATE
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SUPPLY_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.RETURN_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_SUPPLY
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: HX.SEC_RETURN
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.TOTAL_FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.SUPPLY_PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.RETURN_PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.HEAT_FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH.DIFF_PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.CURRENT
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VOLTAGE
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.POWER
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.EFF
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.RPM
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.VIB
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: DH_PUMP.BRG_TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.SUPPLY_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.RETURN_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-A.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.SUPPLY_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.RETURN_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-B.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.SUPPLY_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.RETURN_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-C.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.SUPPLY_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.RETURN_T
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: Z-D.VALVE_POS
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.FLOW
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.PRES
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ.TEMP
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.CURRENT
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VOLTAGE
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.POWER
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.EFF
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.RPM
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.VIB
+2026-07-16 12:07:28 [WARNING] scada.tag_database [NO-CORRELATION] - Write to unregistered tag: INJ_PUMP.BRG_TEMP
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:08:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:08:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:08:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 12:08:35 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 12:12:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:12:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:12:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:12:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:12:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:12:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:14:44 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:14:44 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:14:44 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-16 12:14:44 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-16 12:19:47 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:19:47 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:19:47 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:19:47 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:19:47 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:19:47 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:20:57 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:20:57 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:20:57 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:20:57 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:20:57 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:20:57 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:21:00 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-16 12:22:37 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 12:22:37 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 12:22:37 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 12:22:37 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 12:22:37 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 12:22:37 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 12:22:40 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-16 15:23:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 15:23:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 15:23:56 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 15:23:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 15:23:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 15:23:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:41:06 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:41:06 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:41:06 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:41:06 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:41:06 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:41:06 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:42:18 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:42:18 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:42:18 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:42:18 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:42:18 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:42:18 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:44:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:44:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:44:16 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:44:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:44:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:44:16 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:46:02 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:46:02 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:46:02 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:46:02 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:46:02 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:46:02 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:55:57 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:55:57 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:55:57 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:55:57 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:55:57 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:55:57 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:56:34 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:56:34 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:56:34 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:56:34 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:56:34 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:56:34 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:57:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-16 16:57:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-16 16:57:04 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-16 16:57:04 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:57:04 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:57:04 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL

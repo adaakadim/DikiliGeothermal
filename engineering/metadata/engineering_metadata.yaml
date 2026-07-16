@@ -1,0 +1,25 @@
+# engineering/metadata/engineering_metadata.yaml
+# Standard metadata properties for tags across the system
+
+defaults:
+  scan_rate_sec: 2.0
+  historian_enabled: true
+  alarm_enabled: true
+  ai_enabled: true
+  dashboard_visible: true
+  digital_twin_visible: true
+  trend_enabled: true
+
+instrumentation:
+  temperature_sensor:
+    accuracy: "+/- 0.1 °C"
+    deadband: 0.05
+    calibration_interval_days: 365
+  pressure_transmitter:
+    accuracy: "+/- 0.5% FS"
+    deadband: 0.1
+    calibration_interval_days: 180
+  flow_meter:
+    accuracy: "+/- 1.0%"
+    deadband: 0.5
+    calibration_interval_days: 180

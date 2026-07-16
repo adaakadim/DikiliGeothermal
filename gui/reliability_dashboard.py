@@ -174,7 +174,7 @@ class ReliabilityDashboard(tk.Frame):
         comm_online = sum(1 for m in self.comm_monitor.modules.values() if m.status == ModuleStatus.ONLINE)
         total_lat = sum(m.current_latency for m in self.comm_monitor.modules.values() if m.status == ModuleStatus.ONLINE)
         avg_lat = total_lat / max(1, comm_online)
-        comm_drop = sum(m.error_count for m in self.comm_monitor.modules.values())
+        comm_drop = sum(getattr(m, 'error_count', getattr(m, 'retry_count', 0)) for m in self.comm_monitor.modules.values())
         
         # Auto Rec Data
         ar_report = self.auto_rec.get_diagnostic_report()

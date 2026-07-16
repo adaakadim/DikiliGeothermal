@@ -31,6 +31,7 @@ class Tag:
     lo:    Optional[float] = None
     hi:    Optional[float] = None
     hi_hi: Optional[float] = None
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
     def update(self, value: Any, quality: TagQuality = TagQuality.GOOD):
         self.value = value

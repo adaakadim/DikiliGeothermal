@@ -38,7 +38,9 @@ if hasattr(sys.stdout, "reconfigure"):
 
 from simulation.sensors import GeothermalSensorArray, SensorReading, create_well_array
 from scada.alarm_manager import AlarmManager, AlarmPriority
+from scada.incident_engine import incident_engine
 from analytics.fault_detector import FaultDetector, SystemHealth
+from analytics.ai.operator_assistant import ai_assistant
 from data.logger import SCADALogger
 
 logger = logging.getLogger(__name__)
@@ -82,26 +84,9 @@ def clr(text: str, *codes: str) -> str:
 
 
 # ─── Alarm thresholds ─────────────────────────────────────────────────────────
+from engineering.profiles.asset_profiles import ProfileRegistry, LegacyThresholds as Thresholds
 
-class Thresholds:
-    # Temperature °C
-    TEMP_LO_LO = 72.0
-    TEMP_LO    = 78.0
-    TEMP_HI    = 105.0
-    TEMP_HI_HI = 109.0
-
-    # Pressure bar
-    PRES_LO_LO = 3.5
-    PRES_LO    = 4.5
-    PRES_HI    = 10.5
-    PRES_HI_HI = 11.5
-
-    # Flow m3/h
-    FLOW_LO_LO = 55.0
-    FLOW_LO    = 80.0
-    FLOW_HI    = 270.0
-    FLOW_HI_HI = 290.0
-
+# ─── Display Helpers ──────────────────────────────────────────────────────────
 
 def _temp_color(v: float) -> str:
     if v <= Thresholds.TEMP_LO_LO or v >= Thresholds.TEMP_HI_HI:
@@ -241,7 +226,7 @@ class SCADADashboard:
         self._alarms         = AlarmManager()
         self._fault_detector = FaultDetector()
         # Track last fault risk scores per well for pump failure alarm
-        self._last_risk: dict[str, float] = {w: 0.0 for w in well_ids}
+        self._last_risk: dict[str, float] = {}
         # CSV data logger (None = disabled)
         self._csv_logger: SCADALogger | None = (
             SCADALogger(log_path=log_csv) if log_csv else None
@@ -272,6 +257,12 @@ class SCADADashboard:
             while self._running:
                 readings = self._provider.read_all()
                 self._cycle += 1
+                
+                # AI Assistant STARTUP Event
+                if self._cycle == 1:
+                    from scada.event_engine import event_engine, EventType, EventSeverity
+                    event_engine.log_event(EventType.STARTUP, "SYSTEM", "SCADA dashboard started", EventSeverity.INFO)
+                
                 self._evaluate_alarms(readings)
                 # Log to CSV — build risk report map for this cycle
                 if self._csv_logger:
@@ -295,6 +286,7 @@ class SCADADashboard:
     # ── Alarm evaluation ───────────────────────────────────────────────────────
 
     def _evaluate_alarms(self, readings: list[SensorReading]) -> None:
+        fault_reports_for_ai = {}
         for r in readings:
             wid = r.well_id
 
@@ -376,6 +368,7 @@ class SCADADashboard:
             # ══ 4. PUMP FAILURE RISK  (fault-detector risk score) ════════════
             rpt = self._fault_detector.evaluate_from_reading(r)
             self._last_risk[wid] = rpt.risk_score
+            fault_reports_for_ai[wid] = rpt
 
             if rpt.health == SystemHealth.CRITICAL:
                 if self._alarms.raise_alarm(
@@ -405,6 +398,9 @@ class SCADADashboard:
                     self._log("ALARM", f"SENSOR FAULT  {wid}: value at limit")
             else:
                 self._alarms.clear_alarm(f"{wid}.SENSOR.FAULT")
+
+        # Evaluate AI Assistant
+        ai_assistant.evaluate(readings, fault_reports_for_ai)
 
     # ── Rendering ─────────────────────────────────────────────────────────────
 
@@ -604,6 +600,9 @@ class SCADADashboard:
         # ── Alarm panel ─────────────────────────────────────────────────────
         lines += self._build_alarm_panel(W)
 
+        # ── Incident Timeline ───────────────────────────────────────────────
+        lines += self._build_incident_panel(W)
+
         # ── Event log ───────────────────────────────────────────────────────
         log_header = clr("  EVENT LOG ", C.DIM, C.WHITE) + clr(
             f" (last {self._log_lines} entries)", C.DIM
@@ -739,6 +738,69 @@ class SCADADashboard:
                 lines.append(
                     clr(_VV, C.CYAN)
                     + more.ljust(W - 2 + _ansi_len(more))
+                    + clr(_VV, C.CYAN)
+                )
+
+        lines.append(clr(_LL + _HH * (W - 2) + _RR, C.CYAN))
+        return lines
+
+    def _build_incident_panel(self, W: int) -> list[str]:
+        lines: list[str] = []
+        incidents = incident_engine.get_active_incidents()
+        
+        n = len(incidents)
+        if n == 0:
+            hdr_color = C.BR_GREEN
+            hdr_label = "  INCIDENT TIMELINE  [ NO ACTIVE INCIDENTS ]"
+        else:
+            hdr_color = C.BR_RED if any(i.severity.value in ["FATAL", "CRITICAL"] for i in incidents) else C.BR_YELLOW
+            hdr_label = f"  INCIDENT TIMELINE  [ {n} ACTIVE INCIDENTS ]"
+            
+        hdr = clr(hdr_label, hdr_color, C.BOLD)
+        lines.append(
+            clr(_VV, C.CYAN)
+            + hdr.ljust(W - 2 + _ansi_len(hdr))
+            + clr(_VV, C.CYAN)
+        )
+        
+        if n == 0:
+            row = "    All systems stable."
+            lines.append(
+                clr(_VV, C.CYAN)
+                + clr(row, C.DIM, C.WHITE).ljust(W - 2 + _ansi_len(clr("", C.DIM, C.WHITE)))
+                + clr(_VV, C.CYAN)
+            )
+        else:
+            col_hdr = (
+                clr("  ID       ", C.DIM, C.WHITE)
+                + clr("EQUIP  ", C.DIM, C.WHITE)
+                + clr("SEVERITY   ", C.DIM, C.WHITE)
+                + clr("DURATION  ", C.DIM, C.WHITE)
+                + clr("LATEST EVENT                 ", C.DIM, C.WHITE)
+            )
+            lines.append(
+                clr(_VV, C.CYAN)
+                + col_hdr.ljust(W - 2 + _ansi_len(col_hdr))
+                + clr(_VV, C.CYAN)
+            )
+            
+            for inc in incidents[:3]:
+                import time
+                dur = f"{int(time.time() - inc.start_time)}s"
+                latest = inc.timeline[-1].event_type.value if inc.timeline else "NONE"
+                latest = latest[:25].ljust(25)
+                
+                sev_color = C.BR_RED if inc.severity.value in ["FATAL", "CRITICAL"] else C.BR_YELLOW
+                row = (
+                    f"  {inc.incident_id:<8} "
+                    f" {inc.equipment:<6} "
+                    + clr(f" {inc.severity.value:<9} ", sev_color)
+                    + f" {dur:<9} "
+                    f" {latest}"
+                )
+                lines.append(
+                    clr(_VV, C.CYAN)
+                    + row.ljust(W - 2 + _ansi_len(row))
                     + clr(_VV, C.CYAN)
                 )
 

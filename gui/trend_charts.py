@@ -137,13 +137,22 @@ class TrendChartPanel(tk.Frame):
         self._canvas_widget.pack(fill="both", expand=True)
         
         # Navigation Toolbar
-        toolbar_frame = tk.Frame(self, bg=BG_PRIMARY)
+        toolbar_frame = tk.Frame(self, bg="#0f172a")
         toolbar_frame.pack(fill="x", side="bottom")
         self._toolbar = NavigationToolbar2Tk(self._canvas, toolbar_frame)
+        self._toolbar.config(background="#0f172a")
+        self._toolbar._message_label.config(background="#0f172a", foreground="#f8fafc", font=("Segoe UI", 8))
+        for button in self._toolbar.winfo_children():
+            button.config(background="#0f172a")
         self._toolbar.update()
         
-        from gui.theme import style_matplotlib_toolbar
-        style_matplotlib_toolbar(self._toolbar)
+        # Custom Export CSV Button
+        btn_csv = tk.Button(toolbar_frame, text="Export CSV", bg="#334155", fg="#f8fafc", bd=0, padx=5, font=("Segoe UI", 8), command=self._export_csv)
+        btn_csv.pack(side="right", padx=5, pady=2)
+        
+        # Custom Fullscreen Button
+        btn_fs = tk.Button(toolbar_frame, text="Fullscreen", bg="#334155", fg="#f8fafc", bd=0, padx=5, font=("Segoe UI", 8), command=self._toggle_fullscreen)
+        btn_fs.pack(side="right", padx=5, pady=2)
         
         # Hover Tooltip & Crosshair
         self._annot = self._axes["temp"].annotate(
@@ -286,7 +295,19 @@ class TrendChartPanel(tk.Frame):
         last_health = {wid: 95.0 for wid in self._well_ids}
         last_conf = {wid: global_conf for wid in self._well_ids}
                 
+        prev_t = None
         for t in sorted_times:
+            if prev_t is not None and (t - prev_t) > (2.0 / (24.0 * 60.0)):
+                self._times.append(prev_t + 1.0/(24.0*60.0*60.0))
+                for wid in self._well_ids:
+                    self._data[wid]["temp"].append(np.nan)
+                    self._data[wid]["pres"].append(np.nan)
+                    self._data[wid]["flow"].append(np.nan)
+                    self._data[wid]["risk"].append(np.nan)
+                    self._data[wid]["health"].append(np.nan)
+                    self._data[wid]["conf"].append(np.nan)
+            prev_t = t
+            
             self._times.append(t)
             row_map = times_map[t]
             for wid in self._well_ids:
@@ -348,6 +369,17 @@ class TrendChartPanel(tk.Frame):
                 # Convert ISO string to matplotlib date float
                 dt = datetime.fromisoformat(row['timestamp'].replace("Z", "+00:00"))
                 t = mdates.date2num(dt)
+                
+                if len(hist_data[wid]["times"]) > 0:
+                    prev_t = hist_data[wid]["times"][-1]
+                    if (t - prev_t) > (2.0 / (24.0 * 60.0)):
+                        hist_data[wid]["times"].append(prev_t + 1.0/(24.0*60.0*60.0))
+                        hist_data[wid]["temp"].append(np.nan)
+                        hist_data[wid]["pres"].append(np.nan)
+                        hist_data[wid]["flow"].append(np.nan)
+                        hist_data[wid]["risk"].append(np.nan)
+                        hist_data[wid]["health"].append(np.nan)
+                        hist_data[wid]["conf"].append(np.nan)
                 
                 hist_data[wid]["times"].append(t)
                 hist_data[wid]["temp"].append(row.get('temperature_c', np.nan))
@@ -586,6 +618,19 @@ class TrendChartPanel(tk.Frame):
 
         now = datetime.now()
         t = mdates.date2num(now)
+        
+        if len(self._times) > 0:
+            prev_t = self._times[-1]
+            if (t - prev_t) > (2.0 / (24.0 * 60.0)):
+                self._times.append(prev_t + 1.0/(24.0*60.0*60.0))
+                for wid in self._well_ids:
+                    self._data[wid]["temp"].append(np.nan)
+                    self._data[wid]["pres"].append(np.nan)
+                    self._data[wid]["flow"].append(np.nan)
+                    self._data[wid]["risk"].append(np.nan)
+                    self._data[wid]["health"].append(np.nan)
+                    self._data[wid]["conf"].append(np.nan)
+                    
         self._times.append(t)
 
         # Build a dict of the newest reading for each well in this batch
@@ -685,3 +730,52 @@ class TrendChartPanel(tk.Frame):
                     }
                     export_data.append(row)
         return export_data
+
+    def _toggle_fullscreen(self):
+        if hasattr(self, '_fs_win') and self._fs_win.winfo_exists():
+            self._fs_win.destroy()
+            return
+            
+        self._fs_win = tk.Toplevel(self)
+        self._fs_win.title("Fullscreen Charts")
+        self._fs_win.state('zoomed')
+        from gui.theme import BG_PRIMARY
+        self._fs_win.configure(bg=BG_PRIMARY)
+        
+        fs_panel = TrendChartPanel(self._fs_win, well_ids=self._well_ids)
+        fs_panel.pack(fill=tk.BOTH, expand=True)
+        fs_panel._times = self._times.copy()
+        fs_panel._data = self._data
+        fs_panel._update_lines()
+        
+    def _export_csv(self):
+        import csv
+        import tkinter.filedialog as fd
+        import tkinter.messagebox as messagebox
+        
+        path = fd.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV files", "*.csv")], title="Export Chart Data")
+        if not path: return
+        
+        try:
+            with open(path, 'w', newline='') as f:
+                writer = csv.writer(f)
+                header = ["Timestamp"]
+                for wid in self._well_ids:
+                    header.extend([f"{wid}_Temp", f"{wid}_Pres", f"{wid}_Flow"])
+                writer.writerow(header)
+                
+                for i, t in enumerate(self._times):
+                    row = [t.isoformat()]
+                    for wid in self._well_ids:
+                        try:
+                            row.extend([
+                                self._data[wid]["temp"][i],
+                                self._data[wid]["pres"][i],
+                                self._data[wid]["flow"][i]
+                            ])
+                        except IndexError:
+                            row.extend(["", "", ""])
+                    writer.writerow(row)
+            messagebox.showinfo("Export Successful", f"Chart data exported to {path}")
+        except Exception as e:
+            messagebox.showerror("Export Failed", str(e))
