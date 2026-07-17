@@ -26,7 +26,9 @@ class SimulatorDataProvider(IDataProvider):
     def connect(self) -> bool:
         """Initialize the simulator."""
         try:
-            self._wells = create_well_array(well_ids=self._well_ids)
+            from core.config.system_config import SystemConfig
+            cfg = SystemConfig.load()
+            self._wells = create_well_array(well_ids=self._well_ids, demo_mode=cfg.demo_mode)
             for w in self._wells:
                 self._pump_speeds[w.well_id] = 1450.0  # Default RPM
             self._connected = True

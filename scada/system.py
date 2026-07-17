@@ -224,9 +224,7 @@ class SCADASystem:
         # 4.6 Evaluate Auto Recovery
         self.diagnostics_engine.evaluate()
 
-        # 5. Console display (every 5 ticks to avoid flood)
-        if self._tick_count % 5 == 0:
-            self._console_display()
+        # 5. Console display (removed for Release Candidate to prevent stdout pollution)
 
     def _simulate_network_diagnostics(self):
         import random
@@ -376,76 +374,4 @@ class SCADASystem:
                 )
             else:
                 self.alarms.clear_alarm(alarm_key)
-
-    # ── Console Display ───────────────────────────────────────────────────────
-    def _console_display(self):
-        sep = "═" * 62
-        print(f"\n{sep}")
-        print(f"  🌋  DikiliGeothermal SCADA  |  Tick #{self._tick_count}")
-        print(sep)
-
-        # Wells
-        for well in self.config.wells:
-            wid = well.well_id
-            t  = self.db.read_value(f"{wid}.TEMP", "N/A")
-            p  = self.db.read_value(f"{wid}.PRES", "N/A")
-            fl = self.db.read_value(f"{wid}.FLOW", "N/A")
-            st = self.db.read_value(f"{wid}.PUMP_ST", "N/A")
-            print(f"  {wid} [{well.name}]")
-            print(f"     Temp: {t:>7.2f} °C  |  Press: {p:>6.2f} bar  |  Flow: {fl:>6.1f} m³/h  |  Pump: {st}")
-
-        print()
-        # Heat exchanger
-        hs  = self.db.read_value("HX.SEC_SUPPLY", 0)
-        hr  = self.db.read_value("HX.SEC_RETURN", 0)
-        hxp = self.db.read_value("HX.THERMAL_POWER", 0)
-        hxe = self.db.read_value("HX.EFFICIENCY", 0)
-        print(f"  Heat Exchanger:  Supply {hs:.1f}°C  |  Return {hr:.1f}°C  |  {hxp:.2f} MW  |  Eff {hxe:.1f}%")
-
-        # Network
-        dhp = self.db.read_value("DH.SUPPLY_PRES", 0)
-        dhf = self.db.read_value("DH.TOTAL_FLOW", 0)
-        ddt = self.db.read_value("DH.DELTA_T", 0)
-        print(f"  DH Network   :  Press {dhp:.2f} bar  |  Flow {dhf:.1f} m³/h  |  ΔT {ddt:.1f} K")
-
-        print()
-        tp = self.db.read_value("PLANT.TOTAL_POWER", 0)
-        te = self.db.read_value("PLANT.DAILY_ENERGY", 0)
-        ac = self.db.read_value("PLANT.ALARM_COUNT", 0)
-        print(f"  🔋 Power: {tp:.2f} MW  |  Daily Energy: {te:.3f} MWh  |  🔔 Alarms: {ac}")
-
-        if self.alarms.active_alarms:
-            print()
-            n       = len(self.alarms.active_alarms)
-            crit    = self.alarms.critical_active
-            hdr_tag = "*** CRITICAL ***" if crit else "! WARNING !"
-            print(f"  [{hdr_tag}]  {n} ACTIVE ALARM{'S' if n != 1 else ''}  [{hdr_tag}]")
-            print(f"  {'TYPE':<12} {'WELL':<8} {'DESCRIPTION':<40} {'PRI':<10} {'AGE':>6}")
-            print(f"  {'-'*12} {'-'*8} {'-'*40} {'-'*10} {'-'*6}")
-            for alarm in self.alarms.active_alarms[:8]:
-                aid = alarm.alarm_id.upper()
-                if ".TEMP." in aid:
-                    atype = "[HIGH TEMP]"
-                elif ".PRES." in aid:
-                    atype = "[LOW PRES ]"
-                elif ".FLOW." in aid:
-                    atype = "[FLOW FAIL]"
-                elif ".PUMP." in aid:
-                    atype = "[PUMP RISK]"
-                else:
-                    atype = "[SENSOR   ]"
-                age_s   = int(alarm.age_seconds)
-                age_str = f"{age_s // 60:02d}:{age_s % 60:02d}"
-                desc    = alarm.description[:40]
-                tag     = alarm.tag_id[:7]
-                print(f"  {atype:<12} {tag:<8} {desc:<40} {alarm.priority.name:<10} {age_str:>6}")
-            if n > 8:
-                print(f"  ... and {n - 8} more alarm(s) not shown.")
-        else:
-            print()
-            print("  [OK] ALARM STATUS: NO ACTIVE ALARMS -- ALL SYSTEMS NOMINAL")
-            categories = ["HIGH TEMP", "LOW PRESSURE", "FLOW FAILURE", "PUMP FAILURE RISK"]
-            print("  ALL CLEAR: " + "  |  ".join(f"[{c}]" for c in categories))
-
-        print(sep)
 

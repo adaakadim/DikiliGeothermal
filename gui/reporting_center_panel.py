@@ -85,6 +85,11 @@ class ReportingCenterPanel(ttk.Frame):
         self.txt_logs = tk.Text(right_panel, bg="#1e293b", fg="#e2e8f0", font=("Consolas", 10), state=tk.DISABLED)
         self.txt_logs.pack(fill=tk.BOTH, expand=True)
 
+        # Add initial welcome message
+        self._log("Enterprise Reporting Center Initialised.")
+        self._log("Ready to generate reports.")
+        self._log("Please configure the report options on the left and click 'Generate Report'.")
+
     def _log(self, msg: str):
         self.txt_logs.config(state=tk.NORMAL)
         self.txt_logs.insert(tk.END, f"[{datetime.now().strftime('%H:%M:%S')}] {msg}\n")

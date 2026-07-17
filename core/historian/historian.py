@@ -12,6 +12,7 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any
+import threading
 from core.reliability.reliability_manager import reliability_manager, SubsystemStatus
 
 logger = logging.getLogger(__name__)
@@ -32,6 +33,7 @@ class DataHistorian:
         self._last_flush_time = time.time()
         self._last_successful_write = time.time()
         self._total_writes_count = 0
+        self._db_lock = threading.Lock()
         
         # Load performance limits
         from core.configuration import config
@@ -45,7 +47,8 @@ class DataHistorian:
         """Initialize SQLite tables if they do not exist."""
         try:
             self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
-            cursor = self._conn.cursor()
+            with self._db_lock:
+                cursor = self._conn.cursor()
             
             # Table for Sensor Readings
             cursor.execute('''
@@ -127,10 +130,11 @@ class DataHistorian:
 
     def _flush_worker(self, items):
         try:
-            cursor = self._conn.cursor()
-            for item in items:
-                cursor.execute(item["query"], item["params"])
-            self._conn.commit()
+            with self._db_lock:
+                cursor = self._conn.cursor()
+                for item in items:
+                    cursor.execute(item["query"], item["params"])
+                self._conn.commit()
             
             self._total_writes_count += len(items)
             self._last_flush_time = time.time()
@@ -145,7 +149,8 @@ class DataHistorian:
             )
             logger.error(f"Historian buffer flush error: {e}")
             try:
-                self._conn.rollback()
+                with self._db_lock:
+                    self._conn.rollback()
             except sqlite3.Error:
                 pass
 
@@ -182,24 +187,25 @@ class DataHistorian:
         
         if not self._conn: return []
         try:
-            cursor = self._conn.cursor()
-            if well_id:
-                cursor.execute('''
-                    SELECT timestamp, well_id, temperature_c, pressure_bar, flow_m3h, is_healthy
-                    FROM sensor_readings
-                    WHERE timestamp BETWEEN ? AND ? AND well_id = ?
-                    ORDER BY timestamp ASC
-                ''', (start_iso, end_iso, well_id))
-            else:
-                cursor.execute('''
-                    SELECT timestamp, well_id, temperature_c, pressure_bar, flow_m3h, is_healthy
-                    FROM sensor_readings
-                    WHERE timestamp BETWEEN ? AND ?
-                    ORDER BY timestamp ASC
-                ''', (start_iso, end_iso))
-            
-            columns = [column[0] for column in cursor.description]
-            return [dict(zip(columns, row)) for row in cursor.fetchall()]
+            with self._db_lock:
+                cursor = self._conn.cursor()
+                if well_id:
+                    cursor.execute('''
+                        SELECT timestamp, well_id, temperature_c, pressure_bar, flow_m3h, is_healthy
+                        FROM sensor_readings
+                        WHERE timestamp BETWEEN ? AND ? AND well_id = ?
+                        ORDER BY timestamp ASC
+                    ''', (start_iso, end_iso, well_id))
+                else:
+                    cursor.execute('''
+                        SELECT timestamp, well_id, temperature_c, pressure_bar, flow_m3h, is_healthy
+                        FROM sensor_readings
+                        WHERE timestamp BETWEEN ? AND ?
+                        ORDER BY timestamp ASC
+                    ''', (start_iso, end_iso))
+                
+                columns = [column[0] for column in cursor.description]
+                return [dict(zip(columns, row)) for row in cursor.fetchall()]
         except sqlite3.Error as e:
             logger.error(f"Historian query_sensor_history error: {e}")
             return []
@@ -209,10 +215,11 @@ class DataHistorian:
         self.flush()
         if not self._conn: return None, None
         try:
-            cursor = self._conn.cursor()
-            cursor.execute("SELECT MIN(timestamp), MAX(timestamp) FROM sensor_readings")
-            row = cursor.fetchone()
-            return row[0], row[1]
+            with self._db_lock:
+                cursor = self._conn.cursor()
+                cursor.execute("SELECT MIN(timestamp), MAX(timestamp) FROM sensor_readings")
+                row = cursor.fetchone()
+                return row[0], row[1]
         except sqlite3.Error as e:
             logger.error(f"Historian get_time_range error: {e}")
             return None, None
@@ -222,19 +229,20 @@ class DataHistorian:
         self.flush()
         if not self._conn: return []
         try:
-            cursor = self._conn.cursor()
-            cursor.execute('''
-                SELECT t1.timestamp, t1.well_id, t1.temperature_c, t1.pressure_bar, t1.flow_m3h, t1.is_healthy
-                FROM sensor_readings t1
-                INNER JOIN (
-                    SELECT well_id, MAX(timestamp) as max_ts
-                    FROM sensor_readings
-                    WHERE timestamp <= ?
-                    GROUP BY well_id
-                ) t2 ON t1.well_id = t2.well_id AND t1.timestamp = t2.max_ts
-            ''', (target_iso,))
-            columns = [column[0] for column in cursor.description]
-            return [dict(zip(columns, row)) for row in cursor.fetchall()]
+            with self._db_lock:
+                cursor = self._conn.cursor()
+                cursor.execute('''
+                    SELECT t1.timestamp, t1.well_id, t1.temperature_c, t1.pressure_bar, t1.flow_m3h, t1.is_healthy
+                    FROM sensor_readings t1
+                    INNER JOIN (
+                        SELECT well_id, MAX(timestamp) as max_ts
+                        FROM sensor_readings
+                        WHERE timestamp <= ?
+                        GROUP BY well_id
+                    ) t2 ON t1.well_id = t2.well_id AND t1.timestamp = t2.max_ts
+                ''', (target_iso,))
+                columns = [column[0] for column in cursor.description]
+                return [dict(zip(columns, row)) for row in cursor.fetchall()]
         except sqlite3.Error as e:
             logger.error(f"Historian get_snapshot_at error: {e}")
             return []
@@ -290,8 +298,30 @@ class DataHistorian:
         }
 
     def close(self):
-        # Force flush remaining writes on shutdown
-        self.flush()
+        # Force flush remaining writes synchronously on shutdown to prevent data loss
+        if not self._conn or not self._write_buffer:
+            if self._conn:
+                self._conn.close()
+                self._conn = None
+            return
+            
+        buffer_copy = list(self._write_buffer)
+        self._write_buffer.clear()
+        
+        try:
+            with self._db_lock:
+                cursor = self._conn.cursor()
+                for item in buffer_copy:
+                    cursor.execute(item["query"], item["params"])
+                self._conn.commit()
+        except sqlite3.Error as e:
+            logger.error(f"Historian shutdown flush error: {e}")
+            try:
+                with self._db_lock:
+                    self._conn.rollback()
+            except sqlite3.Error:
+                pass
+                
         if self._conn:
             self._conn.close()
             self._conn = None

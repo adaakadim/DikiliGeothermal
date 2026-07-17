@@ -101,6 +101,12 @@ def predict_plant_state(live_features: Dict[str, Any], lifecycle_engine=None) ->
         health_pct = 100.0 - pump_fail_prob
         if maint_pred == 1:
             health_pct -= 20.0
+            
+        # Physical coupling: Higher vibration actively reduces equipment health
+        vibration = float(live_features.get("Pump Vibration (mm/s)", 1.0))
+        if vibration > 1.5:
+            health_pct -= (vibration - 1.5) * 10.0
+            
         health_pct = max(0.0, min(100.0, health_pct))
         
         if pump_pred == 1:

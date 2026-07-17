@@ -67,8 +67,8 @@ class TrendWorkspace(tk.Frame):
         
         # Time Range
         tk.Label(toolbar, text="Time Range:", bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=FONT_LABEL).pack(side="left", padx=10, pady=5)
-        self.cb_range = ttk.Combobox(toolbar, values=["Live (Rolling)", "Last 10 Min", "Last 1 Hour", "Last 24 Hours"], state="readonly", width=15)
-        self.cb_range.current(0)
+        self.cb_range = ttk.Combobox(toolbar, values=["Live (5 Min)", "Live (15 Min)", "Live (1 Hour)", "Last 5 Min", "Last 15 Min", "Last 1 Hour", "Last 24 Hours"], state="readonly", width=15)
+        self.cb_range.current(2)  # Default to Live (1 Hour)
         self.cb_range.pack(side="left", padx=5)
         self.cb_range.bind("<<ComboboxSelected>>", self._on_range_changed)
         
@@ -96,7 +96,9 @@ class TrendWorkspace(tk.Frame):
         tk.Frame(toolbar, width=2, bg=BORDER).pack(side="left", fill="y", padx=10, pady=2)
         
         # Export
-        tk.Button(toolbar, text="Export CSV", bg=BG_PRIMARY, fg=TEXT_PRIMARY, relief="flat", command=self._export_csv).pack(side="right", padx=10)
+        tk.Button(toolbar, text="Export CSV", bg=BG_PRIMARY, fg=TEXT_PRIMARY, relief="flat", command=self._export_csv).pack(side="right", padx=5)
+        tk.Button(toolbar, text="Export PNG", bg=BG_PRIMARY, fg=TEXT_PRIMARY, relief="flat", command=self._export_png).pack(side="right", padx=5)
+        tk.Button(toolbar, text="Export PDF", bg=BG_PRIMARY, fg=TEXT_PRIMARY, relief="flat", command=self._export_pdf).pack(side="right", padx=5)
         
     def _on_toggle_changed(self):
         # Pass visibility states to the charts
@@ -104,25 +106,37 @@ class TrendWorkspace(tk.Frame):
         self.charts.set_line_visibility(states)
         
     def _on_range_changed(self, event=None):
-        if self.cb_range.get() == "Live (Rolling)":
+        rng = self.cb_range.get()
+        if "Live" in rng:
             self.charts.set_mode("LIVE")
             self.lbl_live_status.config(text="🟢 LIVE", fg="#10b981")
+            
+            # Apply time window size to live chart
+            if "5 Min" in rng:
+                self.charts.set_live_window_minutes(5)
+            elif "15 Min" in rng:
+                self.charts.set_live_window_minutes(15)
+            elif "1 Hour" in rng:
+                self.charts.set_live_window_minutes(60)
         else:
             self.charts.set_mode("HISTORICAL")
             self.lbl_live_status.config(text="⚪ OFFLINE", fg="#9ca3af")
+            self._load_history()
 
     def _load_history(self):
         rng = self.cb_range.get()
-        if rng == "Live (Rolling)":
+        if "Live" in rng:
             messagebox.showinfo("Historian", "System is in Live mode. Select a historical time range to load data.")
             return
             
         end = datetime.now()
-        if rng == "Last 10 Min":
-            start = end - timedelta(minutes=10)
-        elif rng == "Last 1 Hour":
+        if "5 Min" in rng:
+            start = end - timedelta(minutes=5)
+        elif "15 Min" in rng:
+            start = end - timedelta(minutes=15)
+        elif "1 Hour" in rng:
             start = end - timedelta(hours=1)
-        elif rng == "Last 24 Hours":
+        elif "24 Hours" in rng:
             start = end - timedelta(hours=24)
         else:
             start = end - timedelta(hours=1)
@@ -169,8 +183,14 @@ class TrendWorkspace(tk.Frame):
         except Exception as e:
             logger.error(f"Failed to export CSV: {e}")
             messagebox.showerror("Export Failed", f"Failed to export data: {e}")
+
+    def _export_png(self):
+        self.charts.export_image("png")
+        
+    def _export_pdf(self):
+        self.charts.export_image("pdf")
         
     def update_data(self, readings, reports, ai_result, rul_results=None, health_indexes=None):
         # Only push live data if we are in Live mode
-        if self.cb_range.get() == "Live (Rolling)":
+        if "Live" in self.cb_range.get():
             self.charts.update_data(readings, reports, ai_result, rul_results, health_indexes)

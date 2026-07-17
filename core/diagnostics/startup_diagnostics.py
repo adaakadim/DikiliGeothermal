@@ -112,7 +112,7 @@ class StartupDiagnostics:
 
     def verify_shap(self):
         try:
-            from analytics.ai.shap_explainer import SHAPExplainer
+            from analytics.ai.shap_explainer import AIExplainer
             self.status.shap = "READY"
         except Exception as e:
             logger.warning(f"SHAP check failed: {e}")
@@ -136,7 +136,7 @@ class StartupDiagnostics:
 
     def verify_scenario_sim(self):
         try:
-            from analytics.simulation.scenario_runner import ScenarioRunner
+            from analytics.simulation.scenario_engine import ScenarioEngine
             self.status.scenario_sim = "READY"
         except Exception as e:
             logger.warning(f"Scenario Sim check failed: {e}")

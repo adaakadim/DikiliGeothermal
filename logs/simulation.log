@@ -33527,3 +33527,53 @@
 2026-07-17 10:55:27 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
 2026-07-17 10:55:27 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
 2026-07-17 10:55:27 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 13:38:53 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 13:38:53 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 13:38:53 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 13:38:53 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 13:38:53 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:12:49 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:12:49 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:12:49 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:12:49 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:12:49 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:24:18 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:24:18 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:24:18 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:24:18 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:24:18 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:26:18 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:26:18 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:26:18 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:26:18 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:26:18 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:27:38 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:27:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:27:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:27:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:27:38 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:28:38 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:28:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:28:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:28:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:28:38 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:34:19 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:34:19 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:34:19 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:34:19 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:34:19 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:35:00 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:35:00 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:35:00 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:35:00 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:35:00 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:52:24 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:52:24 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:52:24 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:52:24 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:52:24 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 14:52:56 [INFO] simulation.plant_simulator [NO-CORRELATION] - Plant simulator initialized with engineering-grade thermodynamic model.
+2026-07-17 14:52:56 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 14:52:56 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 14:52:56 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 14:52:56 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']

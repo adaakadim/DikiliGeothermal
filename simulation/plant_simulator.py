@@ -135,7 +135,8 @@ class PlantSimulator:
             hydraulic_head = 250.0
             hydraulic_power = (ws["flow"] * hydraulic_head) / (367.0 * pump_eff)
             pump_power = hydraulic_power / 0.95
-            pump_current = pump_power * 1000.0 / (math.sqrt(3) * 400.0 * 0.85)
+            pump_voltage = 690.0
+            pump_current = pump_power * 1000.0 / (math.sqrt(3) * pump_voltage * 0.85)
             pump_rpm = max(1400.0, min(2950.0, 2900.0 * flow_ratio)) if ws["flow"] > 1.0 else 0.0
             
             heat_gen = pump_power * 0.05
@@ -161,7 +162,7 @@ class PlantSimulator:
             
             self.db.write(f"{p_id}.CURRENT", round(pump_current + self._noise(0.5), 1) if pump_rpm > 0 else 0.0)
             self.db.write(f"{p_id}.Motor Current (A)", round(pump_current + self._noise(0.5), 1) if pump_rpm > 0 else 0.0)
-            self.db.write(f"{p_id}.VOLTAGE", round(400.0 + self._noise(1.0), 1) if pump_rpm > 0 else 0.0)
+            self.db.write(f"{p_id}.VOLTAGE", round(pump_voltage + self._noise(1.0), 1) if pump_rpm > 0 else 0.0)
             self.db.write(f"{p_id}.POWER", round(pump_power + self._noise(0.2), 1) if pump_rpm > 0 else 0.0)
             self.db.write(f"{p_id}.Power (kW)", round(pump_power + self._noise(0.2), 1) if pump_rpm > 0 else 0.0)
             self.db.write(f"{p_id}.EFF", round(pump_eff * 100.0, 1) if pump_rpm > 0 else 0.0)
@@ -234,7 +235,10 @@ class PlantSimulator:
         # ── Separator (SEP-01) ──
         avg_geo_temp = (weighted_temp / total_flow) if total_flow > 0 else 95.0
         sep_pres = 1.5 + (total_flow / total_max_flow) * 1.0
-        sep_steam_frac = max(0.0, (avg_geo_temp - 120.0) * 0.05)
+        # Separator Steam Fraction (Flash thermodynamic approximation)
+        # Saturated temperature at sep_pres (very rough approximation: 100C at 1 bar + ~15C per bar)
+        sat_temp = 100.0 + sep_pres * 15.0
+        sep_steam_frac = max(0.0, (avg_geo_temp - sat_temp) * 0.04)
         
         target_level = 50.0 + (total_flow / total_max_flow - 0.5) * 5.0
         self._sep_level = self._inertia(self._sep_level, target_level, dt, tau=60.0)

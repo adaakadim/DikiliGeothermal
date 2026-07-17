@@ -37,11 +37,13 @@ class EnterpriseReportGenerator:
         
         # Prepare Metadata Header
         meta = {
-            "Report Title": report_type,
-            "Generation Date": timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+            "Project Name": "Dikili Geothermal Platform",
+            "Plant Name": "Dikili Main Geothermal Plant",
+            "Report Type": report_type,
+            "Date": timestamp.strftime("%Y-%m-%d %H:%M:%S"),
             "Operator": operator_name,
             "Scenario": scenario_name,
-            "Report Version": "1.0",
+            "Version": "1.0.0 Release Candidate",
             "Period Start": date_range_start,
             "Period End": date_range_end
         }
@@ -64,7 +66,7 @@ class EnterpriseReportGenerator:
         pdf.set_font("Helvetica", style="B", size=16)
         
         # Title
-        pdf.cell(200, 10, txt=f"Dikili Geothermal - {meta['Report Title']}", ln=True, align='C')
+        pdf.cell(200, 10, txt=f"Dikili Geothermal - {meta['Report Type']}", ln=True, align='C')
         pdf.ln(10)
         
         # Metadata

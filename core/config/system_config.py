@@ -115,6 +115,7 @@ class SystemConfig:
     alarm_check_interval: float = 1.0   # seconds
     historian_flush_interval: float = 10.0  # seconds
     simulation_mode: bool = True
+    demo_mode: bool = True              # Enable portfolio/demo optimizations
     log_level: str = "INFO"
     theme: str = "dark"                 # "dark" or "light"
     workspace: WorkspaceConfig = field(default_factory=WorkspaceConfig)

@@ -56,7 +56,7 @@ class SplashScreen(tk.Toplevel):
         self.win.destroy()
 
 def run_splash_sequence():
-    """Run a fake initialization sequence for polish."""
+    """Run a rapid initialization sequence without blocking the main thread."""
     splash = SplashScreen()
     
     steps = [
@@ -69,8 +69,16 @@ def run_splash_sequence():
         (100, "System Ready.")
     ]
     
-    for val, msg in steps:
-        splash.update_progress(val, msg)
-        time.sleep(0.3)
-        
-    splash.close()
+    def process_step(index=0):
+        if index < len(steps):
+            val, msg = steps[index]
+            splash.update_progress(val, msg)
+            # Use small non-blocking delay for visual polish (50ms)
+            splash.win.after(50, lambda: process_step(index + 1))
+        else:
+            splash.close()
+            
+    process_step()
+    # If the splash is the temporary root, we need to run mainloop until it's destroyed
+    if splash.is_root:
+        splash.root.mainloop()

@@ -68,7 +68,8 @@ class TagDatabase:
         if tag_id in self._tags:
             self._tags[tag_id].update(value, quality)
         else:
-            logger.warning("Write to unregistered tag: %s", tag_id)
+            self.register(Tag(tag_id=tag_id, description=f"Auto-registered tag {tag_id}", unit=""))
+            self._tags[tag_id].update(value, quality)
 
     def read(self, tag_id: str) -> Optional[Tag]:
         return self._tags.get(tag_id)

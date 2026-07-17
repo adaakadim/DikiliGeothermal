@@ -86,6 +86,14 @@ class SCADAGuiApp:
         self._cycle     = 0
         self._start_time = time.time()
         
+        # Build the root window but hide it during initialization
+        self._root = tk.Tk()
+        self._root.withdraw()
+        
+        from gui.splash_screen import SplashScreen
+        self._splash = SplashScreen(self._root, version="1.0.0 Release Candidate")
+        self._splash.update_progress(10, "Loading system configuration...")
+        
         # Restore SCADASystem to pipeline
         from scada.system import SCADASystem
         from core.config.system_config import SystemConfig
@@ -111,6 +119,7 @@ class SCADAGuiApp:
         self._dh_dt    = 0.0
 
         # AI State
+        self._splash.update_progress(30, "Initializing AI Subsystems...")
         from analytics.ai.feature_engineering import FeatureEngineer
         self._feature_engineer = FeatureEngineer(window_size=5)
         self._last_ai_status = "NORMAL"
@@ -135,6 +144,7 @@ class SCADAGuiApp:
         from analytics.optimization.optimization_engine import OptimizationEngine
         from analytics.anomaly_detection.anomaly_engine import AnomalyEngine
         
+        self._splash.update_progress(60, "Loading Digital Twin Models...")
         self._facility = DikiliFacility()
         self._explainer = AIExplainer()
         self._report_generator = ReportGenerator()
@@ -217,8 +227,9 @@ class SCADAGuiApp:
         
         self._simulation_mode = False
 
+        self._splash.update_progress(80, "Constructing User Interface...")
+        
         # Build the GUI
-        self._root = tk.Tk()
         self._root.title("Dikili Geothermal SCADA  |  Industrial Control System")
         self._root.configure(bg=BG_PRIMARY)
         self._root.minsize(1280, 800)
@@ -229,6 +240,9 @@ class SCADAGuiApp:
             self._root.state("zoomed")
         except tk.TclError:
             self._root.geometry("1600x900")
+            
+        self._splash.update_progress(100, "System Ready.")
+        self._splash.close()
             
     def _apply_ttk_style(self):
         """Initialise base visual styles and custom themes."""
@@ -266,8 +280,8 @@ class SCADAGuiApp:
 
         self._build_ui()
         self._root._handle_expand_chart = self._handle_expand_chart
-        self._session_id = "test_session"
-        self._logged_in_user = "test_user"
+        self._session_id = "OP-9021"
+        self._logged_in_user = "Operator"
         self._root.withdraw()
         self._root.bind_all("<Any-KeyPress>", self._reset_activity_timer)
         self._root.bind_all("<Any-ButtonPress>", self._reset_activity_timer)
@@ -292,11 +306,11 @@ class SCADAGuiApp:
 
         # Bottom Controls (pack first so they stick to the bottom)
         bottom_frame = tk.Frame(sidebar, bg=BG_SECONDARY)
-        bottom_frame.pack(side="bottom", fill="x", pady=10, padx=20)
+        bottom_frame.pack(side="bottom", fill="x", pady=15, padx=15)
 
         # Language Switcher
         lang_frame = tk.Frame(bottom_frame, bg=BG_SECONDARY)
-        lang_frame.pack(side="bottom", fill="x", pady=2)
+        lang_frame.pack(side="bottom", fill="x", pady=5)
         tk.Label(lang_frame, text="🇬🇧 EN / 🇹🇷 TR", bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=FONT_LABEL_SM).pack(side="left")
         from gui.widgets import ToggleSwitch, ThemeToggle
         is_tr = (CURRENT_LANG == "tr")
@@ -304,14 +318,14 @@ class SCADAGuiApp:
 
         # Theme Switcher (premium sun/moon toggle)
         theme_frame = tk.Frame(bottom_frame, bg=BG_SECONDARY)
-        theme_frame.pack(side="bottom", fill="x", pady=2)
+        theme_frame.pack(side="bottom", fill="x", pady=5)
         from gui.theme import CURRENT_MODE
         is_dark = (CURRENT_MODE == "dark")
         ThemeToggle(theme_frame, is_dark=is_dark, command=self._toggle_theme).pack(side="right")
 
         # Navigation Container
         nav_frame = tk.Frame(sidebar, bg=BG_SECONDARY)
-        nav_frame.pack(side="top", fill="both", expand=True, padx=10, pady=10)
+        nav_frame.pack(side="top", fill="both", expand=True, padx=15, pady=15)
 
         tk.Label(nav_frame, text="WORKSPACE", bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=("Segoe UI", 10, "bold")).pack(pady=(0, 5), anchor="w")
 
@@ -380,14 +394,19 @@ class SCADAGuiApp:
             on_seek_cb=self._handle_playback_seek
         )
         self._panel_factories["mission_control"] = lambda: MissionControlPanel(self._content_area)
-        self._panel_factories["overview"] = lambda: OverviewPanel(self._content_area, well_ids=self._well_ids, on_equip_click=self._handle_equip_click)
-        if "overview" in self._panels:
-            self._panels["overview"].on_sim_toggle_cb = self._handle_sim_mode_toggle
+        def _create_overview():
+            panel = OverviewPanel(self._content_area, well_ids=self._well_ids, on_equip_click=self._handle_equip_click)
+            panel.on_sim_toggle_cb = self._handle_sim_mode_toggle
+            return panel
+        self._panel_factories["overview"] = _create_overview
         self._panel_factories["dashboard"] = lambda: OperatorDashboard(self._content_area)
         self._panel_factories["trends"] = lambda: TrendWorkspace(self._content_area, well_ids=self._well_ids, historian=self._historian)
         self._panel_factories["alarms"] = lambda: AlarmCenterPanel(self._content_area, alarm_manager=self._alarms, on_navigate=self.navigate_to_equipment, on_explain_cb=self.on_explain_requested)
-        self._panel_factories["events"] = lambda: EventViewerPanel(self._content_area)
-        
+        def _create_events():
+            panel = EventViewerPanel(self._content_area)
+            self._ai_event_log = panel
+            return panel
+        self._panel_factories["events"] = _create_events
         self._panel_factories["diagnostics"] = lambda: DiagnosticsPanel(self._content_area)
         self._panel_factories["fail_safe"] = lambda: FailSafePanel(self._content_area, self._fail_safe)
         
@@ -447,9 +466,9 @@ class SCADAGuiApp:
         from gui.ai_operator_panel import AIOperatorPanel
         self._panel_factories["ai_operator"] = lambda: AIOperatorPanel(self._content_area)
 
-        # We keep the old AI Event Log hidden, just routing its calls to the new timeline
+        # The AI Event Log is assigned when the "events" panel is instantiated via lazy loading.
+        # It defaults to None until the panel is first shown.
         self._ai_event_log = self._panels.get("events")
-        
         # Populate Treeview
         self._nav_tree.insert("", "end", "operations", text="🛠️ " + tr("Operations"), open=True)
         self._nav_tree.insert("operations", "end", "mission_control", text="  " + tr("Mission Control"))
@@ -626,8 +645,10 @@ class SCADAGuiApp:
         if key not in self._panels and key not in getattr(self, '_panel_factories', {}):
             return
             
+        is_new = False
         if key not in self._panels and key in getattr(self, '_panel_factories', {}):
             self._panels[key] = self._panel_factories[key]()
+            is_new = True
             
         if key not in self._panels:
             return
@@ -637,6 +658,71 @@ class SCADAGuiApp:
 
         self._current_panel = self._panels[key]
         self._current_panel.pack(fill="both", expand=True)
+        
+        if is_new and hasattr(self, '_last_tick_data'):
+            self._force_panel_update(key)
+            
+    def _force_panel_update(self, key):
+        if not hasattr(self, '_last_tick_data'): return
+        data = self._last_tick_data
+        panel = self._panels.get(key)
+        if not panel: return
+        
+        try:
+            import time
+            if key == "overview":
+                panel.update_from_twin(self._facility)
+            elif key == "dashboard":
+                highest_risk_eq = "P-101" if data["ai_result"]["Pump Failure Probability (%)"] > 40 else "None"
+                crit_alarm = self._alarms.active_alarms[0].description if self._alarms.active_alarms else "None"
+                panel.update_dashboard(
+                    status=data["ai_result"]["Plant Status"],
+                    health=data["health_indexes"].get("Overall Plant Health", 100.0),
+                    highest_risk_eq=highest_risk_eq,
+                    critical_alarm=crit_alarm,
+                    power=self._hx_power,
+                    energy=self._hx_power * ((time.time() - self._start_time) / 3600)
+                )
+            elif key == "trends" or key == "trend_detail":
+                panel.update_data(data["readings"], data["reports"], ai_result=data["ai_result"], rul_results=data["rul_results"], health_indexes=data["health_indexes"])
+            elif key == "alarms":
+                panel.update_alarms()
+            elif key == "reliability":
+                panel.update_dashboard()
+            elif key == "lifecycle":
+                panel.update_dashboard(self._lifecycle_engine.get_dashboard_summary())
+            elif key == "ai_operator" and data.get("op_assessment"):
+                panel.update_dashboard(data["op_assessment"])
+            elif key == "rul":
+                panel.update_dashboard(data["pmc_profiles"])
+            elif key == "mission_control":
+                panel.update_dashboard(data["mc_snap"])
+            elif key == "xai":
+                explanation = self._explainer_engine.generate_explanation("GLOBAL", data.get("engineered_data", {}), data["ai_result"])
+                panel.update_explanation(
+                    target_id="GLOBAL",
+                    risk=data["ai_result"]["Pump Failure Probability (%)"],
+                    conf=data["ai_result"]["Prediction Confidence (%)"],
+                    explanation=explanation
+                )
+            elif key == "opt":
+                panel.update_dashboard(data["opt_result"])
+                panel.update_history_graph(self._opt_engine.history)
+            elif key == "anomaly":
+                panel.update_anomaly(data["anomaly_result"])
+                panel.update_history_graph(self._anomaly_engine.history.get_score_trend())
+            elif key == "kpi":
+                panel.update_dashboard(data["kpis"], self._kpi_engine.history)
+            elif key == "dss":
+                panel.update_dashboard(data["dss_assessments"], self._decision_engine.unified_recommendations)
+            elif key == "simulation":
+                panel.set_live_state(data["live_data"], data["ai_result"])
+            elif key == "scenario_manager":
+                panel.update_dashboard()
+        except Exception as e:
+            import traceback
+            print(f"Error forcing update for {key}: {e}")
+            traceback.print_exc()
         
         # Update tree selection if called externally
         try:
@@ -915,14 +1001,14 @@ class SCADAGuiApp:
             self._dh_dt    = 12.0 + 3.0 * math.sin(time.time() / 900) + random.gauss(0, 0.2)
 
             self._evaluate_alarms(readings, reports)
-        except Exception as e: print("Crash at alarms:", e); import traceback; traceback.print_exc()
+        except Exception as e:
+            logger.error(f"Error in alarm evaluation: {e}", exc_info=True)
         try:
         
             # Update UI components
             self._update_header(max_risk)
         except Exception as e: 
-            print("Crash at header:", e)
-            import traceback; traceback.print_exc()
+            logger.error(f"Error updating header: {e}", exc_info=True)
         try:
         
             # Prepare raw SCADA sensor data for Digital Twin
@@ -943,7 +1029,7 @@ class SCADAGuiApp:
             reliability_manager.update_status("Digital Twin", SubsystemStatus.ONLINE)
         except Exception as e:
             reliability_manager.update_status("Digital Twin", SubsystemStatus.DEGRADED, event=str(e), severity="WARNING", recovery_action="Bypassing visual updates")
-            print("Crash at scada:", e)
+            logger.error(f"Error during SCADA tick: {e}")
             import traceback; traceback.print_exc()
         try:
             # ─── AI INTEGRATION ────────────────────────────────────────────────────
@@ -1122,12 +1208,7 @@ class SCADAGuiApp:
             ai_data = {}
         
             if "xai" in self._panels:
-        
-                self._panels["xai"].update_explainability(
-                xai_data=shap_res,
-                risk=ai_result["Pump Failure Probability (%)"],
-                conf=ai_result["Prediction Confidence (%)"]
-            )
+                pass # Do not automatically overwrite equipment explanation with global on every tick
         
             rul_results = {}
             for eq_id in ["GW-01", "P-101", "PROD-PIPE", "SEP-01", "HX-101", "P-201", "DH-NET", "RET-PIPE", "P-301", "RW-01"]:
@@ -1164,8 +1245,7 @@ class SCADAGuiApp:
             health_indexes = {"Overall Plant Health": 0.0}
             maint_rec = {"action": "None"}
             rul_results = {}
-            print("Crash at ai:", e)
-            import traceback; traceback.print_exc()
+            logger.error(f"Error evaluating AI engine: {e}", exc_info=True)
         try:
         
             # Scenario Manager AI Modifiers
@@ -1238,6 +1318,30 @@ class SCADAGuiApp:
             if not self._simulation_mode:
                 if "overview" in self._panels:
                     self._panels["overview"].update_from_twin(self._facility)
+                    
+                    # Update Overview Dashboard KPIs and AI Insights
+                    overview_kpis = {
+                        "Production": f"{total_flow:.1f} m³/h",
+                        "Steam Flow": f"{total_flow * 0.15:.1f} t/h",
+                        "Temperature": f"{avg_temp:.1f} °C",
+                        "Pressure": f"{avg_pres:.1f} bar",
+                        "Power": f"{self._hx_power:.1f} MW",
+                        "Efficiency": f"{self._hx_eff:.1f} %",
+                        "Energy": f"{self._hx_power * 24.0:.1f} MWh",
+                        "Active Alarms": str(len(self._alarms.active_alarms)),
+                        "AI Status": ai_result.get("Plant Status", "NORMAL")
+                    }
+                    
+                    overview_ai_insights = {
+                        "Overall AI Status": ai_result.get("Plant Status", "NORMAL"),
+                        "Risk Score": f"{ai_result.get('Pump Failure Probability (%)', 0.0):.1f}",
+                        "Confidence": f"{ai_result.get('Prediction Confidence (%)', 0.0):.1f}",
+                        "Equipment Health": f"{ai_result.get('Equipment Health (%)', 100.0):.1f}",
+                        "RUL": str(rul_results.get("P-101", {}).get("Remaining Useful Life (Hours)", 0.0)),
+                        "Prediction": ai_result.get("Plant Status", "NORMAL"),
+                        "Recommendation": maint_rec.get("action", "Monitor system normally.")
+                    }
+                    self._panels["overview"].update_dashboard_data(overview_kpis, overview_ai_insights)
             
             # Update simulation baseline
             if "simulation" in self._panels:
@@ -1260,6 +1364,26 @@ class SCADAGuiApp:
             self._last_ai_result = ai_result
             self._last_health_indexes = health_indexes
             self._last_maint_rec = maint_rec
+            
+            self._last_tick_data = {
+                "readings": readings,
+                "reports": reports,
+                "ai_result": ai_result,
+                "rul_results": rul_results,
+                "health_indexes": health_indexes,
+                "maint_rec": maint_rec,
+                "scada_data": scada_data if 'scada_data' in locals() else {},
+                "anomaly_result": anomaly_result if 'anomaly_result' in locals() else {},
+                "opt_result": opt_result if 'opt_result' in locals() else {},
+                "kpis": kpis if 'kpis' in locals() else {},
+                "dss_assessments": dss_assessments if 'dss_assessments' in locals() else {},
+                "live_data": live_data if 'live_data' in locals() else {},
+                "engineered_data": engineered_data if 'engineered_data' in locals() else {},
+                "shap_res": shap_res if 'shap_res' in locals() else {},
+                "pmc_profiles": pmc_profiles if 'pmc_profiles' in locals() else [],
+                "mc_snap": mc_snap if 'mc_snap' in locals() else {},
+                "op_assessment": op_assessment if 'op_assessment' in locals() else None,
+            }
         
             # 9. Update HMI Panels
             highest_risk_eq = "P-101" if ai_result["Pump Failure Probability (%)"] > 40 else "None"
@@ -1309,11 +1433,11 @@ class SCADAGuiApp:
                 for r in readings:
                     self._historian.log_sensor_reading(r.well_id, r.temperature_c, r.pressure_bar, r.flow_m3h, r.is_healthy)
 
-            # Schedule next tick
+        except Exception as e:
+            logger.error(f"Error at end of tick cycle: {e}", exc_info=True)
+        finally:
+            # Schedule next tick regardless of exceptions to prevent UI freeze
             self._root.after(self._interval, self._tick)
-
-
-        except Exception as e: print("Crash at end:", e); import traceback; traceback.print_exc()
 
     def _simulate_network_diagnostics(self):
         import random
@@ -1512,10 +1636,36 @@ class SCADAGuiApp:
         from security.audit import AuditLogger
         from core.performance.memory_monitor import MemoryMonitor
         AuditLogger.log_event("Application Shutdown", "hmi", "SUCCESS", "INFO", username=self._logged_in_user, session_id=self._session_id, details="SCADA window closed by user")
+        
+        logger.info("Initiating graceful shutdown sequence...")
+        
+        # Stop SCADA loop
+        if hasattr(self, '_scada'):
+            self._scada.stop()
+            
+        # Flush and close Historian explicitly
+        if hasattr(self, '_historian'):
+            self._historian.close()
+            
+        # Clean up data provider / sensor threads
+        if hasattr(self, '_provider'):
+            if hasattr(self._provider, 'disconnect'):
+                self._provider.disconnect()
+                
+        # Stop background AI engines
+        if hasattr(self, '_rul_engine') and hasattr(self._rul_engine, 'stop'):
+            self._rul_engine.stop()
+        if hasattr(self, '_opt_engine') and hasattr(self._opt_engine, 'stop'):
+            self._opt_engine.stop()
+        if hasattr(self, '_anomaly_engine') and hasattr(self._anomaly_engine, 'stop'):
+            self._anomaly_engine.stop()
+            
         try:
             MemoryMonitor().perform_cleanup()
         except Exception:
             pass
+            
+        logger.info("Shutdown sequence complete. Exiting UI.")
         self._root.destroy()
 
 

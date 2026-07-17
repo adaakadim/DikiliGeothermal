@@ -144,6 +144,7 @@ class GeothermalSensorArray:
         pres_base:    float = _PRES_BASE,
         flow_base:    float = _FLOW_BASE,
         random_seed:  Optional[int] = None,
+        demo_mode:    bool = False,
     ) -> None:
         self.well_id      = well_id
         self._phase       = phase_offset
@@ -151,6 +152,7 @@ class GeothermalSensorArray:
         self._pres_base   = pres_base
         self._flow_base   = flow_base
         self._rng         = random.Random(random_seed)
+        self._demo_mode   = demo_mode
 
         # Slow-moving internal state (exponential smoothing targets)
         self._temp_truth: float = temp_base
@@ -204,9 +206,15 @@ class GeothermalSensorArray:
         self._pres_truth = self._smooth(self._pres_truth, pressure_coupled, alpha=0.15)
 
         # ── 3. Gaussian sensor noise ───────────────────────────────────────
-        temp_meas = self._temp_truth + self._rng.gauss(0.0, _TEMP_NOISE)
-        pres_meas = self._pres_truth + self._rng.gauss(0.0, _PRES_NOISE)
-        flow_meas = self._flow_truth + self._rng.gauss(0.0, _FLOW_NOISE)
+        if getattr(self, '_demo_mode', False):
+            # Portfolio/Demo mode: Reduce noise heavily, avoid sudden spikes, smooth the curves
+            noise_factor = 0.15
+        else:
+            noise_factor = 1.0
+            
+        temp_meas = self._temp_truth + self._rng.gauss(0.0, _TEMP_NOISE * noise_factor)
+        pres_meas = self._pres_truth + self._rng.gauss(0.0, _PRES_NOISE * noise_factor)
+        flow_meas = self._flow_truth + self._rng.gauss(0.0, _FLOW_NOISE * noise_factor)
 
         # ── 4. Physical limit clamping ─────────────────────────────────────
         temp_out, temp_clamped = self._clamp(temp_meas, _TEMP_MIN, _TEMP_MAX)
@@ -283,6 +291,7 @@ def create_well_array(
     temp_bases:  list[float] | None = None,
     pres_bases:  list[float] | None = None,
     flow_bases:  list[float] | None = None,
+    demo_mode:   bool = False,
 ) -> list[GeothermalSensorArray]:
     """
     Instantiate a ``GeothermalSensorArray`` for each well in *well_ids*.
@@ -317,6 +326,7 @@ def create_well_array(
         kwargs: dict = dict(
             well_id      = wid,
             phase_offset = i * phase_step,
+            demo_mode    = demo_mode,
         )
         if temp_bases and i < len(temp_bases):
             kwargs["temp_base"] = temp_bases[i]

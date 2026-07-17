@@ -36,7 +36,7 @@ _Q_LO = 80.0
 _RISK_WARN = 40.0;  _RISK_CRIT = 70.0
 
 # Rolling buffer size
-_MAX_POINTS = 1800  # 1 hour at 2-second scans
+_MAX_POINTS = 45000  # 25 hours at 2-second scans
 
 
 class TrendChartPanel(tk.Frame):
@@ -47,6 +47,8 @@ class TrendChartPanel(tk.Frame):
             well_ids = ["W-01", "W-02", "W-03"]
         self._well_ids = well_ids
         self._mode = "LIVE"
+        self._live_window_minutes = 60
+        self._bg_cache = None
 
         # ── Rolling data buffers ───────────────────────────────────────────
         self._times: deque[datetime] = deque(maxlen=_MAX_POINTS)
@@ -64,9 +66,8 @@ class TrendChartPanel(tk.Frame):
 
         # ── Create matplotlib figure ──────────────────────────────────────
         self._fig = Figure(figsize=(8, 4.5), dpi=85)
-        self._fig.patch.set_facecolor(BG_PRIMARY)
-        # Give more vertical space for stacked KPIs
-        self._fig.subplots_adjust(hspace=0.90, wspace=0.35, left=0.09, right=0.98, top=0.92, bottom=0.15)
+        # Give more vertical space for stacked KPIs and use tight layout internally
+        self._fig.subplots_adjust(hspace=0.80, wspace=0.30, left=0.08, right=0.98, top=0.92, bottom=0.18)
 
         # Create 2x3 subplot grid
         specs = [
@@ -112,7 +113,7 @@ class TrendChartPanel(tk.Frame):
             for wid in well_ids:
                 color = WELL_COLORS.get(wid, "#ffffff")
                 # Add markers for data points
-                line, = ax.plot([], [], color=color, linewidth=1.5, alpha=0.85, label=wid, marker='o', markersize=2, markeredgecolor='none')
+                line, = ax.plot([], [], color=color, linewidth=2.0, alpha=0.85, label=wid, antialiased=True)
                 self._lines[key][wid] = line
 
             # Legend
@@ -193,6 +194,12 @@ class TrendChartPanel(tk.Frame):
                         self.on_chart_click_cb(key, title)
                     break
 
+    def set_live_window_minutes(self, minutes: int):
+        self._live_window_minutes = minutes
+        # Force a full redraw so background is recaptured with new X limits
+        self._bg_cache = None
+        self._canvas.draw_idle()
+
     def set_mode(self, mode: str):
         self._mode = mode
         if mode == "LIVE":
@@ -239,24 +246,37 @@ class TrendChartPanel(tk.Frame):
 
     def _update_kpis(self, key: str, wid: str, y_data: list):
         if not y_data:
-            self._kpi_texts[key][wid].set_text(f"{wid}\nNo Data")
+            self._kpi_texts[key][wid].set_text(f"{wid}\\nNo Data")
             return
         valid_y = [v for v in y_data if v is not None and not np.isnan(v)]
         if not valid_y:
-            self._kpi_texts[key][wid].set_text(f"{wid}\nNo Data")
+            self._kpi_texts[key][wid].set_text(f"{wid}\\nNo Data")
             return
             
+        cur_val = valid_y[-1]
         avg_val = np.mean(valid_y)
         min_val = np.min(valid_y)
         max_val = np.max(valid_y)
-        self._kpi_texts[key][wid].set_text(f"{wid}   Avg: {avg_val:.1f}   Min: {min_val:.1f}   Max: {max_val:.1f}")
+        std_val = np.std(valid_y)
+        
+        # Trend Direction
+        trend = "►"
+        if len(valid_y) >= 5:
+            recent = valid_y[-5:]
+            slope = np.polyfit(range(len(recent)), recent, 1)[0]
+            if slope > (0.01 * cur_val): trend = "▲"
+            elif slope < (-0.01 * cur_val): trend = "▼"
+            
+        unit = next((u for k, t, u, l, th in self._specs if k == key), "")
+        stat_text = (f"{wid} | Cur: {cur_val:.1f} {unit} {trend}\\n"
+                     f"Avg: {avg_val:.1f} | Min: {min_val:.1f} | Max: {max_val:.1f} | σ: {std_val:.2f}")
+        self._kpi_texts[key][wid].set_text(stat_text)
 
     def initialize_history(self, history_data: list[dict]):
         """Injects past history into the LIVE rolling buffer so the chart is full at startup."""
         if not history_data:
             return
             
-        import random
         # Group by well
         for row in history_data:
             wid = row.get('well_id')
@@ -322,10 +342,10 @@ class TrendChartPanel(tk.Frame):
                 health = row.get('health_score', last_health[wid])
                 conf = row.get('confidence', last_conf[wid])
                 
-                # Add random walk noise to historical AI metrics to make them look alive
-                risk = max(0.0, min(100.0, risk + random.uniform(-0.8, 0.8)))
-                health = max(0.0, min(100.0, health + random.uniform(-0.5, 0.5)))
-                conf = max(0.0, min(100.0, conf + random.uniform(-0.6, 0.6)))
+                # Do not fabricate data with random noise, use provided base values
+                risk = max(0.0, min(100.0, risk))
+                health = max(0.0, min(100.0, health))
+                conf = max(0.0, min(100.0, conf))
                 
                 self._data[wid]["risk"].append(risk)
                 self._data[wid]["health"].append(health)
@@ -666,12 +686,7 @@ class TrendChartPanel(tk.Frame):
                 if rul_results and wid in rul_results:
                     conf = rul_results[wid].get("Confidence (%)", global_conf)
                 
-                import random
-                # Inject subtle noise to simulate continuous natural evolution rather than constant values
-                if self._mode == "LIVE":
-                    risk = max(0.0, min(100.0, risk + random.uniform(-0.4, 0.4)))
-                    health = max(0.0, min(100.0, health + random.uniform(-0.2, 0.2)))
-                    conf = max(0.0, min(100.0, conf + random.uniform(-0.3, 0.3)))
+
 
                 self._data[wid]["risk"].append(risk)
                 self._data[wid]["health"].append(health)
@@ -688,15 +703,47 @@ class TrendChartPanel(tk.Frame):
 
         # Auto-scroll X axis for LIVE
         t_max = t
-        t_min = t_max - (_MAX_POINTS * 2.0 / 86400.0) # ~3 minutes in days
-        for ax in self._axes.values():
-            if not self._is_panning:
-                ax.set_xlim(t_min, t_max + (10.0 / 86400.0))
+        t_min = t_max - (self._live_window_minutes * 60.0 / 86400.0)
+        
+        needs_full_redraw = False
+        if not self._is_panning:
+            for ax in self._axes.values():
+                old_min, old_max = ax.get_xlim()
+                if t_max > old_max:
+                    # Advance the window by 10% to prevent continuous full redraws
+                    window = t_max - t_min
+                    ax.set_xlim(t_min, t_max + window * 0.1)
+                    needs_full_redraw = True
 
-        # Throttle redraw to max ~0.5 FPS (every 2 seconds)
-        if not hasattr(self, '_last_redraw_time') or (time.time() - self._last_redraw_time > 2.0):
-            self._canvas.draw_idle()
-            self._last_redraw_time = time.time()
+        if self._bg_cache is None or needs_full_redraw:
+            self._canvas.draw()
+            self._bg_cache = self._canvas.copy_from_bbox(self._fig.bbox)
+        else:
+            self._canvas.restore_region(self._bg_cache)
+            for key in ["temp", "pres", "flow", "risk", "health", "conf"]:
+                for wid in self._well_ids:
+                    if self._lines[key][wid].get_visible():
+                        self._axes[key].draw_artist(self._lines[key][wid])
+                for wid in self._well_ids:
+                    if self._kpi_texts[key][wid].get_visible():
+                        self._axes[key].draw_artist(self._kpi_texts[key][wid])
+            self._canvas.blit(self._fig.bbox)
+            self._canvas.flush_events()
+
+    def export_image(self, format="png"):
+        import os
+        from tkinter import filedialog, messagebox
+        filename = filedialog.asksaveasfilename(
+            defaultextension=f".{format}",
+            filetypes=[(f"{format.upper()} files", f"*.{format}")],
+            title=f"Export Chart as {format.upper()}"
+        )
+        if filename:
+            try:
+                self._fig.savefig(filename, format=format, dpi=150, bbox_inches='tight')
+                messagebox.showinfo("Export Success", f"Chart exported to:\n{os.path.abspath(filename)}")
+            except Exception as e:
+                messagebox.showerror("Export Failed", f"Failed to export image: {e}")
 
     def get_visible_data(self):
         """Returns the currently visible data for exporting to CSV."""
