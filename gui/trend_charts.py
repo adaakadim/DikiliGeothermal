@@ -693,7 +693,10 @@ class TrendChartPanel(tk.Frame):
             if not self._is_panning:
                 ax.set_xlim(t_min, t_max + (10.0 / 86400.0))
 
-        self._canvas.draw_idle()
+        # Throttle redraw to max ~0.5 FPS (every 2 seconds)
+        if not hasattr(self, '_last_redraw_time') or (time.time() - self._last_redraw_time > 2.0):
+            self._canvas.draw_idle()
+            self._last_redraw_time = time.time()
 
     def get_visible_data(self):
         """Returns the currently visible data for exporting to CSV."""

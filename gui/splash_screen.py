@@ -3,7 +3,7 @@ from tkinter import ttk
 import time
 
 class SplashScreen(tk.Toplevel):
-    def __init__(self, parent: tk.Widget = None, title: str = "Dikili Geothermal SCADA", version: str = "1.0.0"):
+    def __init__(self, parent: tk.Widget = None, title: str = "Dikili Geothermal SCADA", version: str = "v1.0.0 Release Candidate"):
         # We can either be a Toplevel (if parent exists) or the temporary Root if no parent.
         if parent:
             super().__init__(parent)

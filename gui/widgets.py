@@ -133,7 +133,7 @@ class KPICard(tk.Frame):
         self._unit  = unit
         self._prev_value: float | None = None
 
-        self.canvas.create_text(self._width // 2, 14, text=label, fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center")
+        self.canvas.create_text(self._width // 2, 14, text=label, fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center", width=self._width - 10, justify="center")
         self._val_id = self.canvas.create_text(self._width // 2, self._height // 2 + 2, text="---",
                                                fill=TEXT_PRIMARY, font=FONT_MONO_LG, anchor="center")
         self._unit_id = self.canvas.create_text(self._width // 2, self._height - 14, text=unit,

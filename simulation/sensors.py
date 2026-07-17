@@ -251,8 +251,6 @@ class GeothermalSensorArray:
         )
         
         self._last_reading = reading
-
-        logger.debug("%s", reading)
         return reading
 
     # ── Helpers ────────────────────────────────────────────────────────────────

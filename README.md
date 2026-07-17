@@ -1,61 +1,42 @@
-<div align="center">
-  <img src="assets/hero_banner.png" alt="DikiliGeothermal Banner" width="100%">
-  
-  <h1>DikiliGeothermal SCADA & Digital Twin</h1>
-  <p><b>AI-Powered Industrial Automation Platform</b></p>
-  
-  [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
-  [![Version](https://img.shields.io/badge/version-1.0.0--enterprise-blue.svg)](#)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
-  [![Python](https://img.shields.io/badge/python-3.13+-blue.svg)](#)
-  [![ISA](https://img.shields.io/badge/compliance-ISA--18.2-orange.svg)](#)
-</div>
+# Dikili Geothermal SCADA Platform
+*v1.0.0 Release Candidate*
 
-## 📖 Overview
-DikiliGeothermal is an enterprise-grade, highly decoupled SCADA (Supervisory Control and Data Acquisition) system. It merges traditional industrial protocols (OPC UA, Modbus TCP, MQTT) with a modern Python-based Digital Twin and real-time AI anomaly detection engine.
+## Project Overview
+The Dikili Geothermal SCADA Platform is an industrial-grade control and monitoring interface for geothermal power plants. It integrates real-time physics simulation, Random Forest-based predictive maintenance, and modern ISA-101 HMI visualizations into a single comprehensive operator workspace.
 
-Designed for the rigors of geothermal power extraction, the architecture strictly decouples the UI from the physical hardware via a unified **Driver Abstraction Layer (DAL)**, ensuring unparalleled testing reliability and zero-regression deployment.
+## Features
+- **Real-Time Digital Twin**: 2D thermodynamic modeling synchronized with live plant telemetry.
+- **AI Operator Assistant**: Autonomous diagnostic engine identifying faults (like pump cavitation or heat exchanger fouling) in real time.
+- **Predictive Maintenance**: Estimates the Remaining Useful Life (RUL) of critical components before catastrophic failure.
+- **Enterprise Reporting**: One-click generation of PDF and CSV compliance reports.
+- **Scenario Manager**: Run "what-if" scenarios directly against the mathematical simulator.
 
-<div align="center">
-  <img src="assets/dashboard_ui.png" alt="Dashboard UI Screenshot" width="80%">
-</div>
+## System Architecture
+Built on a strictly decoupled clean architecture:
+- **Presentation**: `tkinter` structured with strict ISA-101 layout grids.
+- **Application Logic**: Event engines, AI inference pipelines (`sklearn`), and orchestration layers.
+- **Persistence**: High-throughput batched SQLite `DataHistorian`.
 
-## ✨ Key Features
-- 🔌 **Universal Driver Abstraction**: Write logic once. Deploy to Simulation, OPC UA, or Modbus TCP without changing a single line of business code.
-- 🧠 **AI-Assisted Prediction**: Built-in Enterprise Scheduler continuously feeds the Historian pipeline into an anomaly detection engine, predicting equipment failure before the ISA-18.2 alarms trip.
-- 🛡️ **Self-Healing Reliability**: Circuit Breakers and Watchdogs automatically isolate failing subsystems and attempt safe recovery sequences.
-- 📉 **Digital Twin Engine**: Contains a strict software loop mimicking real-world thermodynamic properties, allowing operators to safely test "What-If" scenarios.
+## Installation
 
-## 🚀 5-Minute Quick Start
-To launch the platform in full Simulation mode (no physical PLC required):
+### Requirements
+- Python 3.11+
+- Windows OS (Tested on Windows 11)
+- 4GB RAM Minimum
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/organization/DikiliGeothermal.git
-cd DikiliGeothermal
+### Quick Start
+1. Clone the repository.
+2. Initialize the virtual environment: `python -m venv venv`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Launch the platform: `python -m gui.app`
 
-# 2. Setup the Python Environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+## Documentation
+- [INSTALL.md](INSTALL.md)
+- [USER_MANUAL.md](USER_MANUAL.md)
+- [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)
 
-# 3. Launch in Simulation Mode
-APP_ENV=simulation python -m core.main
-```
+## License
+Proprietary / Closed Source. All Rights Reserved.
 
-## 📚 Comprehensive Documentation
-Our documentation is academic-grade and designed for rapid onboarding.
-- **[Full Documentation Index](docs/README.md)**
-- **[System Architecture Diagrams](docs/diagrams/system_architecture.md)**
-- **[API References](docs/api/scada_core.md)**
-- **[Operator Manual](docs/operators/operator_manual.md)**
-- **[How to Add a New Driver](docs/developers/extensions/add_driver.md)**
-
-## 🤝 Contributing
-We maintain a strict **Zero Regression** policy. Please review our [Contributing Guidelines](CONTRIBUTING.md) and [Coding Standards](docs/developers/documentation_standards.md) before submitting a Pull Request.
-
-## 📄 License & Citation
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-If you use this architecture for academic research, please cite:
-> DikiliGeothermal SCADA Architecture (2026). "Decoupling Hardware via Abstraction Layers in IIoT Pipelines."
+## Authors
+- Advanced Agentic Coding Team

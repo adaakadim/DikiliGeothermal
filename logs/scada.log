@@ -2801,3 +2801,89 @@
 2026-07-16 16:59:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
 2026-07-16 16:59:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
 2026-07-16 16:59:51 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 09:04:21 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 09:04:21 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 09:04:21 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 09:04:21 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 09:04:21 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 09:04:21 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 09:05:05 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 09:27:43 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 09:27:43 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 09:27:43 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 09:27:43 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 09:27:43 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 09:27:43 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 09:27:51 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 09:41:52 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 09:41:52 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 09:41:52 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 0
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 1
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 2
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 3
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 4
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 5
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 6
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 7
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 8
+2026-07-17 09:41:52 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] TEST | EQUIP | Event log sequence 9
+2026-07-17 09:51:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 09:51:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 09:51:38 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 09:51:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 09:51:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 09:51:38 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 09:51:43 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:00:34 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:00:34 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:00:34 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:00:34 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:00:34 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:00:34 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:00:42 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:05:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:05:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:05:45 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:05:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:05:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:05:45 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:05:56 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:09:06 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:09:06 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:09:06 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:09:06 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:09:06 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:09:06 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:09:13 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:09:13 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:09:13 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:09:13 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:09:13 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:09:13 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:09:17 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:09:23 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:11:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:11:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:11:09 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:11:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:11:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:11:09 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:11:17 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:45:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:45:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:45:46 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:45:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:45:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:45:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:46:12 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH
+2026-07-17 10:55:27 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] SYSTEM | Main Server | System boot sequence initiated.
+2026-07-17 10:55:27 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] MAINTENANCE | P-101 | Routine inspection completed.
+2026-07-17 10:55:27 [INFO] scada.alarm_manager [NO-CORRELATION] - [EVENT] OPERATOR | Admin | User logged in.
+2026-07-17 10:55:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-17 10:55:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-17 10:55:27 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-17 10:55:53 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH

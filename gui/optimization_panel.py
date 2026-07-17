@@ -85,7 +85,7 @@ class OptimizationPanel(tk.Frame):
         frame.grid(row=row, column=col, sticky="nsew", padx=5)
         parent.grid_columnconfigure(col, weight=1)
         
-        tk.Label(frame, text=tr(title), bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL).pack()
+        tk.Label(frame, text=tr(title), bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL, wraplength=120, justify="center").pack()
         lbl_val = tk.Label(frame, text="0.0", bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=FONT_MONO_LG)
         lbl_val.pack()
         return lbl_val
@@ -151,6 +151,8 @@ class OptimizationPanel(tk.Frame):
             
     def update_history_graph(self, history_manager):
         """Update the historical efficiency chart."""
+        if not self.winfo_ismapped(): return
+        
         self._ax.clear()
         self._ax.set_facecolor(BG_SECONDARY)
         self._ax.tick_params(colors=TEXT_PRIMARY, labelsize=9)

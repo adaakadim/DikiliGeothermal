@@ -9,21 +9,21 @@ class KPICard(ttk.Frame):
         super().__init__(parent, style="Card.TFrame")
         
         # Inner padding frame
-        self.inner = ttk.Frame(self, style="Card.TFrame")
+        self.inner = tk.Frame(self, bg=BG_SECONDARY)
         self.inner.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
         
         # Header (Title + Time)
-        self.header = ttk.Frame(self.inner, style="Card.TFrame")
+        self.header = tk.Frame(self.inner, bg=BG_SECONDARY)
         self.header.pack(fill=tk.X)
         
-        self.lbl_title = tk.Label(self.header, text=title.upper(), font=FONT_LABEL, bg=BG_SECONDARY, fg="#94a3b8")
+        self.lbl_title = tk.Label(self.header, text=title.upper(), font=FONT_LABEL, bg=BG_SECONDARY, fg="#94a3b8", wraplength=120)
         self.lbl_title.pack(side=tk.LEFT)
         
         self.lbl_time = tk.Label(self.header, text="--:--:--", font=("Segoe UI", 8), bg=BG_SECONDARY, fg="#64748b")
         self.lbl_time.pack(side=tk.RIGHT)
         
         # Value row
-        self.val_frame = ttk.Frame(self.inner, style="Card.TFrame")
+        self.val_frame = tk.Frame(self.inner, bg=BG_SECONDARY)
         self.val_frame.pack(fill=tk.X, pady=(15, 0))
         
         self.lbl_val = tk.Label(self.val_frame, text=default_val, font=("Segoe UI", 24, "bold"), bg=BG_SECONDARY, fg=TEXT_PRIMARY)

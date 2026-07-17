@@ -18,7 +18,7 @@ class ApplicationMetadata:
     
     def __init__(self):
         self.app_name = cm.get('app.name', 'DikiliGeothermal')
-        self.version = cm.get('app.version', '1.0.0')
+        self.version = cm.get('app.version', 'v1.0.0 Release Candidate')
         self.build_number = "1002"  # Or loaded from an internal build file
         self.release_date = "2026-07-08"
         self.python_version = platform.python_version()

@@ -109,8 +109,9 @@ class AIOperatorPanel(ttk.Frame):
             self.tree_equip.delete(item)
             
         for eq_id, health in assessment.health_summary.items():
-            status = "CRITICAL" if health.health_score < 40 else ("WARNING" if health.health_score < 75 else "NORMAL")
-            self.tree_equip.insert("", tk.END, values=(eq_id, f"{health.health_score:.1f}", status))
+            status = health.name if hasattr(health, 'name') else str(health)
+            score = 100.0 if status == "GOOD" else (60.0 if status == "WARNING" else 20.0)
+            self.tree_equip.insert("", tk.END, values=(eq_id, f"{score:.1f}", status))
             
         # Update Recommendations
         self._update_text(self.txt_op_recs, assessment.operational_recs)

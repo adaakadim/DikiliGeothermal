@@ -33397,3 +33397,133 @@
 2026-07-16 16:59:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 91.37 C  P=7.704 bar  Q= 175.6 m3/h  [OK]
 2026-07-16 16:59:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.70 C  P=7.556 bar  Q= 169.5 m3/h  [OK]
 2026-07-16 16:59:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 92.18 C  P=7.208 bar  Q= 184.4 m3/h  [OK]
+2026-07-17 09:04:21 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 09:04:21 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 09:04:21 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 09:04:21 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 09:04:39 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 91.64 C  P=7.515 bar  Q= 172.9 m3/h  [OK|GOOD]
+2026-07-17 09:04:39 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.49 C  P=7.786 bar  Q= 166.8 m3/h  [OK|GOOD]
+2026-07-17 09:04:39 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 92.33 C  P=7.522 bar  Q= 182.9 m3/h  [OK|GOOD]
+2026-07-17 09:05:14 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 90.75 C  P=7.555 bar  Q= 173.5 m3/h  [OK|GOOD]
+2026-07-17 09:05:14 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.70 C  P=7.989 bar  Q= 160.7 m3/h  [OK|GOOD]
+2026-07-17 09:05:14 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 92.71 C  P=7.637 bar  Q= 192.1 m3/h  [OK|GOOD]
+2026-07-17 09:05:17 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 90.41 C  P=7.585 bar  Q= 171.7 m3/h  [OK|GOOD]
+2026-07-17 09:05:17 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.63 C  P=8.167 bar  Q= 154.5 m3/h  [OK|GOOD]
+2026-07-17 09:05:17 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 93.11 C  P=7.725 bar  Q= 198.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:20 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 89.88 C  P=7.614 bar  Q= 171.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:20 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.03 C  P=8.441 bar  Q= 149.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:20 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 93.05 C  P=7.626 bar  Q= 204.6 m3/h  [OK|GOOD]
+2026-07-17 09:05:24 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 89.00 C  P=7.588 bar  Q= 168.5 m3/h  [OK|GOOD]
+2026-07-17 09:05:24 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 90.67 C  P=8.596 bar  Q= 142.4 m3/h  [OK|GOOD]
+2026-07-17 09:05:24 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 93.37 C  P=7.689 bar  Q= 212.5 m3/h  [OK|GOOD]
+2026-07-17 09:05:27 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 88.94 C  P=7.629 bar  Q= 167.6 m3/h  [OK|GOOD]
+2026-07-17 09:05:27 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 90.56 C  P=8.799 bar  Q= 141.4 m3/h  [OK|GOOD]
+2026-07-17 09:05:27 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 93.26 C  P=7.714 bar  Q= 215.1 m3/h  [OK|GOOD]
+2026-07-17 09:05:30 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 88.61 C  P=7.624 bar  Q= 168.9 m3/h  [OK|GOOD]
+2026-07-17 09:05:30 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 90.40 C  P=8.875 bar  Q= 139.2 m3/h  [OK|GOOD]
+2026-07-17 09:05:30 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 93.96 C  P=7.705 bar  Q= 219.0 m3/h  [OK|GOOD]
+2026-07-17 09:05:34 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 88.02 C  P=7.650 bar  Q= 167.2 m3/h  [OK|GOOD]
+2026-07-17 09:05:34 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 90.22 C  P=8.879 bar  Q= 134.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:34 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 94.00 C  P=7.685 bar  Q= 223.5 m3/h  [OK|GOOD]
+2026-07-17 09:05:36 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 87.59 C  P=7.684 bar  Q= 166.1 m3/h  [OK|GOOD]
+2026-07-17 09:05:36 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 90.01 C  P=9.010 bar  Q= 132.0 m3/h  [OK|GOOD]
+2026-07-17 09:05:36 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 94.11 C  P=7.770 bar  Q= 226.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:40 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 87.07 C  P=7.659 bar  Q= 166.2 m3/h  [OK|GOOD]
+2026-07-17 09:05:40 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.96 C  P=9.119 bar  Q= 129.7 m3/h  [OK|GOOD]
+2026-07-17 09:05:40 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 94.57 C  P=7.686 bar  Q= 227.8 m3/h  [OK|GOOD]
+2026-07-17 09:05:44 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 87.33 C  P=7.709 bar  Q= 168.2 m3/h  [OK|GOOD]
+2026-07-17 09:05:44 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.96 C  P=9.195 bar  Q= 128.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:44 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 94.73 C  P=7.642 bar  Q= 230.4 m3/h  [OK|GOOD]
+2026-07-17 09:05:47 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 87.29 C  P=7.675 bar  Q= 167.9 m3/h  [OK|GOOD]
+2026-07-17 09:05:47 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.79 C  P=9.304 bar  Q= 125.9 m3/h  [OK|GOOD]
+2026-07-17 09:05:47 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.20 C  P=7.621 bar  Q= 233.2 m3/h  [OK|GOOD]
+2026-07-17 09:05:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 86.55 C  P=7.753 bar  Q= 164.7 m3/h  [OK|GOOD]
+2026-07-17 09:05:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.77 C  P=9.278 bar  Q= 123.3 m3/h  [OK|GOOD]
+2026-07-17 09:05:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.25 C  P=7.560 bar  Q= 234.5 m3/h  [OK|GOOD]
+2026-07-17 09:05:54 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 86.60 C  P=7.707 bar  Q= 163.1 m3/h  [OK|GOOD]
+2026-07-17 09:05:54 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.12 C  P=9.335 bar  Q= 120.6 m3/h  [OK|GOOD]
+2026-07-17 09:05:54 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 94.90 C  P=7.701 bar  Q= 238.0 m3/h  [OK|GOOD]
+2026-07-17 09:05:57 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 86.13 C  P=7.692 bar  Q= 166.6 m3/h  [OK|GOOD]
+2026-07-17 09:05:57 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.49 C  P=9.462 bar  Q= 121.6 m3/h  [OK|GOOD]
+2026-07-17 09:05:57 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.10 C  P=7.564 bar  Q= 240.2 m3/h  [OK|GOOD]
+2026-07-17 09:06:00 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 86.38 C  P=7.754 bar  Q= 164.5 m3/h  [OK|GOOD]
+2026-07-17 09:06:00 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.28 C  P=9.436 bar  Q= 118.2 m3/h  [OK|GOOD]
+2026-07-17 09:06:00 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.52 C  P=7.617 bar  Q= 239.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:04 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 86.46 C  P=7.745 bar  Q= 165.1 m3/h  [OK|GOOD]
+2026-07-17 09:06:04 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.24 C  P=9.446 bar  Q= 119.8 m3/h  [OK|GOOD]
+2026-07-17 09:06:04 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.27 C  P=7.631 bar  Q= 242.3 m3/h  [OK|GOOD]
+2026-07-17 09:06:07 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.88 C  P=7.729 bar  Q= 165.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:07 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.56 C  P=9.399 bar  Q= 117.7 m3/h  [OK|GOOD]
+2026-07-17 09:06:07 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.13 C  P=7.561 bar  Q= 243.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:11 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.68 C  P=7.824 bar  Q= 164.5 m3/h  [OK|GOOD]
+2026-07-17 09:06:11 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.56 C  P=9.538 bar  Q= 119.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:11 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.69 C  P=7.498 bar  Q= 245.5 m3/h  [OK|GOOD]
+2026-07-17 09:06:14 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.22 C  P=7.755 bar  Q= 163.8 m3/h  [OK|GOOD]
+2026-07-17 09:06:14 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.32 C  P=9.516 bar  Q= 117.1 m3/h  [OK|GOOD]
+2026-07-17 09:06:14 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.98 C  P=7.654 bar  Q= 244.8 m3/h  [OK|GOOD]
+2026-07-17 09:06:17 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.62 C  P=7.778 bar  Q= 161.2 m3/h  [OK|GOOD]
+2026-07-17 09:06:17 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.41 C  P=9.485 bar  Q= 116.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:17 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 96.04 C  P=7.524 bar  Q= 244.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:21 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 84.88 C  P=7.755 bar  Q= 163.3 m3/h  [OK|GOOD]
+2026-07-17 09:06:21 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.58 C  P=9.605 bar  Q= 115.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:21 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.89 C  P=7.529 bar  Q= 243.9 m3/h  [OK|GOOD]
+2026-07-17 09:06:25 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.40 C  P=7.672 bar  Q= 161.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:25 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.10 C  P=9.610 bar  Q= 116.1 m3/h  [OK|GOOD]
+2026-07-17 09:06:25 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.72 C  P=7.526 bar  Q= 247.6 m3/h  [OK|GOOD]
+2026-07-17 09:06:27 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.27 C  P=7.674 bar  Q= 160.9 m3/h  [OK|GOOD]
+2026-07-17 09:06:27 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.43 C  P=9.582 bar  Q= 113.9 m3/h  [OK|GOOD]
+2026-07-17 09:06:27 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.51 C  P=7.565 bar  Q= 248.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:31 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.38 C  P=7.775 bar  Q= 162.2 m3/h  [OK|GOOD]
+2026-07-17 09:06:31 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.16 C  P=9.591 bar  Q= 116.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:31 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.47 C  P=7.508 bar  Q= 246.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:35 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.25 C  P=7.749 bar  Q= 163.3 m3/h  [OK|GOOD]
+2026-07-17 09:06:35 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 88.81 C  P=9.581 bar  Q= 113.6 m3/h  [OK|GOOD]
+2026-07-17 09:06:35 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.85 C  P=7.474 bar  Q= 247.0 m3/h  [OK|GOOD]
+2026-07-17 09:06:38 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 85.04 C  P=7.776 bar  Q= 162.1 m3/h  [OK|GOOD]
+2026-07-17 09:06:38 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 89.03 C  P=9.657 bar  Q= 113.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:38 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 96.08 C  P=7.465 bar  Q= 248.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:42 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 84.80 C  P=7.794 bar  Q= 162.8 m3/h  [OK|GOOD]
+2026-07-17 09:06:42 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 88.62 C  P=9.594 bar  Q= 114.6 m3/h  [OK|GOOD]
+2026-07-17 09:06:42 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 96.35 C  P=7.501 bar  Q= 249.5 m3/h  [OK|GOOD]
+2026-07-17 09:06:46 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 84.61 C  P=7.750 bar  Q= 160.4 m3/h  [OK|GOOD]
+2026-07-17 09:06:46 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 88.95 C  P=9.677 bar  Q= 114.5 m3/h  [OK|GOOD]
+2026-07-17 09:06:46 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.94 C  P=7.494 bar  Q= 243.1 m3/h  [OK|GOOD]
+2026-07-17 09:06:49 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 84.67 C  P=7.731 bar  Q= 161.3 m3/h  [OK|GOOD]
+2026-07-17 09:06:49 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 88.98 C  P=9.610 bar  Q= 113.8 m3/h  [OK|GOOD]
+2026-07-17 09:06:49 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 95.58 C  P=7.443 bar  Q= 248.3 m3/h  [OK|GOOD]
+2026-07-17 09:27:43 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 09:27:43 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 09:27:43 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 09:27:43 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 09:51:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 09:51:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 09:51:38 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 09:51:38 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:00:34 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:00:34 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:00:34 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:00:34 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:05:45 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:05:45 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:05:45 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:05:45 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:09:06 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:09:06 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:09:06 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:09:06 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:09:13 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:09:13 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:09:13 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:09:13 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:11:09 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:11:09 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:11:09 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:11:09 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:45:46 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:45:46 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:45:46 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:45:46 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-17 10:55:27 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-17 10:55:27 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-17 10:55:27 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-17 10:55:27 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']

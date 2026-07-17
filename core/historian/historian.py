@@ -35,9 +35,9 @@ class DataHistorian:
         
         # Load performance limits
         from core.configuration import config
-        self._batch_size = config.get("performance.historian.batch_size", 50)
-        self._flush_interval_s = config.get("performance.historian.flush_interval_s", 5.0)
-        self._queue_limit = config.get("performance.historian.queue_size_limit", 1000)
+        self._batch_size = config.get("performance.historian.batch_size", 200)
+        self._flush_interval_s = config.get("performance.historian.flush_interval_s", 15.0)
+        self._queue_limit = config.get("performance.historian.queue_size_limit", 5000)
         
         self._init_db()
 
@@ -118,16 +118,21 @@ class DataHistorian:
         if not self._conn or not self._write_buffer:
             return
             
+        # Swap buffer
+        buffer_copy = list(self._write_buffer)
+        self._write_buffer.clear()
+        
+        import threading
+        threading.Thread(target=self._flush_worker, args=(buffer_copy,), daemon=True).start()
+
+    def _flush_worker(self, items):
         try:
             cursor = self._conn.cursor()
-            # Wrap all buffered insertions in a single transaction
-            cursor.execute("BEGIN TRANSACTION")
-            for item in self._write_buffer:
+            for item in items:
                 cursor.execute(item["query"], item["params"])
             self._conn.commit()
             
-            self._total_writes_count += len(self._write_buffer)
-            self._write_buffer.clear()
+            self._total_writes_count += len(items)
             self._last_flush_time = time.time()
             self._last_successful_write = time.time()
             reliability_manager.update_status("Historian", SubsystemStatus.ONLINE)

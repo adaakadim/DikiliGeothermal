@@ -6,7 +6,7 @@ app:
   location: "Dikili, Izmir, Turkey"
   latitude: 39.0706
   longitude: 26.8905
-  version: "1.0.0"
+  version: "v1.0.0 Release Candidate"
 
 scada:
   scan_interval_sec: 2.0

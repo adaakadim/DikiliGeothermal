@@ -170,6 +170,7 @@ class AnomalyPanel(tk.Frame):
 
     def update_history_graph(self, score_trend: List[float]):
         """Update the anomaly score trend chart."""
+        if not self.winfo_ismapped(): return
         self._ax.clear()
         self._ax.set_facecolor(BG_SECONDARY)
         self._ax.tick_params(colors=TEXT_PRIMARY, labelsize=9)

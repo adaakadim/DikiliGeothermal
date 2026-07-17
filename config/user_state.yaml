@@ -3,7 +3,7 @@ app:
   location: Dikili, Izmir, Turkey
   longitude: 26.8905
   name: Dikili Geothermal (DEV)
-  version: 1.0.0
+  version: "v1.0.0 Release Candidate"
 connectivity:
   modbus_host: 127.0.0.1
   modbus_port: 502

@@ -244,6 +244,11 @@ def setup_theme(root):
     style.configure("TButton", background="#334155", foreground="#f8fafc", borderwidth=0, padding=5, font=FONT_LABEL)
     style.map("TButton", background=[("active", "#475569"), ("disabled", "#1e293b")])
     
+    # Entries and Comboboxes
+    style.configure("TEntry", fieldbackground=BG_INPUT, foreground=TEXT_PRIMARY, insertcolor=TEXT_PRIMARY)
+    style.configure("TCombobox", fieldbackground=BG_INPUT, foreground=TEXT_PRIMARY, selectbackground="#3b82f6", selectforeground="#ffffff")
+    style.map("TCombobox", fieldbackground=[('readonly', BG_INPUT)])
+    
     # Treeview
     style.configure("Treeview", background=BG_SECONDARY, fieldbackground=BG_SECONDARY, foreground=TEXT_PRIMARY, rowheight=25)
     style.configure("Treeview.Heading", background="#334155", foreground="#f8fafc", font=FONT_LABEL)

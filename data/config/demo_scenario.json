@@ -1,0 +1,15 @@
+{
+  "scenario_id": "demo_01",
+  "name": "Release Candidate Demo",
+  "description": "Standard startup demonstration scenario with moderate loading.",
+  "overrides": {
+    "P-101": {
+      "Flow Rate (m3/h)": 150.0,
+      "Discharge Pressure (bar)": 8.5
+    },
+    "W-01": {
+      "Temperature (C)": 95.0,
+      "Pressure (bar)": 10.0
+    }
+  }
+}

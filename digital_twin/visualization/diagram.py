@@ -335,6 +335,7 @@ class ProcessDiagram(tk.Frame):
         self._rendering_scheduler.schedule(lambda: self._actual_update_from_twin(facility))
 
     def _actual_update_from_twin(self, facility):
+        if not self.winfo_ismapped(): return
         self._facility = facility
         if not hasattr(self, '_anim_state'):
             self._anim_state = {}
