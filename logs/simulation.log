@@ -33383,3 +33383,17 @@
 2026-07-16 16:57:06 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 91.25 C  P=7.730 bar  Q= 175.7 m3/h  [OK]
 2026-07-16 16:57:06 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.96 C  P=7.451 bar  Q= 169.1 m3/h  [OK]
 2026-07-16 16:57:06 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 92.42 C  P=7.274 bar  Q= 186.1 m3/h  [OK]
+2026-07-16 16:58:35 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-16 16:58:35 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-16 16:58:35 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-16 16:58:35 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-16 16:58:37 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 91.84 C  P=7.755 bar  Q= 174.6 m3/h  [OK]
+2026-07-16 16:58:37 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.50 C  P=7.419 bar  Q= 166.5 m3/h  [OK]
+2026-07-16 16:58:37 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 92.44 C  P=7.241 bar  Q= 183.0 m3/h  [OK]
+2026-07-16 16:59:46 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-01' initialised (phase=0 s).
+2026-07-16 16:59:46 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-02' initialised (phase=4800 s).
+2026-07-16 16:59:46 [DEBUG] simulation.sensors [NO-CORRELATION] - GeothermalSensorArray 'W-03' initialised (phase=9600 s).
+2026-07-16 16:59:46 [INFO] simulation.sensors [NO-CORRELATION] - Created 3 GeothermalSensorArray instances: ['W-01', 'W-02', 'W-03']
+2026-07-16 16:59:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-01] T= 91.37 C  P=7.704 bar  Q= 175.6 m3/h  [OK]
+2026-07-16 16:59:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-02] T= 91.70 C  P=7.556 bar  Q= 169.5 m3/h  [OK]
+2026-07-16 16:59:50 [DEBUG] simulation.sensors [NO-CORRELATION] - [W-03] T= 92.18 C  P=7.208 bar  Q= 184.4 m3/h  [OK]

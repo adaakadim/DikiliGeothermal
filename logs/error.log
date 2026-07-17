@@ -8212,3 +8212,28 @@ Feature names seen at fit time, yet now missing:
 2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
 2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
 2026-07-16 16:57:07 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 16:58:33 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SHAP check failed: cannot import name 'SHAPExplainer' from 'analytics.ai.shap_explainer' (C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\analytics\ai\shap_explainer.py)
+2026-07-16 16:58:33 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Scenario Sim check failed: No module named 'analytics.simulation.scenario_runner'
+2026-07-16 16:58:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:58:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:58:35 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:58:35 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'PROD-PIPE'. Returning default empty template.
+2026-07-16 16:58:35 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'RET-PIPE'. Returning default empty template.
+2026-07-16 16:58:37 [WARNING] HistorianUI [NO-CORRELATION] - Historian query returned no data for the past 1 hour.
+2026-07-16 16:58:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:58:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 16:58:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:58:38 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 16:59:43 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SHAP check failed: cannot import name 'SHAPExplainer' from 'analytics.ai.shap_explainer' (C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\analytics\ai\shap_explainer.py)
+2026-07-16 16:59:43 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Scenario Sim check failed: No module named 'analytics.simulation.scenario_runner'
+2026-07-16 16:59:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM P101_VIB] High vibration detected on motor casing | Tag: P-101 | Priority: HIGH
+2026-07-16 16:59:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM HX_TEMP_LO] Outlet temperature below setpoint | Tag: HX-101 | Priority: WARNING
+2026-07-16 16:59:46 [WARNING] scada.alarm_manager [NO-CORRELATION] - [TRADITIONAL ALARM SEP_LVL_HI] Brine level approaching limit | Tag: SEP-01 | Priority: CRITICAL
+2026-07-16 16:59:46 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'PROD-PIPE'. Returning default empty template.
+2026-07-16 16:59:46 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'RET-PIPE'. Returning default empty template.
+2026-07-16 16:59:50 [WARNING] HistorianUI [NO-CORRELATION] - Historian query returned no data for the past 1 hour.
+2026-07-16 16:59:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'PumpFailure_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:59:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'PumpFailure_RF'.
+2026-07-16 16:59:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature count mismatch for 'Maintenance_RF'. Model has 27, manifest expects 21.
+2026-07-16 16:59:51 [WARNING] analytics.ai.random_forest.model_metadata [NO-CORRELATION] - Version Warning: Feature columns mismatch for 'Maintenance_RF'.
+2026-07-16 16:59:51 [WARNING] scada.alarm_manager [NO-CORRELATION] - [PREDICTIVE_AI ALARM AI_PUMP_FAIL] AI predicted critical pump failure | Tag: AI_PRED | Priority: HIGH

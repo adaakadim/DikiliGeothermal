@@ -12,6 +12,7 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any
+from core.reliability.reliability_manager import reliability_manager, SubsystemStatus
 
 logger = logging.getLogger(__name__)
 
@@ -92,9 +93,18 @@ class DataHistorian:
 
     def _queue_write(self, query: str, params: tuple):
         """Queue a write query in memory and check flush limits."""
+        # If queue is excessively large, start dropping oldest data to prevent OOM
+        if len(self._write_buffer) >= self._queue_limit * 5:
+            logger.error("[HISTORIAN] Critical buffer size reached! Dropping oldest data.")
+            self._write_buffer = self._write_buffer[-self._queue_limit * 3:]
+            
         if len(self._write_buffer) >= self._queue_limit:
-            logger.warning("[HISTORIAN] Queue limit exceeded! Forcing synchronous flush.")
+            if not getattr(self, "_warned_queue", False):
+                logger.warning("[HISTORIAN] Queue limit exceeded! Historian might be offline.")
+                self._warned_queue = True
             self.flush()
+        else:
+            self._warned_queue = False
             
         self._write_buffer.append({"query": query, "params": params})
         
@@ -120,7 +130,14 @@ class DataHistorian:
             self._write_buffer.clear()
             self._last_flush_time = time.time()
             self._last_successful_write = time.time()
+            reliability_manager.update_status("Historian", SubsystemStatus.ONLINE)
         except sqlite3.Error as e:
+            reliability_manager.update_status(
+                "Historian", SubsystemStatus.OFFLINE,
+                event=f"DB Write Error: {str(e)[:50]}",
+                severity="ERROR",
+                recovery_action="Buffering data in memory"
+            )
             logger.error(f"Historian buffer flush error: {e}")
             try:
                 self._conn.rollback()

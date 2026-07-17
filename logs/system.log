@@ -32494,3 +32494,117 @@
 2026-07-16 16:57:15 [INFO] security.authentication [NO-CORRELATION] - Successful login: User 'dikili' logged in.
 2026-07-16 16:58:02 [INFO] core.performance [NO-CORRELATION] - Cleared all Matplotlib figure references.
 2026-07-16 16:58:02 [INFO] core.performance [NO-CORRELATION] - Forced garbage collection cycle completed.
+2026-07-16 16:58:33 [INFO] core.logging.logger_setup [NO-CORRELATION] - Enterprise logging framework initialized.
+2026-07-16 16:58:33 [INFO] root [NO-CORRELATION] - Logging framework initialized at level DEBUG.
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] - ============================================================
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Application    : Dikili Geothermal (DEV)
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Version        : 1.0.0 (Build 1002)
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Release Date   : 2026-07-08
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Python Version : 3.13.14
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   OS             : Windows 11
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Environment    : DEVELOPMENT
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Config Profile : Default
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Startup Time   : 2026-07-16 16:58:33
+2026-07-16 16:58:33 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] - ============================================================
+2026-07-16 16:58:33 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SHAP check failed: cannot import name 'SHAPExplainer' from 'analytics.ai.shap_explainer' (C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\analytics\ai\shap_explainer.py)
+2026-07-16 16:58:33 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Scenario Sim check failed: No module named 'analytics.simulation.scenario_runner'
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - 
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] -    SYSTEM STARTUP SUMMARY   
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Configuration ........ READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Logging .............. READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Simulation ........... READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Sensor Manager ....... READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Historian ............ READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Alarm Manager ........ READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Dashboard ............ READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Digital Twin ......... READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - AI Engine ............ READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SHAP ................. WARNING
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Optimization ......... READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Decision Support ..... READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Scenario Simulation .. WARNING
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Overall Status:
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SYSTEM READY
+2026-07-16 16:58:33 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+
+2026-07-16 16:58:33 [INFO] core.config.system_config [NO-CORRELATION] - SystemConfig loaded from Environment: development
+2026-07-16 16:58:35 [INFO] core.connectivity.simulator_provider [NO-CORRELATION] - SimulatorDataProvider connected successfully.
+2026-07-16 16:58:35 [INFO] core.historian.historian [NO-CORRELATION] - Historian initialized at data\historian.db
+2026-07-16 16:58:35 [INFO] core.config.system_config [NO-CORRELATION] - SystemConfig loaded from Environment: development
+2026-07-16 16:58:35 [INFO] core.safety.fail_safe [NO-CORRELATION] - Fail-Safe Manager initialized.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - Communication Monitor initialized.
+2026-07-16 16:58:35 [INFO] core.diagnostics.auto_recovery [NO-CORRELATION] - Self-Diagnostics & Auto Recovery Engine initialised.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] HMI Core | CONNECTED | Module HMI Core registered.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Tag Database | CONNECTED | Module Tag Database registered.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Alarm Manager | CONNECTED | Module Alarm Manager registered.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] AI Engine | CONNECTED | Module AI Engine registered.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Historian | CONNECTED | Module Historian registered.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Digital Twin | CONNECTED | Module Digital Twin registered.
+2026-07-16 16:58:35 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Sensor Manager | CONNECTED | Module Sensor Manager registered.
+2026-07-16 16:58:36 [INFO] HistorianUI [NO-CORRELATION] - Initializing Historian & Trend Analysis Workspace.
+2026-07-16 16:58:37 [INFO] hmi.main_window [NO-CORRELATION] - SCADA GUI starting.
+2026-07-16 16:58:37 [INFO] HistorianUI [NO-CORRELATION] - Pre-loading live historian buffer with past 1 hour of data...
+2026-07-16 16:58:37 [WARNING] HistorianUI [NO-CORRELATION] - Historian query returned no data for the past 1 hour.
+2026-07-16 16:58:37 [DEBUG] analytics.fault_detector [NO-CORRELATION] - [16:58:37] W-01       RISK=  0.0/100  HEALTH=GOOD      FAULTS: none
+2026-07-16 16:58:37 [DEBUG] analytics.fault_detector [NO-CORRELATION] - [16:58:37] W-02       RISK=  0.0/100  HEALTH=GOOD      FAULTS: none
+2026-07-16 16:58:37 [DEBUG] analytics.fault_detector [NO-CORRELATION] - [16:58:37] W-03       RISK=  0.0/100  HEALTH=GOOD      FAULTS: none
+2026-07-16 16:59:43 [INFO] core.logging.logger_setup [NO-CORRELATION] - Enterprise logging framework initialized.
+2026-07-16 16:59:43 [INFO] root [NO-CORRELATION] - Logging framework initialized at level DEBUG.
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] - ============================================================
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Application    : Dikili Geothermal (DEV)
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Version        : 1.0.0 (Build 1002)
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Release Date   : 2026-07-08
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Python Version : 3.13.14
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   OS             : Windows 11
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Environment    : DEVELOPMENT
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Config Profile : Default
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] -   Startup Time   : 2026-07-16 16:59:43
+2026-07-16 16:59:43 [INFO] core.diagnostics.application_metadata [NO-CORRELATION] - ============================================================
+2026-07-16 16:59:43 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SHAP check failed: cannot import name 'SHAPExplainer' from 'analytics.ai.shap_explainer' (C:\Users\kadim\.gemini\antigravity-ide\scratch\DikiliGeothermal\analytics\ai\shap_explainer.py)
+2026-07-16 16:59:43 [WARNING] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Scenario Sim check failed: No module named 'analytics.simulation.scenario_runner'
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - 
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] -    SYSTEM STARTUP SUMMARY   
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Configuration ........ READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Logging .............. READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Simulation ........... READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Sensor Manager ....... READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Historian ............ READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Alarm Manager ........ READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Dashboard ............ READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Digital Twin ......... READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - AI Engine ............ READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SHAP ................. WARNING
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Optimization ......... READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Decision Support ..... READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Scenario Simulation .. WARNING
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - Overall Status:
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - SYSTEM READY
+2026-07-16 16:59:43 [INFO] core.diagnostics.startup_diagnostics [NO-CORRELATION] - ============================
+
+2026-07-16 16:59:43 [INFO] core.config.system_config [NO-CORRELATION] - SystemConfig loaded from Environment: development
+2026-07-16 16:59:46 [INFO] core.connectivity.simulator_provider [NO-CORRELATION] - SimulatorDataProvider connected successfully.
+2026-07-16 16:59:47 [INFO] core.historian.historian [NO-CORRELATION] - Historian initialized at data\historian.db
+2026-07-16 16:59:47 [INFO] core.config.system_config [NO-CORRELATION] - SystemConfig loaded from Environment: development
+2026-07-16 16:59:47 [INFO] core.safety.fail_safe [NO-CORRELATION] - Fail-Safe Manager initialized.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - Communication Monitor initialized.
+2026-07-16 16:59:47 [INFO] core.diagnostics.auto_recovery [NO-CORRELATION] - Self-Diagnostics & Auto Recovery Engine initialised.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] HMI Core | CONNECTED | Module HMI Core registered.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Tag Database | CONNECTED | Module Tag Database registered.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Alarm Manager | CONNECTED | Module Alarm Manager registered.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] AI Engine | CONNECTED | Module AI Engine registered.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Historian | CONNECTED | Module Historian registered.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Digital Twin | CONNECTED | Module Digital Twin registered.
+2026-07-16 16:59:47 [INFO] core.diagnostics.communication_monitor [NO-CORRELATION] - [COMM_MONITOR] Sensor Manager | CONNECTED | Module Sensor Manager registered.
+2026-07-16 16:59:48 [INFO] HistorianUI [NO-CORRELATION] - Initializing Historian & Trend Analysis Workspace.
+2026-07-16 16:59:50 [INFO] hmi.main_window [NO-CORRELATION] - SCADA GUI starting.
+2026-07-16 16:59:50 [INFO] HistorianUI [NO-CORRELATION] - Pre-loading live historian buffer with past 1 hour of data...
+2026-07-16 16:59:50 [WARNING] HistorianUI [NO-CORRELATION] - Historian query returned no data for the past 1 hour.
+2026-07-16 16:59:50 [DEBUG] analytics.fault_detector [NO-CORRELATION] - [16:59:50] W-01       RISK=  0.0/100  HEALTH=GOOD      FAULTS: none
+2026-07-16 16:59:50 [DEBUG] analytics.fault_detector [NO-CORRELATION] - [16:59:50] W-02       RISK=  0.0/100  HEALTH=GOOD      FAULTS: none
+2026-07-16 16:59:50 [DEBUG] analytics.fault_detector [NO-CORRELATION] - [16:59:50] W-03       RISK=  0.0/100  HEALTH=GOOD      FAULTS: none

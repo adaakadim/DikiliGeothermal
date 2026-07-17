@@ -1899,3 +1899,31 @@
 2026-07-16 16:57:05 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'alarm' set to visible.
 2026-07-16 16:57:05 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'maintenance' set to visible.
 2026-07-16 16:57:05 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'thermal' set to visible.
+2026-07-16 16:58:35 [INFO] digital_twin.asset_registry [NO-CORRELATION] - Loaded 10 assets into Digital Twin Asset Registry.
+2026-07-16 16:58:35 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'PROD-PIPE'. Returning default empty template.
+2026-07-16 16:58:35 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'RET-PIPE'. Returning default empty template.
+2026-07-16 16:58:36 [INFO] digital_twin.layout_engine [NO-CORRELATION] - Loaded layout: dikili_geothermal_01 (Version 1.2.0)
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Loaded 9 visualization layers from JSON config.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'background' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'pipeline' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'equipment' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'label' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'sensor' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'ai' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'alarm' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'maintenance' set to visible.
+2026-07-16 16:58:36 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'thermal' set to visible.
+2026-07-16 16:59:46 [INFO] digital_twin.asset_registry [NO-CORRELATION] - Loaded 10 assets into Digital Twin Asset Registry.
+2026-07-16 16:59:46 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'PROD-PIPE'. Returning default empty template.
+2026-07-16 16:59:46 [WARNING] digital_twin.asset_registry [NO-CORRELATION] - Metadata missing for asset ID: 'RET-PIPE'. Returning default empty template.
+2026-07-16 16:59:48 [INFO] digital_twin.layout_engine [NO-CORRELATION] - Loaded layout: dikili_geothermal_01 (Version 1.2.0)
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Loaded 9 visualization layers from JSON config.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'background' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'pipeline' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'equipment' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'label' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'sensor' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'ai' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'alarm' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'maintenance' set to visible.
+2026-07-16 16:59:48 [INFO] digital_twin.layer_manager [NO-CORRELATION] - Layer 'thermal' set to visible.

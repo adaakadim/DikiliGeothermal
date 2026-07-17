@@ -22,6 +22,8 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from datetime import datetime
 
+from core.reliability.reliability_manager import reliability_manager, SubsystemStatus
+
 # Force UTF-8 on Windows console
 if hasattr(sys.stdout, "reconfigure"):
     try:
@@ -752,6 +754,9 @@ class SCADAGuiApp:
 
         self._status_led = StatusIndicator(right_bar, size=18)
         self._status_led.pack(side="right", padx=(4, 0))
+        
+        self._sys_health_lbl = tk.Label(right_bar, text="AI: ONLINE | HIST: ONLINE", bg=BG_HEADER, fg=TEXT_MUTED, font=FONT_LABEL_SM)
+        self._sys_health_lbl.pack(side="right", padx=10)
 
         self._header_info = tk.Label(right_bar, text=tr("INITIALISING..."),
                                      bg=BG_HEADER, fg=TEXT_SECONDARY, font=FONT_MONO_SM)
@@ -878,7 +883,9 @@ class SCADAGuiApp:
         
             # Update UI components
             self._update_header(max_risk)
-        except Exception as e: print("Crash at header:", e); import traceback; traceback.print_exc()
+        except Exception as e: 
+            print("Crash at header:", e)
+            import traceback; traceback.print_exc()
         try:
         
             # Prepare raw SCADA sensor data for Digital Twin
@@ -896,7 +903,11 @@ class SCADAGuiApp:
             scada_data["RW-01"] = {"Flow Rate": self._dh_flow * 0.98, "Wellhead Pressure": 8.5}
         
             self._facility.update_from_scada(scada_data)
-        except Exception as e: print("Crash at scada:", e); import traceback; traceback.print_exc()
+            reliability_manager.update_status("Digital Twin", SubsystemStatus.ONLINE)
+        except Exception as e:
+            reliability_manager.update_status("Digital Twin", SubsystemStatus.DEGRADED, event=str(e), severity="WARNING", recovery_action="Bypassing visual updates")
+            print("Crash at scada:", e)
+            import traceback; traceback.print_exc()
         try:
             # ─── AI INTEGRATION ────────────────────────────────────────────────────
             # 1. Build live feature vector
@@ -1068,7 +1079,20 @@ class SCADAGuiApp:
                     "rul_trend": rul_data["Current Degradation"],
                     "maintenance_priority": rul_data.get("Maintenance Priority", "Unknown")
                 }
-        except Exception as e: print("Crash at ai:", e); import traceback; traceback.print_exc()
+            reliability_manager.update_status("AI Engine", SubsystemStatus.ONLINE)
+        except Exception as e:
+            reliability_manager.update_status("AI Engine", SubsystemStatus.OFFLINE, event=str(e), severity="ERROR", recovery_action="Bypassing AI recommendations")
+            ai_result = {
+                "Plant Status": "SAFE_MODE (AI OFFLINE)",
+                "Pump Failure Probability (%)": 0.0,
+                "Equipment Health (%)": 0.0,
+                "Prediction Confidence (%)": 0.0
+            }
+            health_indexes = {"Overall Plant Health": 0.0}
+            maint_rec = {"action": "None"}
+            rul_results = {}
+            print("Crash at ai:", e)
+            import traceback; traceback.print_exc()
         try:
         
             # Scenario Manager AI Modifiers
@@ -1242,8 +1266,13 @@ class SCADAGuiApp:
 
         health = "CRITICAL" if max_risk >= _RISK_CRIT else ("WARNING" if max_risk >= _RISK_WARN else "GOOD")
         
+        # Reliability Statuses
+        ai_stat = reliability_manager.get_status("AI Engine").value
+        hist_stat = reliability_manager.get_status("Historian").value
+        dt_stat = reliability_manager.get_status("Digital Twin").value
+        
         self._header_info.config(
-            text=f"{now_str}  |  UP: {up_str}  |  OP: Admin  |  COMM: ONLINE  |  {health}  ",
+            text=f"{now_str}  |  UP: {up_str}  |  OP: Admin  |  AI: {ai_stat}  |  HIST: {hist_stat}  |  TWIN: {dt_stat}  |  {health}  ",
             fg=status_color(health),
         )
         self._status_led.set_status(health)

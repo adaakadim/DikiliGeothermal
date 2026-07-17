@@ -103,6 +103,7 @@ class SensorReading:
     pressure_bar:   float
     flow_m3h:       float
     is_healthy:     bool
+    quality:        str = "GOOD"
 
     def __str__(self) -> str:
         status = "OK" if self.is_healthy else "WARN:LIMIT"
@@ -111,7 +112,7 @@ class SensorReading:
             f"T={self.temperature_c:6.2f} C  "
             f"P={self.pressure_bar:5.3f} bar  "
             f"Q={self.flow_m3h:6.1f} m3/h  "
-            f"[{status}]"
+            f"[{status}|{self.quality}]"
         )
 
 
@@ -155,6 +156,10 @@ class GeothermalSensorArray:
         self._temp_truth: float = temp_base
         self._pres_truth: float = pres_base
         self._flow_truth: float = flow_base
+        
+        # State tracking for validation
+        self._last_reading = None
+        self._frozen_count = 0
 
         logger.debug(
             "GeothermalSensorArray '%s' initialised (phase=%.0f s).",
@@ -209,6 +214,31 @@ class GeothermalSensorArray:
         flow_out, flow_clamped = self._clamp(flow_meas, _FLOW_MIN, _FLOW_MAX)
 
         is_healthy = not (temp_clamped or pres_clamped or flow_clamped)
+        quality = "GOOD"
+        
+        if temp_clamped or pres_clamped or flow_clamped:
+            quality = "BAD"
+            
+        # Detect frozen or impossible RoC
+        if self._last_reading:
+            dt = max(1.0, time.time() - self._last_reading.timestamp)
+            temp_roc = abs(temp_out - self._last_reading.temperature_c) / dt
+            pres_roc = abs(pres_out - self._last_reading.pressure_bar) / dt
+            flow_roc = abs(flow_out - self._last_reading.flow_m3h) / dt
+            
+            if temp_roc == 0 and pres_roc == 0 and flow_roc == 0:
+                self._frozen_count += 1
+                if self._frozen_count > 5:
+                    quality = "BAD"
+            else:
+                self._frozen_count = 0
+                
+            # Impossible RoC (e.g. jump of > 20 in 1 second)
+            if temp_roc > 20.0 or pres_roc > 5.0 or flow_roc > 100.0:
+                quality = "UNCERTAIN"
+                
+        # If playback mode is injected somehow, could be SIMULATED
+        # But for now, we set GOOD/BAD/UNCERTAIN
 
         reading = SensorReading(
             well_id       = self.well_id,
@@ -217,7 +247,10 @@ class GeothermalSensorArray:
             pressure_bar  = round(pres_out, 3),
             flow_m3h      = round(flow_out, 1),
             is_healthy    = is_healthy,
+            quality       = quality
         )
+        
+        self._last_reading = reading
 
         logger.debug("%s", reading)
         return reading
