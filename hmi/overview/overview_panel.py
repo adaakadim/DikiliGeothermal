@@ -8,7 +8,7 @@ Embeds the Digital Twin Process Diagram, KPI Cards, and AI Insights.
 import tkinter as tk
 import tkinter.ttk as ttk
 import logging
-from gui.theme import BG_PRIMARY, BG_SECONDARY, BG_TERTIARY, BG_HEADER, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, FONT_SUBTITLE, FONT_LABEL_SM, FONT_MONO_MD, FONT_TITLE, CLR_NORMAL, CLR_WARNING, CLR_CRITICAL
+from gui.theme import BG_PRIMARY, BG_SECONDARY, BG_TERTIARY, BG_HEADER, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, FONT_SUBTITLE, FONT_LABEL, FONT_LABEL_SM, FONT_MONO_MD, FONT_TITLE, CLR_NORMAL, CLR_WARNING, CLR_CRITICAL
 from gui.widgets import KPICard
 from gui.i18n import tr
 from digital_twin.visualization.diagram import ProcessDiagram
@@ -36,7 +36,7 @@ class DashboardKPICard(tk.Frame):
         self.lbl_val = tk.Label(val_frame, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Consolas", 18, "bold"), anchor="w")
         self.lbl_val.pack(side="left")
         self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL, anchor="w")
-        self.lbl_unit.pack(side="left", padx=(4, 0), side="bottom", pady=(0, 2))
+        self.lbl_unit.pack(side="left", padx=(4, 0), pady=(0, 2))
 
     def set_value(self, val, color=None, trend=None, trend_color=None):
         self.lbl_val.config(text=str(val))
