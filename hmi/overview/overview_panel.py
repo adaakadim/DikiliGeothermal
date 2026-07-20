@@ -20,23 +20,42 @@ class DashboardKPICard(tk.Frame):
     def __init__(self, parent, title, initial_value="-", unit="", icon="■", **kwargs):
         super().__init__(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1, **kwargs)
         self.pack_propagate(False)
-        self.config(height=80)
+        self.config(height=95)
+        
+        def on_enter(e):
+            self.config(highlightbackground="#3b82f6", highlightthickness=1)
+            self.lbl_title.config(fg=TEXT_PRIMARY)
+        def on_leave(e):
+            self.config(highlightbackground=BORDER, highlightthickness=1)
+            self.lbl_title.config(fg=TEXT_SECONDARY)
+            
+        self.bind("<Enter>", on_enter)
+        self.bind("<Leave>", on_leave)
         
         hdr = tk.Frame(self, bg=BG_SECONDARY)
-        hdr.pack(side="top", fill="x", padx=10, pady=(8, 0))
-        tk.Label(hdr, text=icon, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL).pack(side="left", padx=(0, 4))
-        self.lbl_title = tk.Label(hdr, text=title, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="w")
+        hdr.pack(side="top", fill="x", padx=12, pady=(10, 0))
+        
+        icon_lbl = tk.Label(hdr, text=icon, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL)
+        icon_lbl.pack(side="left", padx=(0, 6))
+        
+        self.lbl_title = tk.Label(hdr, text=title, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL, anchor="w")
         self.lbl_title.pack(side="left", fill="x", expand=True)
         
         self.lbl_trend = tk.Label(hdr, text="► Stable", bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL_SM)
         self.lbl_trend.pack(side="right")
         
         val_frame = tk.Frame(self, bg=BG_SECONDARY)
-        val_frame.pack(side="top", fill="x", padx=10, pady=(2, 8))
-        self.lbl_val = tk.Label(val_frame, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Consolas", 18, "bold"), anchor="w")
-        self.lbl_val.pack(side="left")
-        self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL, anchor="w")
-        self.lbl_unit.pack(side="left", padx=(4, 0), pady=(0, 2))
+        val_frame.pack(side="top", fill="both", expand=True, padx=12, pady=(4, 10))
+        
+        self.lbl_val = tk.Label(val_frame, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Consolas", 24, "bold"), anchor="sw")
+        self.lbl_val.pack(side="left", anchor="sw")
+        
+        self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL_SM, anchor="sw")
+        self.lbl_unit.pack(side="left", padx=(6, 0), pady=(0, 6), anchor="sw")
+
+        for child in [hdr, icon_lbl, self.lbl_title, self.lbl_trend, val_frame, self.lbl_val, self.lbl_unit]:
+            child.bind("<Enter>", on_enter)
+            child.bind("<Leave>", on_leave)
 
     def set_value(self, val, color=None, trend=None, trend_color=None):
         self.lbl_val.config(text=str(val))
@@ -74,7 +93,7 @@ class OverviewPanel(tk.Frame):
         
         # ── Main Content Area ──
         main_content = tk.Frame(self, bg=BG_PRIMARY)
-        main_content.pack(side="top", fill="both", expand=True, padx=10, pady=10)
+        main_content.pack(side="top", fill="both", expand=True, padx=20, pady=15)
         
         # Grid layout for main content
         main_content.columnconfigure(0, weight=8) # Digital Twin (80%)
@@ -117,7 +136,7 @@ class OverviewPanel(tk.Frame):
 
         # Right Side (AI Insights + Layer Control)
         right_frame = tk.Frame(main_content, bg=BG_PRIMARY)
-        right_frame.grid(row=0, column=1, sticky="nsew")
+        right_frame.grid(row=0, column=1, sticky="nsew", padx=(15, 0))
         
         self._build_ai_insights_panel(right_frame)
         
@@ -130,11 +149,11 @@ class OverviewPanel(tk.Frame):
         insights_panel = tk.Frame(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1)
         insights_panel.pack(side="top", fill="both", expand=True)
         
-        lbl_ai_title = tk.Label(insights_panel, text="Enterprise AI Insights", bg=BG_HEADER, fg=TEXT_PRIMARY, font=FONT_SUBTITLE, anchor="w", padx=15, pady=10)
+        lbl_ai_title = tk.Label(insights_panel, text="Enterprise AI Insights", bg=BG_HEADER, fg=TEXT_PRIMARY, font=FONT_SUBTITLE, anchor="w", padx=15, pady=12)
         lbl_ai_title.pack(side="top", fill="x")
         
         self.cards_frame = tk.Frame(insights_panel, bg=BG_PRIMARY)
-        self.cards_frame.pack(fill="both", expand=True, padx=4, pady=4)
+        self.cards_frame.pack(fill="both", expand=True, padx=8, pady=8)
         
         self.cards_frame.columnconfigure(0, weight=1)
             
@@ -142,18 +161,25 @@ class OverviewPanel(tk.Frame):
         
         self._add_ai_card("Overall AI Status", "System Status", 0)
         self._add_ai_card("Risk Score", "Current failure risk", 1, with_progress=True)
-        self._add_ai_card("Confidence Score", "Model confidence", 2)
-        self._add_ai_card("Equipment Health", "Remaining health", 3)
+        self._add_ai_card("Confidence Score", "Model confidence", 2, with_progress=True)
+        self._add_ai_card("Equipment Health", "Remaining health", 3, with_progress=True)
         self._add_ai_card("Remaining Useful Life", "Estimated by AI", 4)
         self._add_ai_card("Current Prediction", "Predicted outcome", 5)
-        self._add_ai_card("Recommendation", "Prescriptive actions", 6)
+        self._add_ai_card("Recommendation", "Prescriptive actions", 6, rowspan=2, val_font=FONT_LABEL)
+        
+        self.cards_frame.rowconfigure(6, weight=1)
 
-    def _add_ai_card(self, title, desc, row, with_progress=False):
+    def _add_ai_card(self, title, desc, row, with_progress=False, rowspan=1, val_font=None):
         card = tk.Frame(self.cards_frame, bg=BG_TERTIARY, highlightbackground=BORDER, highlightthickness=1)
-        card.grid(row=row, column=0, sticky="nsew", padx=4, pady=4)
+        card.grid(row=row, column=0, rowspan=rowspan, sticky="nsew", padx=4, pady=4)
+        
+        def on_enter(e): card.config(highlightbackground="#64748b")
+        def on_leave(e): card.config(highlightbackground=BORDER)
+        card.bind("<Enter>", on_enter)
+        card.bind("<Leave>", on_leave)
         
         top = tk.Frame(card, bg=BG_TERTIARY)
-        top.pack(fill="x", padx=10, pady=(8, 2))
+        top.pack(fill="x", padx=12, pady=(8, 2))
         
         lbl_title = tk.Label(top, text=title, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM)
         lbl_title.pack(side="left")
@@ -161,20 +187,25 @@ class OverviewPanel(tk.Frame):
         lbl_desc = tk.Label(top, text=desc, bg=BG_TERTIARY, fg=TEXT_MUTED, font=("Segoe UI", 8))
         lbl_desc.pack(side="right")
         
-        val_font = FONT_MONO_MD if not title in ["Current Prediction", "Recommendation"] else FONT_LABEL
-        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=val_font, anchor="w", justify="left")
-        val.pack(fill="x", padx=10, pady=(0, 8))
+        v_font = val_font if val_font else (FONT_MONO_MD if not title in ["Current Prediction", "Recommendation"] else FONT_LABEL)
+        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=v_font, anchor="nw", justify="left")
+        val.pack(fill="both", expand=True, padx=12, pady=(0, 8))
         
         def _on_resize(event, label=val):
-            label.config(wraplength=max(50, event.width - 20))
+            label.config(wraplength=max(50, event.width - 24))
             
         card.bind("<Configure>", _on_resize)
         
         self.ai_cards[title] = {"lbl": val, "body": card, "card": card}
         
         if with_progress:
-            self.risk_canvas = tk.Canvas(card, bg=BG_SECONDARY, height=6, highlightthickness=0)
-            self.risk_canvas.pack(side="bottom", fill="x", padx=10, pady=(0, 8))
+            canvas = tk.Canvas(card, bg=BG_SECONDARY, height=6, highlightthickness=0)
+            canvas.pack(side="bottom", fill="x", padx=12, pady=(0, 8))
+            self.ai_cards[title]["canvas"] = canvas
+            
+        for child in [top, lbl_title, lbl_desc, val]:
+            child.bind("<Enter>", on_enter)
+            child.bind("<Leave>", on_leave)
 
     def _build_layer_control(self, parent):
         layer_frame = tk.Frame(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1)
@@ -264,20 +295,36 @@ class OverviewPanel(tk.Frame):
             elif risk > 30: color = CLR_WARNING
             else: color = CLR_NORMAL
             self.ai_cards["Risk Score"]["lbl"].config(text=f"{risk:.1f}%", fg=color)
-            self.risk_canvas.delete("all")
-            w = self.risk_canvas.winfo_width()
-            if w <= 1: w = 150
-            self.risk_canvas.create_rectangle(0, 0, w, 6, fill=BG_SECONDARY, outline="")
-            self.risk_canvas.create_rectangle(0, 0, w * (risk/100.0), 6, fill=color, outline="")
+            if "canvas" in self.ai_cards["Risk Score"]:
+                cvs = self.ai_cards["Risk Score"]["canvas"]
+                cvs.delete("all")
+                w = cvs.winfo_width()
+                if w <= 1: w = 150
+                cvs.create_rectangle(0, 0, w, 6, fill=BG_SECONDARY, outline="")
+                cvs.create_rectangle(0, 0, w * (risk/100.0), 6, fill=color, outline="")
 
         if "Confidence" in ai_insights:
             conf = float(ai_insights["Confidence"])
             self.ai_cards["Confidence Score"]["lbl"].config(text=f"{conf:.1f}%", fg=TEXT_PRIMARY)
+            if "canvas" in self.ai_cards["Confidence Score"]:
+                cvs = self.ai_cards["Confidence Score"]["canvas"]
+                cvs.delete("all")
+                w = cvs.winfo_width()
+                if w <= 1: w = 150
+                cvs.create_rectangle(0, 0, w, 6, fill=BG_SECONDARY, outline="")
+                cvs.create_rectangle(0, 0, w * (conf/100.0), 6, fill="#3b82f6", outline="")
             
         if "Equipment Health" in ai_insights:
             hlth = float(ai_insights["Equipment Health"])
             h_col = CLR_NORMAL if hlth > 80 else (CLR_WARNING if hlth > 50 else CLR_CRITICAL)
             self.ai_cards["Equipment Health"]["lbl"].config(text=f"{hlth:.0f}%", fg=h_col)
+            if "canvas" in self.ai_cards["Equipment Health"]:
+                cvs = self.ai_cards["Equipment Health"]["canvas"]
+                cvs.delete("all")
+                w = cvs.winfo_width()
+                if w <= 1: w = 150
+                cvs.create_rectangle(0, 0, w, 6, fill=BG_SECONDARY, outline="")
+                cvs.create_rectangle(0, 0, w * (hlth/100.0), 6, fill=h_col, outline="")
             
         if "RUL" in ai_insights:
             rul = float(ai_insights["RUL"])

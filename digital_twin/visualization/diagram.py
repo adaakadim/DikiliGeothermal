@@ -159,14 +159,14 @@ class ProcessDiagram(tk.Frame):
         )
         self._equip_boxes[wid] = box
         self._register_interactive(tag, wid, name)
-        self.canvas.create_text(cx, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="center", tags=(tag,))
+        self.canvas.create_text(cx, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="center", tags=(tag,))
         lbl = self.canvas.create_text(cx, cy + 12, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="center", tags=(tag,))
         
         # Layer labels - Placed on left/right flanks to prevent vertical overlap
-        sensor_lbl = self.canvas.create_text(cx - w // 2 - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        sensor_lbl = self.canvas.create_text(cx - w // 2 - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=("Consolas", 11), anchor="e", justify="left", tags=(tag, "layer_sensor"))
         alarm_lbl = self.canvas.create_text(cx, cy + h // 2 + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="center", justify="center", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + w // 2 + 20, cy - 15, text="", fill="#34d399", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + w // 2 + 20, cy + 15, text="", fill="#f87171", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_thermal"))
+        maint_lbl = self.canvas.create_text(cx + w // 2 + 20, cy - 15, text="", fill="#34d399", font=("Consolas", 11), anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + w // 2 + 20, cy + 15, text="", fill="#f87171", font=("Consolas", 11), anchor="w", tags=(tag, "layer_thermal"))
         
         self._labels[wid] = {
             "info": lbl,
@@ -186,7 +186,7 @@ class ProcessDiagram(tk.Frame):
         return box
 
     def _draw_pump(self, cx, cy, pid, name, tag):
-        r = 35
+        r = 45
         box = self.canvas.create_oval(
             cx - r, cy - r, cx + r, cy + r,
             fill=BG_TERTIARY, outline=CLR_NORMAL, width=2, tags=("equip", tag)
@@ -195,19 +195,19 @@ class ProcessDiagram(tk.Frame):
         self._register_interactive(tag, pid, name)
         
         # Draw dynamic rotor lines (will animate)
-        l1 = self.canvas.create_line(cx-20, cy, cx+20, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
-        l2 = self.canvas.create_line(cx, cy-20, cx, cy+20, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l1 = self.canvas.create_line(cx-25, cy, cx+25, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l2 = self.canvas.create_line(cx, cy-25, cx, cy+25, fill=TEXT_PRIMARY, width=2, tags=(tag,))
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
-        # Text to right (still fine if horizontal pipes go top/bottom or left)
-        self.canvas.create_text(cx + r + 20, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 20, cy + 12, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="w", tags=(tag,))
+        # Text to right
+        self.canvas.create_text(cx + r + 24, cy - 14, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 24, cy + 14, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="w", tags=(tag,))
         
         # Layer labels
-        sensor_lbl = self.canvas.create_text(cx - r - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="e", justify="left", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx + r + 20, cy + r + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + r + 160, cy - 15, text="", fill="#34d399", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + r + 160, cy + 15, text="", fill="#f87171", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_thermal"))
+        sensor_lbl = self.canvas.create_text(cx - r - 24, cy - 15, text="", fill=TEXT_SECONDARY, font=("Consolas", 11), anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx + r + 24, cy + r + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + r + 180, cy - 15, text="", fill="#34d399", font=("Consolas", 11), anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + r + 180, cy + 15, text="", fill="#f87171", font=("Consolas", 11), anchor="w", tags=(tag, "layer_thermal"))
 
         self._labels[pid] = {
             "info": lbl,
@@ -219,7 +219,7 @@ class ProcessDiagram(tk.Frame):
         
         # Add a hidden focus highlight oval
         focus_box = self.canvas.create_oval(
-            cx - r - 4, cy - r - 4, cx + r + 4, cy + r + 4,
+            cx - r - 6, cy - r - 6, cx + r + 6, cy + r + 6,
             outline="#facc15", width=3, state="hidden", tags=(tag, f"focus&&{pid}")
         )
         
@@ -410,15 +410,15 @@ class ProcessDiagram(tk.Frame):
                     s_txt = "OFFLINE"
                 else:
                     if eq.type == "WELL":
-                        s_txt = f"{'Temp':<7}: {eq.sensors.get('Temperature', 0):>5.1f} °C\n{'Press':<7}: {eq.sensors.get('Pressure', 0):>5.1f} bar\n{'Flow':<7}: {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h"
+                        s_txt = f"{'Temp:':<7} {eq.sensors.get('Temperature', 0):>5.1f} °C\n{'Press:':<7} {eq.sensors.get('Pressure', 0):>5.1f} bar\n{'Flow:':<7} {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h"
                     elif eq.type == "PUMP":
-                        s_txt = f"{'Flow':<7}: {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h\n{'Current':<7}: {eq.motor_current:>5.1f} A\n{'Power':<7}: {eq.power_consumption:>5.1f} kW"
+                        s_txt = f"{'Flow:':<9} {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h\n{'Current:':<9} {eq.motor_current:>5.1f} A\n{'Power:':<9} {eq.power_consumption:>5.1f} kW"
                     elif eq.type == "SEPARATOR":
-                        s_txt = f"{'Press':<7}: {eq.sensors.get('Pressure', 0):>5.1f} bar"
+                        s_txt = f"{'Press:':<7} {eq.sensors.get('Pressure', 0):>5.1f} bar"
                     elif eq.type == "HX":
-                        s_txt = f"{'Eff':<7}: {eq.sensors.get('Efficiency', 0):>5.1f} %"
+                        s_txt = f"{'Eff:':<5} {eq.sensors.get('Efficiency', 0):>5.1f} %"
                     elif eq.type == "NETWORK":
-                        s_txt = f"{'Delta T':<7}: {eq.sensors.get('Delta T', 0):>5.1f} K"
+                        s_txt = f"{'DeltaT:':<7} {eq.sensors.get('Delta T', 0):>5.1f} K"
                     else:
                         s_txt = ""
                 
@@ -586,7 +586,7 @@ class ProcessDiagram(tk.Frame):
                 rad2 = math.radians(anim["angle"] + 90)
                 
                 l1, l2, cx, cy = self._pump_rotors[eq_id]
-                rl = 14
+                rl = 18
                 
                 self.canvas.coords(l1, cx - rl*math.cos(rad), cy - rl*math.sin(rad), cx + rl*math.cos(rad), cy + rl*math.sin(rad))
                 self.canvas.coords(l2, cx - rl*math.cos(rad2), cy - rl*math.sin(rad2), cx + rl*math.cos(rad2), cy + rl*math.sin(rad2))
