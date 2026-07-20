@@ -97,15 +97,15 @@ else:
     CLR_WARNING  = "#f59e0b"    # Amber/yellow — operator attention
     CLR_CRITICAL = "#ef4444"    # Red — immediate action required
     CLR_OFFLINE  = "#484f58"    # Dark Gray — offline / disabled
-    CLR_STANDBY  = "#3b82f6"    # Blue
-    CLR_INFO     = "#3b82f6"    # Blue — informational
+    CLR_STANDBY  = "#64748b"    # Blue -> Grayish blue
+    CLR_INFO     = "#64748b"    # Blue -> Grayish blue
     CLR_COMMS_LOSS = "#d946ef"  # Magenta
-    CLR_MAINTENANCE = "#0284c7" # Blue
+    CLR_MAINTENANCE = "#64748b" # Grayish Blue
 
 # Accent colours for process diagram
 CLR_HOT_FLUID   = "#ff6d00"  # Hot geothermal fluid (orange)
 CLR_WARM_FLUID  = "#ff9800"  # Warm supply
-CLR_COOL_FLUID  = "#29b6f6"  # Cool return
+CLR_COOL_FLUID  = "#64748b"  # Cool return
 
 # Per-well trace colours (matches existing matplotlib dashboard)
 WELL_COLORS = {
@@ -118,10 +118,10 @@ WELL_COLORS = {
 }
 
 # Gauge arc segment colours
-GAUGE_LOW     = "#29b6f6"   # Below normal range
-GAUGE_NORMAL  = "#00e676"   # Normal operating range
-GAUGE_HIGH    = "#ffc107"   # High warning
-GAUGE_DANGER  = "#ff1744"   # Danger / critical
+GAUGE_LOW     = "#64748b"   # Below normal range
+GAUGE_NORMAL  = "#10b981"   # Normal operating range
+GAUGE_HIGH    = "#f59e0b"   # High warning
+GAUGE_DANGER  = "#ef4444"   # Danger / critical
 
 # Alarm priority colours
 ALARM_COLORS = {
@@ -141,11 +141,11 @@ FONT_MONO_MD    = ("Consolas", 14)            # Table values, process labels
 FONT_MONO_SM    = ("Consolas", 12)            # Small annotations
 
 # Sans-serif for labels and titles
-FONT_TITLE      = ("Segoe UI", 18, "bold")    # Section titles
-FONT_SUBTITLE   = ("Segoe UI", 16, "bold")    # Sub-headers
-FONT_LABEL      = ("Segoe UI", 12)            # Widget labels
-FONT_LABEL_SM   = ("Segoe UI", 11)             # Small labels
-FONT_HEADER_BAR = ("Segoe UI", 14, "bold")    # Top status bar
+FONT_TITLE      = ("Segoe UI", 20, "bold")    # Section titles (26px approx)
+FONT_SUBTITLE   = ("Segoe UI", 13, "bold")    # Sub-headers
+FONT_LABEL      = ("Segoe UI", 10)            # Widget labels
+FONT_LABEL_SM   = ("Segoe UI", 9)             # Small labels
+FONT_HEADER_BAR = ("Segoe UI", 13, "bold")    # Top status bar
 
 
 # ─── Sizes ────────────────────────────────────────────────────────────────────

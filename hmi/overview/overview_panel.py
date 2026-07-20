@@ -21,7 +21,7 @@ class DashboardKPICard(tk.Frame):
     def __init__(self, parent, title, initial_value="-", unit="", icon="■", **kwargs):
         super().__init__(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1, **kwargs)
         self.pack_propagate(False)
-        self.config(height=95)
+        self.config(height=115)
         
         def on_enter(e):
             self.config(highlightbackground="#3b82f6", highlightthickness=1)
@@ -48,7 +48,7 @@ class DashboardKPICard(tk.Frame):
         val_frame = tk.Frame(self, bg=BG_SECONDARY)
         val_frame.pack(side="top", fill="both", expand=True, padx=12, pady=(4, 10))
         
-        self.lbl_val = tk.Label(val_frame, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Consolas", 24, "bold"), anchor="sw")
+        self.lbl_val = tk.Label(val_frame, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Consolas", 20, "bold"), anchor="sw")
         self.lbl_val.pack(side="left", anchor="sw")
         
         self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL_SM, anchor="sw")
@@ -98,8 +98,8 @@ class OverviewPanel(tk.Frame):
         main_content.pack(side="top", fill="both", expand=True, padx=20, pady=15)
         
         # Grid layout for main content
-        main_content.columnconfigure(0, weight=8) # Digital Twin (80%)
-        main_content.columnconfigure(1, weight=2) # AI Insights (20%)
+        main_content.columnconfigure(0, weight=1) # Digital Twin (Flexible)
+        main_content.columnconfigure(1, weight=0, minsize=300) # AI Insights (Fixed 300px)
         main_content.rowconfigure(0, weight=1)
         
         # Left Side (Twin + KPIs)
@@ -137,8 +137,10 @@ class OverviewPanel(tk.Frame):
             self.kpis[name] = card
 
         # Right Side (AI Insights + Layer Control)
-        right_frame = tk.Frame(main_content, bg=BG_PRIMARY)
+        right_frame = tk.Frame(main_content, bg=BG_PRIMARY, width=300)
         right_frame.grid(row=0, column=1, sticky="nsew", padx=(15, 0))
+        right_frame.grid_propagate(False)
+        right_frame.pack_propagate(False)
         
         self._build_ai_insights_panel(right_frame)
         
@@ -186,11 +188,11 @@ class OverviewPanel(tk.Frame):
         lbl_title = tk.Label(top, text=title, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM)
         lbl_title.pack(side="left")
         
-        lbl_desc = tk.Label(top, text=desc, bg=BG_TERTIARY, fg=TEXT_MUTED, font=("Segoe UI", 8))
+        lbl_desc = tk.Label(top, text=desc, bg=BG_TERTIARY, fg=TEXT_MUTED, font=("Segoe UI", 8), anchor="e")
         lbl_desc.pack(side="right")
         
         v_font = val_font if val_font else (FONT_MONO_MD if not title in ["Current Prediction", "Recommendation"] else FONT_LABEL)
-        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=v_font, anchor="nw", justify="left")
+        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=v_font, anchor="w", justify="left")
         val.pack(fill="both", expand=True, padx=12, pady=(0, 8))
         
         def _on_resize(event, label=val):

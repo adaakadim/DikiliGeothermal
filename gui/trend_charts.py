@@ -151,12 +151,16 @@ class TrendChartPanel(tk.Frame):
         # Navigation Toolbar
         toolbar_frame = tk.Frame(self, bg="#0f172a")
         toolbar_frame.pack(fill="x", side="bottom")
-        self._toolbar = NavigationToolbar2Tk(self._canvas, toolbar_frame)
-        self._toolbar.config(background="#0f172a")
-        self._toolbar._message_label.config(background="#0f172a", foreground="#f8fafc", font=("Segoe UI", 8))
-        for button in self._toolbar.winfo_children():
-            button.config(background="#0f172a")
-        self._toolbar.update()
+        if self._canvases:
+            first_canvas = list(self._canvases.values())[0]
+            self._toolbar = NavigationToolbar2Tk(first_canvas, toolbar_frame)
+            self._toolbar.config(background="#0f172a")
+            self._toolbar._message_label.config(background="#0f172a", foreground="#f8fafc", font=("Segoe UI", 8))
+            for button in self._toolbar.winfo_children():
+                button.config(background="#0f172a")
+            self._toolbar.update()
+        else:
+            self._toolbar = None
         
         # Custom Export CSV Button
         btn_csv = tk.Button(toolbar_frame, text="Export CSV", bg="#334155", fg="#f8fafc", bd=0, padx=5, font=("Segoe UI", 8), command=self._export_csv)

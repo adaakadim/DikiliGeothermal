@@ -150,8 +150,8 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 310
-        h = 60
+        w = 340
+        h = 64
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
             cx + w // 2, cy + h // 2,
@@ -159,11 +159,16 @@ class ProcessDiagram(tk.Frame):
         )
         self._equip_boxes[wid] = box
         self._register_interactive(tag, wid, name)
-        self.canvas.create_text(cx, cy - 22, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="center", tags=(tag,))
-        lbl = self.canvas.create_text(cx, cy + 22, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "normal"), anchor="center", tags=(tag,))
         
-        # Layer labels - Placed on left/right flanks to prevent vertical overlap
-        sensor_lbl = self.canvas.create_text(cx - w // 2 - 15, cy - 12, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        name_font = ("Segoe UI", 13, "bold")
+        if len(name) > 20:
+            name_font = ("Segoe UI", 11, "bold")
+            
+        self.canvas.create_text(cx, cy - 22, text=name.upper(), fill=TEXT_PRIMARY, font=name_font, anchor="center", tags=(tag,))
+        lbl = self.canvas.create_text(cx, cy + 22, text="---", fill=TEXT_SECONDARY, font=("Consolas", 10, "normal"), anchor="center", tags=(tag,))
+        
+        # Layer labels - Fixed left column
+        sensor_lbl = self.canvas.create_text(cx - 350, cy - 20, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="w", justify="left", tags=(tag, "layer_sensor"))
         alarm_lbl = self.canvas.create_text(cx, cy + h // 2 + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="center", justify="center", tags=(tag, "layer_alarm"))
         maint_lbl = self.canvas.create_text(cx + w // 2 + 15, cy - 12, text="", fill="#34d399", font=("Consolas", 10), anchor="w", tags=(tag, "layer_maintenance"))
         thermal_lbl = self.canvas.create_text(cx + w // 2 + 15, cy + 12, text="", fill="#f87171", font=("Consolas", 10), anchor="w", tags=(tag, "layer_thermal"))
@@ -200,11 +205,13 @@ class ProcessDiagram(tk.Frame):
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
         # Text to right
-        self.canvas.create_text(cx + r + 18, cy - 22, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 18, cy + 22, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "normal"), anchor="w", tags=(tag,))
+        name_font = ("Segoe UI", 13, "bold")
+        if len(name) > 20: name_font = ("Segoe UI", 11, "bold")
+        self.canvas.create_text(cx + r + 18, cy - 22, text=name.upper(), fill=TEXT_PRIMARY, font=name_font, anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 18, cy + 22, text="---", fill=TEXT_SECONDARY, font=("Consolas", 10, "normal"), anchor="w", tags=(tag,))
         
         # Layer labels
-        sensor_lbl = self.canvas.create_text(cx - r - 18, cy - 12, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        sensor_lbl = self.canvas.create_text(cx - 350, cy - 20, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="w", justify="left", tags=(tag, "layer_sensor"))
         alarm_lbl = self.canvas.create_text(cx + r + 18, cy + r + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
         maint_lbl = self.canvas.create_text(cx + r + 150, cy - 12, text="", fill="#34d399", font=("Consolas", 10), anchor="w", tags=(tag, "layer_maintenance"))
         thermal_lbl = self.canvas.create_text(cx + r + 150, cy + 12, text="", fill="#f87171", font=("Consolas", 10), anchor="w", tags=(tag, "layer_thermal"))

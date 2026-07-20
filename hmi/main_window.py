@@ -400,7 +400,10 @@ class SCADAGuiApp:
             return panel
         self._panel_factories["overview"] = _create_overview
         self._panel_factories["dashboard"] = lambda: OperatorDashboard(self._content_area)
+        
+        from hmi.trend_workspace.trend_panel import TrendWorkspace
         self._panel_factories["trends"] = lambda: TrendWorkspace(self._content_area, well_ids=self._well_ids, historian=self._historian)
+        
         self._panel_factories["alarms"] = lambda: AlarmCenterPanel(self._content_area, alarm_manager=self._alarms, on_navigate=self.navigate_to_equipment, on_explain_cb=self.on_explain_requested)
         def _create_events():
             panel = EventViewerPanel(self._content_area)
