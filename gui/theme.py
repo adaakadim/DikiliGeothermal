@@ -134,18 +134,26 @@ ALARM_COLORS = {
 
 # ─── Fonts ────────────────────────────────────────────────────────────────────
 
-# Monospace for numeric readouts
-FONT_MONO_XL    = ("Consolas", 24, "bold")     # Large gauge values
-FONT_MONO_LG    = ("Consolas", 13, "bold")     # Bottom KPI values (18px)
-FONT_MONO_MD    = ("Consolas", 11, "bold")     # Sensor values (15px SemiBold)
-FONT_MONO_SM    = ("Consolas", 10)             # Sensor labels / Eq Status (13px)
+# Explicit 8-tier hierarchy matching user requirements
+FONT_PAGE_TITLE  = ("Segoe UI", 21)             # Approx 28px
+FONT_EQUIP_TITLE = ("Segoe UI", 13, "bold")     # Approx 18px Bold
+FONT_STATUS      = ("Consolas", 10)             # Approx 13px
+FONT_MEASUREMENT = ("Segoe UI", 10)             # Approx 14px
+FONT_VALUE       = ("Consolas", 12, "bold")     # Approx 16px SemiBold
+FONT_AI_TITLE    = ("Segoe UI", 13)             # Approx 18px
+FONT_KPI_TITLE   = ("Segoe UI", 9)              # Approx 12px
+FONT_KPI_VALUE   = ("Consolas", 15, "bold")     # Approx 20px
 
-# Sans-serif for labels and titles
-FONT_TITLE      = ("Segoe UI", 21)             # Page title (28px)
-FONT_SUBTITLE   = ("Segoe UI", 13, "bold")     # Equipment / Panel titles (18px Bold)
-FONT_LABEL      = ("Segoe UI", 10)             # Generic widget labels
-FONT_LABEL_SM   = ("Segoe UI", 9)              # Card titles (12px)
-FONT_HEADER_BAR = ("Segoe UI", 13, "bold")     # Top status bar
+# Backwards compatibility map for untouched widgets
+FONT_TITLE      = FONT_PAGE_TITLE
+FONT_SUBTITLE   = FONT_EQUIP_TITLE
+FONT_LABEL      = FONT_MEASUREMENT
+FONT_LABEL_SM   = FONT_KPI_TITLE
+FONT_MONO_XL    = FONT_KPI_VALUE
+FONT_MONO_LG    = FONT_KPI_VALUE
+FONT_MONO_MD    = FONT_VALUE
+FONT_MONO_SM    = FONT_STATUS
+FONT_HEADER_BAR = ("Segoe UI", 13, "bold")
 
 
 # ─── Sizes ────────────────────────────────────────────────────────────────────

@@ -150,8 +150,8 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 260
-        h = 70
+        w = 300
+        h = 80
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
             cx + w // 2, cy + h // 2,
@@ -165,23 +165,13 @@ class ProcessDiagram(tk.Frame):
             name_font = FONT_LABEL
             
         self.canvas.create_text(cx, cy - 18, text=name.upper(), fill=TEXT_PRIMARY, font=name_font, anchor="center", tags=(tag,))
-        lbl = self.canvas.create_text(cx, cy + 18, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="center", tags=(tag,))
-        
-        # Layer labels - Fixed left column
-        sensor_keys_lbl = self.canvas.create_text(cx - 320, cy - 20, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", justify="left", tags=(tag, "layer_sensor"))
-        sensor_vals_lbl = self.canvas.create_text(cx - 180, cy - 20, text="", fill=TEXT_PRIMARY, font=FONT_MONO_MD, anchor="e", justify="right", tags=(tag, "layer_sensor"))
+        lbl = self.canvas.create_text(cx, cy + 18, text="---", fill=TEXT_SECONDARY, font=FONT_STATUS, anchor="center", tags=(tag,))
         
         alarm_lbl = self.canvas.create_text(cx, cy + h // 2 + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="center", justify="center", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + w // 2 + 15, cy - 12, text="", fill="#34d399", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + w // 2 + 30, cy, text="", fill="#f87171", font=FONT_MONO_SM, anchor="w", justify="left", tags=(tag, "layer_thermal"))
         
         self._labels[wid] = {
             "info": lbl,
-            "sensor_keys": sensor_keys_lbl,
-            "sensor_vals": sensor_vals_lbl,
-            "alarm": alarm_lbl,
-            "maintenance": maint_lbl,
-            "thermal": thermal_lbl
+            "alarm": alarm_lbl
         }
         
         # Add a hidden focus highlight rectangle
@@ -194,7 +184,7 @@ class ProcessDiagram(tk.Frame):
         return box
 
     def _draw_pump(self, cx, cy, pid, name, tag):
-        r = 30
+        r = 40
         box = self.canvas.create_oval(
             cx - r, cy - r, cx + r, cy + r,
             fill=BG_TERTIARY, outline=CLR_NORMAL, width=2, tags=("equip", tag)
@@ -203,31 +193,20 @@ class ProcessDiagram(tk.Frame):
         self._register_interactive(tag, pid, name)
         
         # Draw dynamic rotor lines (will animate)
-        l1 = self.canvas.create_line(cx-15, cy, cx+15, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
-        l2 = self.canvas.create_line(cx, cy-15, cx, cy+15, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l1 = self.canvas.create_line(cx-20, cy, cx+20, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l2 = self.canvas.create_line(cx, cy-20, cx, cy+20, fill=TEXT_PRIMARY, width=2, tags=(tag,))
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
-        # Text to right (+15 padding)
         name_font = FONT_SUBTITLE
         if len(name) > 20: name_font = FONT_LABEL
-        self.canvas.create_text(cx + r + 15, cy - 18, text=name.upper(), fill=TEXT_PRIMARY, font=name_font, anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 15, cy + 18, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", tags=(tag,))
+        self.canvas.create_text(cx + r + 20, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=name_font, anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 20, cy + 12, text="---", fill=TEXT_SECONDARY, font=FONT_STATUS, anchor="w", tags=(tag,))
         
-        # Layer labels
-        sensor_keys_lbl = self.canvas.create_text(cx - 320, cy - 20, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", justify="left", tags=(tag, "layer_sensor"))
-        sensor_vals_lbl = self.canvas.create_text(cx - 180, cy - 20, text="", fill=TEXT_PRIMARY, font=FONT_MONO_MD, anchor="e", justify="right", tags=(tag, "layer_sensor"))
-        
-        alarm_lbl = self.canvas.create_text(cx + r + 15, cy + r + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + r + 150, cy - 12, text="", fill="#34d399", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + r + 150, cy + 12, text="", fill="#f87171", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_thermal"))
+        alarm_lbl = self.canvas.create_text(cx + r + 20, cy + r + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
 
         self._labels[pid] = {
             "info": lbl,
-            "sensor_keys": sensor_keys_lbl,
-            "sensor_vals": sensor_vals_lbl,
-            "alarm": alarm_lbl,
-            "maintenance": maint_lbl,
-            "thermal": thermal_lbl
+            "alarm": alarm_lbl
         }
         
         # Add a hidden focus highlight oval
@@ -290,14 +269,14 @@ class ProcessDiagram(tk.Frame):
         # Center circle
         c = self.canvas.create_oval(cx-5, cy-5, cx+5, cy+5, fill=TEXT_PRIMARY, tags=(tag, "valve_center", vid))
         
-        lbl = self.canvas.create_text(cx + w + 15, cy, text=name, fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="w", justify="left", tags=(tag,))
+        lbl = self.canvas.create_text(cx, cy - 20, text=name.upper(), fill=TEXT_PRIMARY, font=FONT_SUBTITLE, anchor="center", tags=(tag,))
         self._equip_boxes[vid] = bg
         
         # Flap for animation
         flap = self.canvas.create_line(cx, cy - 10, cx, cy + 10, fill=CLR_CRITICAL, width=3, tags=(tag, "valve_flap", vid))
         
         # Status icon
-        icon = self.canvas.create_text(cx - 30, cy, text="", fill=TEXT_PRIMARY, font=FONT_LABEL_SM, anchor="e", tags=(tag, "status_icon", vid))
+        icon = self.canvas.create_text(cx, cy + 20, text="", fill=TEXT_PRIMARY, font=FONT_LABEL_SM, anchor="center", tags=(tag, "status_icon", vid))
         
         if not hasattr(self, '_valves'): self._valves = {}
         self._valves[vid] = {"flap": flap, "angle": 90, "target_angle": 90, "icon": icon, "bg": bg, "cx": cx, "cy": cy}
@@ -419,44 +398,7 @@ class ProcessDiagram(tk.Frame):
             if lbls:
                 status_txt = "❗ WARNING" if eq.status == "WARNING" else eq.status
                 self.canvas.itemconfig(lbls["info"], text=status_txt)
-                
-                k_txt = ""
-                v_txt = ""
-                
-                if eq.status == "OFFLINE" and eq.type == "WELL" and eq_id == "INJ-01":
-                    k_txt = "Temperature\nPressure\nFlow Rate"
-                    v_txt = "N/A\nN/A\nN/A"
-                elif eq.status == "OFFLINE":
-                    k_txt = "STATUS"
-                    v_txt = "OFFLINE"
-                else:
-                    if eq.type == "WELL":
-                        k_txt = "Temperature\nPressure\nFlow Rate"
-                        v_txt = f"{eq.sensors.get('Temperature', 0):.1f} °C\n{eq.sensors.get('Pressure', 0):.1f} bar\n{eq.sensors.get('Flow Rate', 0):.1f} m³/h"
-                    elif eq.type == "PUMP":
-                        k_txt = "Flow Rate\nCurrent\nPower"
-                        v_txt = f"{eq.sensors.get('Flow Rate', 0):.1f} m³/h\n{eq.motor_current:.1f} A\n{eq.power_consumption:.1f} kW"
-                    elif eq.type == "SEPARATOR":
-                        k_txt = "Pressure"
-                        v_txt = f"{eq.sensors.get('Pressure', 0):.1f} bar"
-                    elif eq.type == "HX":
-                        k_txt = "Efficiency"
-                        v_txt = f"{eq.sensors.get('Efficiency', 0):.1f} %"
-                    elif eq.type == "NETWORK":
-                        k_txt = "ΔT\nThermal Power\nHeat Flow"
-                        v_txt = f"{eq.sensors.get('Delta T', 0):.1f} K\n{eq.sensors.get('Thermal Power', eq.sensors.get('ThermPwr', 0)):.1f} MW\n{eq.sensors.get('Heat Flow', eq.sensors.get('HeatFlow', 0)):.1f} MW"
-                
-                self.canvas.itemconfig(lbls["sensor_keys"], text=k_txt)
-                self.canvas.itemconfig(lbls["sensor_vals"], text=v_txt)
                 self.canvas.itemconfig(lbls["alarm"], text="⚠️ " + eq.alarms[0] if eq.alarms else "")
-                
-                nm = getattr(eq, 'next_planned_maintenance', '')
-                self.canvas.itemconfig(lbls["maintenance"], text=f"Maint: {nm}" if nm and nm != "Unknown" else "")
-                
-                t_txt = ""
-                if eq.type == "HX": t_txt = f"Thermal Power\n{eq.sensors.get('Thermal Power', 0):.1f} MW"
-                elif eq.type == "NETWORK": t_txt = f"Heat Flow\n{eq.sensors.get('Heat Flow', 0):.1f} MW"
-                self.canvas.itemconfig(lbls["thermal"], text=t_txt)
 
 
         # --- NEW: Pipeline AI & Speed Logic ---

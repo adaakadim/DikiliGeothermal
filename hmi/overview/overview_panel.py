@@ -65,6 +65,64 @@ class DashboardKPICard(tk.Frame):
         if trend: self.lbl_trend.config(text=trend)
         if trend_color: self.lbl_trend.config(fg=trend_color)
 
+class InstrumentationPanel(tk.Frame):
+    def __init__(self, parent, **kwargs):
+        super().__init__(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1, **kwargs)
+        
+        lbl_title = tk.Label(self, text="Real-Time Instrumentation", bg=BG_HEADER, fg=TEXT_PRIMARY, font=FONT_SUBTITLE, anchor="w", padx=15, pady=12)
+        lbl_title.pack(side="top", fill="x")
+        
+        self.grid_frame = tk.Frame(self, bg=BG_PRIMARY)
+        self.grid_frame.pack(fill="both", expand=True, padx=15, pady=15)
+        
+        self.grid_frame.columnconfigure(0, weight=1, uniform="c")
+        self.grid_frame.columnconfigure(1, weight=1, uniform="c")
+        
+        self.metrics = {}
+        keys = [
+            "Temperature", "Pressure", "Flow Rate", 
+            "Pump Current", "Pump Power", "Efficiency", 
+            "ΔT", "Thermal Power", "Heat Flow"
+        ]
+        
+        for i, key in enumerate(keys):
+            self.grid_frame.rowconfigure(i, weight=1)
+            lbl_k = tk.Label(self.grid_frame, text=key, bg=BG_PRIMARY, fg=TEXT_SECONDARY, font=FONT_LABEL, anchor="w")
+            lbl_k.grid(row=i, column=0, sticky="ew", padx=(0, 10))
+            
+            lbl_v = tk.Label(self.grid_frame, text="--", bg=BG_PRIMARY, fg=TEXT_PRIMARY, font=FONT_MONO_MD, anchor="w")
+            lbl_v.grid(row=i, column=1, sticky="ew")
+            
+            self.metrics[key] = lbl_v
+
+    def update_metrics(self, facility):
+        if not facility: return
+        
+        w1 = facility.get_equipment("W-01")
+        p1 = facility.get_equipment("P-101")
+        hx = facility.get_equipment("HX-101")
+        nw = facility.get_equipment("DH-1")
+        
+        def _set(k, val, unit=""):
+            self.metrics[k].config(text=f"{val:.1f} {unit}" if val is not None else "--")
+            
+        if w1:
+            _set("Temperature", w1.sensors.get("Temperature"), "°C")
+            _set("Pressure", w1.sensors.get("Pressure"), "bar")
+            _set("Flow Rate", w1.sensors.get("Flow Rate"), "m³/h")
+            
+        if p1:
+            _set("Pump Current", p1.motor_current, "A")
+            _set("Pump Power", p1.power_consumption, "kW")
+            
+        if hx:
+            _set("Efficiency", hx.sensors.get("Efficiency"), "%")
+            
+        if nw:
+            _set("ΔT", nw.sensors.get("Delta T"), "K")
+            _set("Thermal Power", nw.sensors.get("Thermal Power"), "MW")
+            _set("Heat Flow", nw.sensors.get("Heat Flow"), "MW")
+
 class OverviewPanel(tk.Frame):
     def __init__(self, parent: tk.Widget, well_ids: list, on_equip_click=None, **kwargs):
         super().__init__(parent, bg=BG_PRIMARY, **kwargs)
@@ -97,25 +155,37 @@ class OverviewPanel(tk.Frame):
         main_content = tk.Frame(self, bg=BG_PRIMARY)
         main_content.pack(side="top", fill="both", expand=True, padx=20, pady=15)
         
-        # Grid layout for main content
-        main_content.columnconfigure(0, weight=1) # Digital Twin (Flexible)
-        main_content.columnconfigure(1, weight=0, minsize=300) # AI Insights (Fixed 300px)
+        # Grid layout for main content (3-column)
+        main_content.columnconfigure(0, weight=25, uniform="col") # Left 25%
+        main_content.columnconfigure(1, weight=45, uniform="col") # Center 45%
+        main_content.columnconfigure(2, weight=30, uniform="col") # Right 30%
         main_content.rowconfigure(0, weight=1)
         
-        # Left Side (Twin + KPIs)
+        # Left Side (Instrumentation)
         left_frame = tk.Frame(main_content, bg=BG_PRIMARY)
         left_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        self.instrumentation = InstrumentationPanel(left_frame)
+        self.instrumentation.pack(fill="both", expand=True)
         
-        # Digital Twin
-        twin_frame = tk.Frame(left_frame, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1)
-        twin_frame.pack(side="top", fill="both", expand=True)
+        # Center Side (Digital Twin)
+        center_frame = tk.Frame(main_content, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1)
+        center_frame.grid(row=0, column=1, sticky="nsew", padx=10)
         
-        self.diagram = ProcessDiagram(twin_frame, on_equip_click=on_equip_click)
+        self.diagram = ProcessDiagram(center_frame, on_equip_click=on_equip_click)
         self.diagram.pack(fill="both", expand=True)
         
-        # KPI Bar (Bottom of Left Frame)
-        self.kpi_bar = tk.Frame(left_frame, bg=BG_PRIMARY)
-        self.kpi_bar.pack(side="bottom", fill="x", pady=(10, 0))
+        # Right Side (AI Insights + Layer Control)
+        right_frame = tk.Frame(main_content, bg=BG_PRIMARY)
+        right_frame.grid(row=0, column=2, sticky="nsew", padx=(10, 0))
+        right_frame.grid_propagate(False)
+        right_frame.pack_propagate(False)
+        
+        self._build_ai_insights_panel(right_frame)
+        self._build_layer_control(right_frame)
+        
+        # KPI Bar (Bottom of Page)
+        self.kpi_bar = tk.Frame(self, bg=BG_PRIMARY)
+        self.kpi_bar.pack(side="bottom", fill="x", padx=20, pady=(0, 15))
         
         # Create KPI Cards
         self.kpis = {}
@@ -133,19 +203,8 @@ class OverviewPanel(tk.Frame):
         for i, (name, unit, icon) in enumerate(kpi_specs):
             self.kpi_bar.columnconfigure(i, weight=1, uniform="kpi")
             card = DashboardKPICard(self.kpi_bar, name, unit=unit, icon=icon)
-            card.grid(row=0, column=i, sticky="nsew", padx=3, pady=4)
+            card.grid(row=0, column=i, sticky="nsew", padx=4, pady=4)
             self.kpis[name] = card
-
-        # Right Side (AI Insights + Layer Control)
-        right_frame = tk.Frame(main_content, bg=BG_PRIMARY, width=300)
-        right_frame.grid(row=0, column=1, sticky="nsew", padx=(15, 0))
-        right_frame.grid_propagate(False)
-        right_frame.pack_propagate(False)
-        
-        self._build_ai_insights_panel(right_frame)
-        
-        # Collapsible Layer Control
-        self._build_layer_control(right_frame)
         
         self._current_facility = None
 
@@ -262,7 +321,10 @@ class OverviewPanel(tk.Frame):
         
     def update_from_twin(self, facility):
         self._current_facility = facility
-        self.diagram.update_from_twin(facility)
+        if hasattr(self, 'diagram'):
+            self.diagram.update_from_twin(facility)
+        if hasattr(self, 'instrumentation'):
+            self.instrumentation.update_metrics(facility)
 
     def update_dashboard_data(self, kpis: dict, ai_insights: dict):
         # Update KPIs
