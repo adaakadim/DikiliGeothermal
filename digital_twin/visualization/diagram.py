@@ -150,8 +150,8 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 320
-        h = 56
+        w = 270
+        h = 48
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
             cx + w // 2, cy + h // 2,
@@ -159,14 +159,14 @@ class ProcessDiagram(tk.Frame):
         )
         self._equip_boxes[wid] = box
         self._register_interactive(tag, wid, name)
-        self.canvas.create_text(cx, cy - 20, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="center", tags=(tag,))
-        lbl = self.canvas.create_text(cx, cy + 20, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="center", tags=(tag,))
+        self.canvas.create_text(cx, cy - 16, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="center", tags=(tag,))
+        lbl = self.canvas.create_text(cx, cy + 16, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "bold"), anchor="center", tags=(tag,))
         
         # Layer labels - Placed on left/right flanks to prevent vertical overlap
-        sensor_lbl = self.canvas.create_text(cx - w // 2 - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=("Consolas", 11), anchor="e", justify="left", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx, cy + h // 2 + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="center", justify="center", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + w // 2 + 20, cy - 15, text="", fill="#34d399", font=("Consolas", 11), anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + w // 2 + 20, cy + 15, text="", fill="#f87171", font=("Consolas", 11), anchor="w", tags=(tag, "layer_thermal"))
+        sensor_lbl = self.canvas.create_text(cx - w // 2 - 15, cy - 12, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx, cy + h // 2 + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="center", justify="center", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + w // 2 + 15, cy - 12, text="", fill="#34d399", font=("Consolas", 10), anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + w // 2 + 15, cy + 12, text="", fill="#f87171", font=("Consolas", 10), anchor="w", tags=(tag, "layer_thermal"))
         
         self._labels[wid] = {
             "info": lbl,
@@ -186,7 +186,7 @@ class ProcessDiagram(tk.Frame):
         return box
 
     def _draw_pump(self, cx, cy, pid, name, tag):
-        r = 45
+        r = 35
         box = self.canvas.create_oval(
             cx - r, cy - r, cx + r, cy + r,
             fill=BG_TERTIARY, outline=CLR_NORMAL, width=2, tags=("equip", tag)
@@ -195,19 +195,19 @@ class ProcessDiagram(tk.Frame):
         self._register_interactive(tag, pid, name)
         
         # Draw dynamic rotor lines (will animate)
-        l1 = self.canvas.create_line(cx-25, cy, cx+25, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
-        l2 = self.canvas.create_line(cx, cy-25, cx, cy+25, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l1 = self.canvas.create_line(cx-20, cy, cx+20, cy, fill=TEXT_PRIMARY, width=2, tags=(tag,))
+        l2 = self.canvas.create_line(cx, cy-20, cx, cy+20, fill=TEXT_PRIMARY, width=2, tags=(tag,))
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
         # Text to right
-        self.canvas.create_text(cx + r + 24, cy - 20, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 24, cy + 20, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="w", tags=(tag,))
+        self.canvas.create_text(cx + r + 18, cy - 16, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 18, cy + 16, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "bold"), anchor="w", tags=(tag,))
         
         # Layer labels
-        sensor_lbl = self.canvas.create_text(cx - r - 24, cy - 15, text="", fill=TEXT_SECONDARY, font=("Consolas", 11), anchor="e", justify="left", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx + r + 24, cy + r + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + r + 180, cy - 15, text="", fill="#34d399", font=("Consolas", 11), anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + r + 180, cy + 15, text="", fill="#f87171", font=("Consolas", 11), anchor="w", tags=(tag, "layer_thermal"))
+        sensor_lbl = self.canvas.create_text(cx - r - 18, cy - 12, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx + r + 18, cy + r + 12, text="", fill=CLR_CRITICAL, font=("Segoe UI", 10, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + r + 150, cy - 12, text="", fill="#34d399", font=("Consolas", 10), anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + r + 150, cy + 12, text="", fill="#f87171", font=("Consolas", 10), anchor="w", tags=(tag, "layer_thermal"))
 
         self._labels[pid] = {
             "info": lbl,
@@ -227,10 +227,10 @@ class ProcessDiagram(tk.Frame):
 
     def _draw_static(self):
         # Dynamic responsive vertical scaling
-        eff_height = max(self._height, 800)
-        start_y = 80 # Down slightly to center vertically
-        total_span = eff_height - 140 # Increase spacing span
-        s = total_span / 650.0
+        eff_height = max(self._height, 600)
+        start_y = 60 # Shift up slightly to center vertically and provide more room
+        total_span = eff_height - 120 # Increase available spacing span
+        s = total_span / 800.0 # Increase denominator to compress components together vertically
 
         # Store for animation
         p101_meta = self._layout_engine.get_equipment("P-101")
