@@ -64,11 +64,12 @@ class TrendChartPanel(tk.Frame):
             for wid in well_ids
         }
 
-        # ── Create matplotlib figure ──────────────────────────────────────
-        self._fig = Figure(figsize=(14, 8), dpi=100, constrained_layout=True)
+        # ── Create Qt-equivalent layout with Tkinter ──────────────────────────────────────
+        grid_frame = tk.Frame(self, bg=BG_PRIMARY)
+        grid_frame.pack(fill="both", expand=True)
+        for i in range(2): grid_frame.rowconfigure(i, weight=1)
+        for j in range(3): grid_frame.columnconfigure(j, weight=1)
 
-
-        # Create 2x3 subplot grid
         specs = [
             ("temp",   "TEMPERATURE",      "°C",   (70, 112), [(_T_HI, CLR_CRITICAL), (100.0, CLR_WARNING)]),
             ("pres",   "PRESSURE",         "bar",  (2, 13),   [(_P_LO, CLR_WARNING), (3.5, CLR_CRITICAL)]),
@@ -82,62 +83,70 @@ class TrendChartPanel(tk.Frame):
         self._axes: dict[str, plt.Axes] = {}
         self._lines: dict[str, dict[str, object]] = {}
         self._kpi_texts: dict[str, dict[str, object]] = {}
-        
-        # Formatter for X axis
-        self._date_formatter = mdates.DateFormatter('%H:%M')
-        # Locator for clean intervals
-        locator = mdates.AutoDateLocator(minticks=3, maxticks=6)
-        locator.intervald[mdates.MINUTELY] = [0, 15, 30] # Ensure it locks to nice minute intervals if zoomed in
-        locator.intervald[mdates.HOURLY] = [1, 2, 3, 4, 6, 12] # Ensure nice hour intervals
+        self._canvases = {}
+        self._figs = {}
+        self._chart_frames = {}
 
         for idx, (key, title, unit, ylim, thresholds) in enumerate(specs):
-            ax = self._fig.add_subplot(2, 3, idx + 1)
+            row = idx // 3
+            col = idx % 3
+            
+            c_frame = tk.Frame(grid_frame, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1)
+            c_frame.grid(row=row, column=col, sticky="nsew", padx=4, pady=4)
+            self._chart_frames[key] = c_frame
+            
+            lbl_title = tk.Label(c_frame, text=title, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Segoe UI", 11, "bold"), anchor="w")
+            lbl_title.pack(side="top", fill="x", padx=8, pady=(4, 0))
+            
+            # Figure mapping to expanding canvas
+            fig = Figure(dpi=100)
+            fig.subplots_adjust(left=0.12, right=0.98, top=0.90, bottom=0.20)
+            fig.patch.set_facecolor(BG_SECONDARY)
+            self._figs[key] = fig
+            
+            ax = fig.add_subplot(1, 1, 1)
             ax.set_facecolor(BG_SECONDARY)
             ax.set_ylim(*ylim)
-            ax.set_title(title, fontsize=11, fontweight="bold", color=TEXT_PRIMARY, pad=8, loc="left")
             ax.set_ylabel(unit, fontsize=10, color=TEXT_SECONDARY, labelpad=4)
             ax.tick_params(colors=TEXT_MUTED, labelsize=9)
+            
+            locator = mdates.AutoDateLocator()
+            formatter = mdates.ConciseDateFormatter(locator)
             ax.xaxis.set_major_locator(locator)
-            ax.xaxis.set_major_formatter(self._date_formatter)
+            ax.xaxis.set_major_formatter(formatter)
+            
             ax.grid(True, color=GRID_LINE, linestyle="--", linewidth=0.5, alpha=0.2)
-            for spine in ax.spines.values():
-                spine.set_color(BORDER)
-
-            # Add invisible x-label to reserve space for the text below the chart
-            ax.set_xlabel("\n\n\n\n\n", fontsize=9)
-
-            # Thresholds
+            for spine in ax.spines.values(): spine.set_color(BORDER)
+            
             for level, color in thresholds:
                 label_txt = f"Warning Threshold ({level} {unit})" if color == CLR_WARNING else f"Critical Threshold ({level} {unit})"
                 ax.axhline(level, color=color, linewidth=1.5, linestyle="--", alpha=0.6, label=label_txt)
-
+                
             self._lines[key] = {}
             for wid in well_ids:
                 color = WELL_COLORS.get(wid, "#ffffff")
-                # Add markers for data points
                 line, = ax.plot([], [], color=color, linewidth=2.5, alpha=0.9, label=wid, antialiased=True)
                 self._lines[key][wid] = line
-
-            # Legend
-            # Put legends in the upper left, so they don't cover latest data which is typically on the right
-            ax.legend(fontsize=8, loc="upper left", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.5)
-
-            # KPI Text placeholders (stacked vertically underneath X axis)
-            self._kpi_texts[key] = {}
-            for i, wid in enumerate(well_ids):
-                color = WELL_COLORS.get(wid, TEXT_PRIMARY)
-                txt = ax.annotate("", xy=(0.0, 0.0), xytext=(0, -30 - (i * 15)),
-                                  xycoords="axes fraction", textcoords="offset points",
-                                  fontfamily="monospace", fontsize=9, color=color, va="top", ha="left", annotation_clip=False)
-                self._kpi_texts[key][wid] = txt
                 
+            ax.legend(fontsize=8, loc="upper left", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.5)
             self._axes[key] = ax
-
-        # ── Embed in tkinter ──────────────────────────────────────────────
+            
+            canvas = FigureCanvasTkAgg(fig, master=c_frame)
+            canvas_widget = canvas.get_tk_widget()
+            canvas_widget.pack(side="top", fill="both", expand=True)
+            self._canvases[key] = canvas
+            
+            stats_frame = tk.Frame(c_frame, bg=BG_SECONDARY)
+            stats_frame.pack(side="bottom", fill="x", padx=8, pady=(0, 4))
+            
+            self._kpi_texts[key] = {}
+            for wid in well_ids:
+                color = WELL_COLORS.get(wid, TEXT_PRIMARY)
+                lbl = tk.Label(stats_frame, text=f"{wid} Cur: -- Avg: -- Min: -- Max: -- Std: --", bg=BG_SECONDARY, fg=color, font=("Consolas", 9), anchor="w")
+                lbl.pack(side="top", fill="x")
+                self._kpi_texts[key][wid] = lbl
+                
         self.pack_propagate(False)
-        self._canvas = FigureCanvasTkAgg(self._fig, master=self)
-        self._canvas_widget = self._canvas.get_tk_widget()
-        self._canvas_widget.pack(fill="both", expand=True)
         
         # Navigation Toolbar
         toolbar_frame = tk.Frame(self, bg="#0f172a")
@@ -158,32 +167,35 @@ class TrendChartPanel(tk.Frame):
         btn_fs.pack(side="right", padx=5, pady=2)
         
         # Hover Tooltip & Crosshair
-        self._annot = self._axes["temp"].annotate(
-            "", xy=(0,0), xytext=(10,10), textcoords="offset points",
-            bbox=dict(boxstyle="round", fc=BG_HEADER, ec=BORDER, alpha=0.9),
-            arrowprops=dict(arrowstyle="->", color=TEXT_SECONDARY),
-            color=TEXT_PRIMARY, fontsize=7
-        )
-        self._annot.set_visible(False)
-        self._vlines = {key: ax.axvline(x=0, color=TEXT_MUTED, linestyle=":", alpha=0.0, zorder=0) for key, ax in self._axes.items()}
-        self._hlines = {key: ax.axhline(y=0, color=TEXT_MUTED, linestyle=":", alpha=0.0, zorder=0) for key, ax in self._axes.items()}
+        self._annot = {}
+        self._vlines = {}
+        self._hlines = {}
+        for key, ax in self._axes.items():
+            self._annot[key] = ax.annotate("", xy=(0,0), xytext=(10,10), textcoords="offset points",
+                bbox=dict(boxstyle="round", fc=BG_HEADER, ec=BORDER, alpha=0.9),
+                arrowprops=dict(arrowstyle="->", color=TEXT_SECONDARY), color=TEXT_PRIMARY, fontsize=7)
+            self._annot[key].set_visible(False)
+            self._vlines[key] = ax.axvline(x=0, color=TEXT_MUTED, linestyle=":", alpha=0.0, zorder=0)
+            self._hlines[key] = ax.axhline(y=0, color=TEXT_MUTED, linestyle=":", alpha=0.0, zorder=0)
         
-        self._fig.canvas.mpl_connect("motion_notify_event", self._on_hover)
-        
-        self.on_chart_click_cb = None
-        self._fig.canvas.mpl_connect("button_press_event", self._on_click)
+        for c in self._canvases.values():
+            c.mpl_connect("motion_notify_event", self._on_hover)
+            c.mpl_connect("button_press_event", self._on_click)
+            c.mpl_connect("scroll_event", self._on_scroll)
+            c.mpl_connect("button_press_event", self._on_press)
+            c.mpl_connect("button_release_event", self._on_release)
+            c.mpl_connect("button_press_event", self._on_double_click)
 
-        # Custom Zoom & Pan logic
+        self.on_chart_click_cb = None
         self._is_panning = False
         self._pan_start_x = None
         self._pan_start_xlims = {}
         self._auto_scale_y = True
-        self._fig.canvas.mpl_connect("scroll_event", self._on_scroll)
-        self._fig.canvas.mpl_connect("button_press_event", self._on_press)
-        self._fig.canvas.mpl_connect("button_release_event", self._on_release)
-        self._fig.canvas.mpl_connect("button_press_event", self._on_double_click)
 
-        self.after(100, self._canvas.draw_idle)
+        self.after(100, self._draw_all_canvases)
+
+    def _draw_all_canvases(self):
+        for c in self._canvases.values(): c.draw_idle()
 
     def _on_click(self, event):
         # We only care about left click (button 1), ignoring dragging clicks if possible.
@@ -198,18 +210,16 @@ class TrendChartPanel(tk.Frame):
 
     def set_live_window_minutes(self, minutes: int):
         self._live_window_minutes = minutes
-        # Force a full redraw so background is recaptured with new X limits
         self._bg_cache = None
-        self._canvas.draw_idle()
+        self._draw_all_canvases()
 
     def set_mode(self, mode: str):
         self._mode = mode
         if mode == "LIVE":
-            # Clear static historical data
             for key, lines_dict in self._lines.items():
                 for line in lines_dict.values():
                     line.set_data([], [])
-            self._canvas.draw_idle()
+            self._draw_all_canvases()
 
     def set_line_visibility(self, states: dict[str, bool]):
         # States: { "W-01": True, ... }
@@ -220,31 +230,24 @@ class TrendChartPanel(tk.Frame):
                 if wid in self._lines[key]:
                     self._lines[key][wid].set_visible(visible)
                 if wid in self._kpi_texts[key]:
-                    self._kpi_texts[key][wid].set_visible(visible)
+                    if visible:
+                        self._kpi_texts[key][wid].pack(side="top", fill="x")
+                    else:
+                        self._kpi_texts[key][wid].pack_forget()
             
-            # Rebuild legend dynamically
-            handles = []
-            labels = []
-            
-            # Add visible threshold lines
+            handles, labels = [], []
             for line in ax.lines:
                 if line.get_linestyle() == "--" and "Threshold" in str(line.get_label()):
                     handles.append(line)
                     labels.append(line.get_label())
-            
-            # Add visible well lines
             for wid in self._well_ids:
                 if states.get(wid, True) and wid in self._lines[key]:
                     handles.append(self._lines[key][wid])
                     labels.append(wid)
-            
-            if ax.get_legend():
-                ax.get_legend().remove()
+            if ax.get_legend(): ax.get_legend().remove()
+            if handles: ax.legend(handles, labels, fontsize=8, loc="upper left", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.5)
                 
-            if handles:
-                ax.legend(handles, labels, fontsize=8, loc="upper left", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.5)
-                
-        self._canvas.draw_idle()
+        self._draw_all_canvases()
 
     def _update_kpis(self, key: str, wid: str, y_data: list):
         if not y_data:
@@ -271,8 +274,8 @@ class TrendChartPanel(tk.Frame):
             
         unit = next((u for k, t, u, l, th in self._specs if k == key), "")
         unit_str = f" {unit}" if unit else ""
-        stat_text = f"{wid}  Cur: {cur_val:6.1f}{unit_str:<4} {trend}  Avg: {avg_val:6.1f}  Min: {min_val:6.1f}  Max: {max_val:6.1f}  Std: {std_val:5.2f}"
-        self._kpi_texts[key][wid].set_text(stat_text)
+        stat_text = f"{wid:<5} Cur: {cur_val:6.1f}{unit_str:<4} {trend}  Avg: {avg_val:6.1f}  Min: {min_val:6.1f}  Max: {max_val:6.1f}  Std: {std_val:5.2f}"
+        self._kpi_texts[key][wid].config(text=stat_text)
 
     def initialize_history(self, history_data: list[dict]):
         """Injects past history into the LIVE rolling buffer so the chart is full at startup."""
@@ -379,7 +382,7 @@ class TrendChartPanel(tk.Frame):
             # Empty Data Handling
             for ax in self._axes.values():
                 ax.text(0.5, 0.5, "No historical data available for the selected period.", transform=ax.transAxes, ha="center", va="center", color=TEXT_MUTED, fontsize=8)
-            self._canvas.draw_idle()
+            self._draw_all_canvases()
             return
             
         self._mode = "HISTORICAL"
@@ -439,7 +442,7 @@ class TrendChartPanel(tk.Frame):
             
             self._auto_scale_y_axis(key)
 
-        self._canvas.draw_idle()
+        self._draw_all_canvases()
 
     def _auto_scale_y_axis(self, key):
         if not self._auto_scale_y: return
@@ -509,7 +512,7 @@ class TrendChartPanel(tk.Frame):
         for axes in self._axes.values():
             axes.set_xlim(new_xmin, new_xmax)
             
-        self._canvas.draw_idle()
+        self._draw_all_canvases()
 
     def _on_press(self, event):
         if event.dblclick:
@@ -537,7 +540,7 @@ class TrendChartPanel(tk.Frame):
             for key in self._axes.keys():
                 self._auto_scale_y_axis(key)
                 
-            self._canvas.draw_idle()
+            self._draw_all_canvases()
 
     def _on_hover(self, event):
         if self._is_panning and event.button == 1 and event.xdata and self._pan_start_x:
@@ -546,12 +549,18 @@ class TrendChartPanel(tk.Frame):
             for k, ax in self._axes.items():
                 xlim = self._pan_start_xlims[k]
                 ax.set_xlim(xlim[0] - dx, xlim[1] - dx)
-            self._canvas.draw_idle()
+            self._draw_all_canvases()
             return
             
+        hover_key = None
+        for key, ax in self._axes.items():
+            if ax == event.inaxes:
+                hover_key = key
+                break
+                
         # Hover Visual Effects
-        if event.inaxes:
-            self._canvas_widget.config(cursor="hand2")
+        if hover_key:
+            self._canvases[hover_key].get_tk_widget().config(cursor="hand2")
             for key, ax in self._axes.items():
                 if ax == event.inaxes:
                     ax.set_facecolor("#2a2a35") # Brightened BG
@@ -563,17 +572,9 @@ class TrendChartPanel(tk.Frame):
                     for spine in ax.spines.values():
                         spine.set_color(BORDER)
                         spine.set_linewidth(1.0)
-        else:
-            self._canvas_widget.config(cursor="")
-            for ax in self._axes.values():
-                ax.set_facecolor(BG_SECONDARY)
-                for spine in ax.spines.values():
-                    spine.set_color(BORDER)
-                    spine.set_linewidth(1.0)
-            
-        if event.inaxes:
+                        
             ax = event.inaxes
-            self._annot.set_visible(False)
+            self._annot[hover_key].set_visible(False)
             
             # Find closest line
             min_dist = float('inf')
@@ -602,16 +603,16 @@ class TrendChartPanel(tk.Frame):
                 # Update Crosshairs
                 for key, vl in self._vlines.items():
                     vl.set_xdata([closest_point[0], closest_point[0]])
-                    vl.set_alpha(0.6)
+                    if key == hover_key: vl.set_alpha(0.6)
                 
                 for key, hl in self._hlines.items():
-                    if self._axes[key] == ax:
+                    if key == hover_key:
                         hl.set_ydata([closest_point[1], closest_point[1]])
                         hl.set_alpha(0.6)
                     else:
                         hl.set_alpha(0.0)
                         
-                self._annot.xy = closest_point
+                self._annot[hover_key].xy = closest_point
                 
                 dt = mdates.num2date(closest_point[0])
                 time_str = dt.strftime('%H:%M:%S')
@@ -619,7 +620,7 @@ class TrendChartPanel(tk.Frame):
                 
                 # Determine status
                 status = "Normal"
-                thresholds = next((t for k, _, _, _, t in self._specs if ax == self._axes[k]), [])
+                thresholds = next((t for k, _, _, _, t in self._specs if k == hover_key), [])
                 for level, color in thresholds:
                     if color == CLR_CRITICAL:
                         if (val >= level and level > np.mean(ax.get_ylim())) or (val <= level and level < np.mean(ax.get_ylim())): status = "Critical"
@@ -627,17 +628,24 @@ class TrendChartPanel(tk.Frame):
                         if val >= level and level > np.mean(ax.get_ylim()): status = "Warning"
                         elif val <= level and level < np.mean(ax.get_ylim()): status = "Warning"
 
-                self._annot.set_text(f"{time_str}\n{closest_label}\n{val:.1f} {unit}\nStatus: {status}")
-                self._annot.figure = self._fig
-                self._annot.axes = ax
-                self._annot.set_visible(True)
-                self._canvas.draw_idle()
+                self._annot[hover_key].set_text(f"{time_str}\n{closest_label}\n{val:.1f} {unit}\nStatus: {status}")
+                self._annot[hover_key].set_visible(True)
+                
+            self._draw_all_canvases()
         else:
-            if self._annot.get_visible():
-                self._annot.set_visible(False)
-                for vl in self._vlines.values(): vl.set_alpha(0.0)
-                for hl in self._hlines.values(): hl.set_alpha(0.0)
-                self._canvas.draw_idle()
+            for c in self._canvases.values(): c.get_tk_widget().config(cursor="")
+            for ax in self._axes.values():
+                ax.set_facecolor(BG_SECONDARY)
+                for spine in ax.spines.values():
+                    spine.set_color(BORDER)
+                    spine.set_linewidth(1.0)
+            
+            for ann in self._annot.values():
+                if ann.get_visible():
+                    ann.set_visible(False)
+            for vl in self._vlines.values(): vl.set_alpha(0.0)
+            for hl in self._hlines.values(): hl.set_alpha(0.0)
+            self._draw_all_canvases()
 
     def update_data(self, readings: list, reports: dict, ai_result: dict = None, rul_results: dict = None, health_indexes: dict = None):
         if self._mode != "LIVE" or not readings: return
@@ -722,19 +730,20 @@ class TrendChartPanel(tk.Frame):
                     needs_full_redraw = True
 
         if self._bg_cache is None or needs_full_redraw:
-            self._canvas.draw()
-            self._bg_cache = self._canvas.copy_from_bbox(self._fig.bbox)
+            for c in self._canvases.values(): c.draw()
+            self._bg_cache = {k: c.copy_from_bbox(self._figs[k].bbox) for k, c in self._canvases.items()}
         else:
-            self._canvas.restore_region(self._bg_cache)
             for key in ["temp", "pres", "flow", "risk", "health", "conf"]:
+                c = self._canvases[key]
+                fig = self._figs[key]
+                ax = self._axes[key]
+                
+                c.restore_region(self._bg_cache[key])
                 for wid in self._well_ids:
                     if self._lines[key][wid].get_visible():
-                        self._axes[key].draw_artist(self._lines[key][wid])
-                for wid in self._well_ids:
-                    if self._kpi_texts[key][wid].get_visible():
-                        self._axes[key].draw_artist(self._kpi_texts[key][wid])
-            self._canvas.blit(self._fig.bbox)
-            self._canvas.flush_events()
+                        ax.draw_artist(self._lines[key][wid])
+                c.blit(fig.bbox)
+                c.flush_events()
 
     def export_image(self, format="png"):
         import os
@@ -746,7 +755,15 @@ class TrendChartPanel(tk.Frame):
         )
         if filename:
             try:
-                self._fig.savefig(filename, format=format, dpi=150, bbox_inches='tight')
+                # We can't export a single figure anymore. We must combine them or save the widget.
+                # For simplicity, save the whole frame.
+                import pyscreenshot as ImageGrab
+                x = self.winfo_rootx()
+                y = self.winfo_rooty()
+                w = self.winfo_width()
+                h = self.winfo_height()
+                img = ImageGrab.grab(bbox=(x, y, x+w, y+h))
+                img.save(filename)
                 messagebox.showinfo("Export Success", f"Chart exported to:\n{os.path.abspath(filename)}")
             except Exception as e:
                 messagebox.showerror("Export Failed", f"Failed to export image: {e}")
