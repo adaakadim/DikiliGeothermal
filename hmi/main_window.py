@@ -217,9 +217,9 @@ class SCADAGuiApp:
         from analytics.ai.operator_assistant import AIOperatorAssistant
         self._ai_operator = AIOperatorAssistant()
         
-        # Phase 10.7 AI Explainability Engine
-        from analytics.ai.explainability.explainability_engine import HeuristicExplainer
-        self._explainer_engine = HeuristicExplainer()
+        # Phase 10.7 AI Explainability Engine (Enterprise SHAP)
+        from analytics.ai.explainability.shap_service import ShapService
+        self._explainer_engine = ShapService()
         
         # Phase 10.8 Predictive Maintenance Center Engine
         from analytics.ai.maintenance_engine import PredictiveMaintenanceCenterEngine
@@ -1155,7 +1155,8 @@ class SCADAGuiApp:
             # ───────────────────────────────────────────────────────────────────────
                 
             # 6. SHAP Explanation & Advanced Analytics
-            shap_res = getattr(self, "_cached_shap_res", {"positive_factors": [], "negative_factors": [], "explanation_text": ""})
+            shap_res = self._explainer_engine.generate_explanation("GLOBAL", engineered_data, ai_result)
+            self._cached_shap_res = shap_res
                 
             self._history_logger.log_prediction(ai_result, shap_res)
             
@@ -1226,8 +1227,8 @@ class SCADAGuiApp:
                     "risk": risk,
                     "conf": ai_result["Prediction Confidence (%)"],
                     "recommendation": maint_rec.get("action", "Continue Monitoring") if "P-" in eq_id else "Normal operation",
-                    "pos_factors": shap_res.get("positive_factors", []),
-                    "neg_factors": shap_res.get("negative_factors", []),
+                    "pos_factors": [],
+                    "neg_factors": [],
                     "explanation_text": shap_res.get("explanation_text", "No explanation available."),
                     "rul_hours": rul_data["Remaining Useful Life (Hours)"],
                     "estimated_days": rul_data.get("Estimated Remaining Days", 0.0),
