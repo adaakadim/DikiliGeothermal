@@ -6,9 +6,11 @@ High-level Operator Dashboard showing plant status and critical KPIs.
 
 import tkinter as tk
 import collections
-from gui.theme import BG_PRIMARY, BG_SECONDARY, BG_TERTIARY, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, FONT_SUBTITLE, FONT_TITLE, FONT_LABEL_SM, FONT_LABEL, CLR_NORMAL, CLR_WARNING, CLR_CRITICAL, CLR_RUNNING, CLR_STOPPED
+from gui.theme import BG_PRIMARY, BG_SECONDARY, BG_TERTIARY, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, FONT_SUBTITLE, FONT_TITLE, FONT_LABEL_SM, FONT_LABEL, CLR_NORMAL, CLR_WARNING, CLR_CRITICAL, CLR_RUNNING, CLR_STOPPED, CLR_MAINTENANCE
 from gui.widgets import KPICard, StatusIndicator, GaugeWidget
+import matplotlib.dates as mdates
 import matplotlib.ticker as ticker
+from datetime import datetime
 
 import matplotlib
 matplotlib.use("TkAgg")
@@ -35,8 +37,14 @@ class OperatorDashboard(tk.Frame):
         frm_health = tk.Frame(self.frm_status, bg=BG_SECONDARY)
         frm_health.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
         
-        self.health_gauge = GaugeWidget(frm_health, label="Plant Health", unit="%", min_val=0, max_val=100, warn_lo=60, warn_hi=85, crit_lo=0, crit_hi=60, size=110)
-        self.health_gauge.pack(anchor="center", pady=10)
+        self.health_gauge = GaugeWidget(frm_health, label="Plant Health", unit="%", min_val=0, max_val=100, warn_lo=60, warn_hi=85, crit_lo=0, crit_hi=60, size=130)
+        self.health_gauge.pack(anchor="center", pady=(10, 0))
+        
+        lbl_overall = tk.Label(frm_health, text="Overall Health", bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL_SM)
+        lbl_overall.pack()
+        
+        self.lbl_health_status = tk.Label(frm_health, text="UNKNOWN", bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=FONT_LABEL)
+        self.lbl_health_status.pack(pady=(0, 10))
         
         self.status_indicators = {}
         status_keys = [("health", "Plant Health"), ("comms", "Communications"), ("watchdog", "Watchdog"), 
@@ -56,9 +64,9 @@ class OperatorDashboard(tk.Frame):
             
             bot_frm = tk.Frame(card, bg=BG_TERTIARY)
             bot_frm.pack(fill="x", padx=10, pady=(2, 8))
-            ind = StatusIndicator(bot_frm, size=16)
+            ind = StatusIndicator(bot_frm, size=20)
             ind.pack(side="left", padx=(0, 6))
-            lbl_stat = tk.Label(bot_frm, text="UNKNOWN", bg=BG_TERTIARY, fg=TEXT_MUTED, font=FONT_LABEL)
+            lbl_stat = tk.Label(bot_frm, text="UNKNOWN", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=FONT_LABEL)
             lbl_stat.pack(side="left")
             
             self.status_indicators[key] = {"ind": ind, "lbl": lbl_stat, "card": card}
@@ -97,8 +105,9 @@ class OperatorDashboard(tk.Frame):
         self.canvas.get_tk_widget().pack(fill="both", expand=True, padx=10, pady=10)
         
         # History buffers for charts
-        self._history_power = collections.deque(maxlen=60)
-        self._history_eff = collections.deque(maxlen=60)
+        self._history_power = collections.deque(maxlen=120)
+        self._history_eff = collections.deque(maxlen=120)
+        self._history_times = collections.deque(maxlen=120)
         
     def update_dashboard(self, status, health, highest_risk_eq, critical_alarm, power, energy, **kwargs):
         """
@@ -120,6 +129,8 @@ class OperatorDashboard(tk.Frame):
         _set_stat("ai", kwargs.get("status_ai", "GOOD"), "ONLINE" if kwargs.get("status_ai", "GOOD") == "GOOD" else "OFFLINE")
         
         self.health_gauge.set_value(health)
+        h_color = CLR_CRITICAL if health < 60 else (CLR_WARNING if health < 80 else CLR_NORMAL)
+        self.lbl_health_status.config(text="DEGRADED" if health < 80 else "HEALTHY", fg=h_color)
         
         # 2. Update KPIs
         self.kpis["power"].set_value(power)
@@ -128,11 +139,13 @@ class OperatorDashboard(tk.Frame):
         self.kpis["pumps"].set_value(kwargs.get("pump_avail", 100))
         
         alarm_cnt = kwargs.get("active_alarms", 1 if critical_alarm != "None" else 0)
-        self.kpis["alarms"].set_value(alarm_cnt, CLR_CRITICAL if alarm_cnt > 0 else TEXT_PRIMARY)
+        alarm_unit = "Active Alarm" if alarm_cnt == 1 else "Active Alarms"
+        self.kpis["alarms"].set_value(alarm_cnt, CLR_CRITICAL if alarm_cnt > 0 else TEXT_PRIMARY, dynamic_unit=alarm_unit)
         
         # 3. Update Trends
         self._history_power.append(power)
         self._history_eff.append(health)
+        self._history_times.append(datetime.now())
         
         self.fig.clear()
         self.ax = self.fig.add_subplot(111)
@@ -141,7 +154,7 @@ class OperatorDashboard(tk.Frame):
         for spine in self.ax.spines.values():
             spine.set_color(BORDER)
             
-        self.ax.plot(self._history_power, color="#0ea5e9", label="Power", linewidth=2.5, antialiased=True)
+        self.ax.plot(self._history_times, self._history_power, color="#0ea5e9", label="Power", linewidth=3.0, antialiased=True)
         self.ax.yaxis.set_major_locator(ticker.MaxNLocator(6))
         
         def _power_eng_fmt(x, pos):
@@ -150,21 +163,24 @@ class OperatorDashboard(tk.Frame):
             return f"{x*1000000:.1f} W"
             
         self.ax.yaxis.set_major_formatter(ticker.FuncFormatter(_power_eng_fmt))
-        self.ax.grid(True, linestyle="--", alpha=0.2, color=TEXT_MUTED)
+        self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
+        self.ax.grid(True, linestyle="--", alpha=0.3, color=TEXT_MUTED)
         
         ax2 = self.ax.twinx()
-        ax2.plot(self._history_eff, color="#10b981", label="Efficiency (%)", linewidth=2.5, alpha=0.8, antialiased=True)
+        ax2.plot(self._history_times, self._history_eff, color="#10b981", label="Efficiency (%)", linewidth=3.0, alpha=0.8, antialiased=True)
         ax2.yaxis.set_major_locator(ticker.MaxNLocator(6))
+        ax2.yaxis.set_major_formatter(ticker.PercentFormatter(100.0))
         ax2.tick_params(colors=TEXT_SECONDARY)
         for spine in ax2.spines.values(): spine.set_color(BORDER)
         ax2.spines["top"].set_color(BG_SECONDARY)
         
-        self.ax.set_title("Real-Time Plant Performance", color=TEXT_SECONDARY, pad=20, fontdict={'fontsize': 14, 'fontweight': 'bold'})
+        self.ax.set_title("Real-Time Plant Performance", color=TEXT_SECONDARY, pad=15, fontdict={'fontsize': 12, 'fontweight': 'bold'})
         
         lines, labels = self.ax.get_legend_handles_labels()
         lines2, labels2 = ax2.get_legend_handles_labels()
-        self.ax.legend(lines + lines2, labels + labels2, loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2, frameon=False, labelcolor=TEXT_PRIMARY)
+        self.ax.legend(lines + lines2, labels + labels2, loc="upper right", bbox_to_anchor=(1.0, 1.25), ncol=2, frameon=False, labelcolor=TEXT_PRIMARY)
         
-        self.fig.subplots_adjust(left=0.1, right=0.9, top=0.82, bottom=0.1)
+        self.fig.subplots_adjust(left=0.1, right=0.9, top=0.8, bottom=0.15)
+        self.fig.autofmt_xdate()
         
         self.canvas.draw_idle()

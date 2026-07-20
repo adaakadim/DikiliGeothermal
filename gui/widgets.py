@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import math
 import tkinter as tk
+import collections
 
 from gui.theme import (
     BG_SECONDARY, BG_TERTIARY, BORDER, BORDER_LIGHT,
@@ -95,7 +96,30 @@ class GaugeWidget(tk.Frame):
                                 fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center")
 
     def set_value(self, value: float):
-        self._value = max(self._min, min(self._max, value))
+        if not hasattr(self, '_target_value'):
+            self._value = max(self._min, min(self._max, value))
+            self._target_value = self._value
+            self._animating = False
+            self._draw_needle()
+        
+        self._target_value = max(self._min, min(self._max, value))
+        if not self._animating and abs(self._target_value - self._value) > 0.1:
+            self._animating = True
+            self._animate_needle()
+
+    def _animate_needle(self):
+        diff = self._target_value - self._value
+        if abs(diff) < 0.1:
+            self._value = self._target_value
+            self._animating = False
+            self._draw_needle()
+            return
+            
+        self._value += diff * 0.15
+        self._draw_needle()
+        self.after(30, self._animate_needle)
+
+    def _draw_needle(self):
         self.canvas.delete(self._needle_id)
         self.canvas.delete(self._value_id)
 
@@ -143,21 +167,33 @@ class KPICard(tk.Frame):
         self.lbl_val.pack(side="left", anchor="sw")
         self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_TERTIARY, fg=TEXT_MUTED, font=FONT_LABEL_SM, anchor="sw")
         self.lbl_unit.pack(side="left", padx=(4, 0), pady=(0, 4), anchor="sw")
+        
+        self.spark_cvs = tk.Canvas(val_frame, width=50, height=24, bg=BG_TERTIARY, highlightthickness=0)
+        self.spark_cvs.pack(side="right", anchor="se", pady=(0, 4))
+        self._spark_history = collections.deque(maxlen=15)
 
-    def set_value(self, value: float, color: str = TEXT_PRIMARY):
+    def set_value(self, value: float, color: str = TEXT_PRIMARY, dynamic_unit: str = None):
         if value >= 1000: val_str = f"{value:,.0f}"
         elif value >= 100: val_str = f"{value:.1f}"
         else: val_str = f"{value:.2f}"
             
         self.lbl_val.config(text=val_str, fg=color)
+        if dynamic_unit:
+            self.lbl_unit.config(text=dynamic_unit)
 
         if self._prev_value is not None:
             diff = value - self._prev_value
             if abs(diff) > 0.01:
                 t_icon = "▲" if diff > 0 else "▼"
                 tcolor = CLR_CRITICAL if diff > 0 and color == CLR_CRITICAL else (CLR_NORMAL if diff > 0 else CLR_WARNING)
-                self.lbl_trend.config(text=t_icon, fg=tcolor)
+                
+                # Format diff
+                diff_str = f"{abs(diff):.1f}"
+                self.lbl_trend.config(text=f"{t_icon} {diff_str}", fg=tcolor)
         self._prev_value = value
+        
+        self._spark_history.append(value)
+        self._draw_sparkline(color)
         
         if color == CLR_CRITICAL:
             self.config(bg="#7f1d1d", highlightbackground="#b91c1c")
@@ -166,6 +202,7 @@ class KPICard(tk.Frame):
                 for c in w.winfo_children(): c.config(bg="#7f1d1d")
             self.lbl_val.config(fg="#ffffff")
             self.lbl_unit.config(fg="#fca5a5")
+            self.spark_cvs.config(bg="#7f1d1d")
         else:
             self.config(bg=BG_TERTIARY, highlightbackground=BORDER)
             for w in self.winfo_children():
@@ -173,6 +210,28 @@ class KPICard(tk.Frame):
                 for c in w.winfo_children(): c.config(bg=BG_TERTIARY)
             self.lbl_val.config(fg=color)
             self.lbl_unit.config(fg=TEXT_MUTED)
+            self.spark_cvs.config(bg=BG_TERTIARY)
+
+    def _draw_sparkline(self, color: str):
+        self.spark_cvs.delete("all")
+        if len(self._spark_history) < 2: return
+        
+        min_v = min(self._spark_history)
+        max_v = max(self._spark_history)
+        rng = max_v - min_v
+        if rng == 0: rng = 1.0
+        
+        w = 50
+        h = 24
+        coords = []
+        for i, val in enumerate(self._spark_history):
+            x = (i / 14.0) * w
+            y = h - ((val - min_v) / rng) * (h - 4) - 2
+            coords.extend([x, y])
+            
+        spark_color = color if color != TEXT_PRIMARY else "#0ea5e9"
+        if color == CLR_CRITICAL: spark_color = "#fca5a5"
+        self.spark_cvs.create_line(*coords, fill=spark_color, width=2, smooth=True)
 
 # ═════════════════════════════════════════════════════════════════════════════
 #  PUMP ICON
