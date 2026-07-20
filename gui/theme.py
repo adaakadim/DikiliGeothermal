@@ -135,17 +135,17 @@ ALARM_COLORS = {
 # ─── Fonts ────────────────────────────────────────────────────────────────────
 
 # Monospace for numeric readouts
-FONT_MONO_XL    = ("Consolas", 24, "bold")    # Large gauge values
-FONT_MONO_LG    = ("Consolas", 20, "bold")    # KPI card values
-FONT_MONO_MD    = ("Consolas", 14)            # Table values, process labels
-FONT_MONO_SM    = ("Consolas", 12)            # Small annotations
+FONT_MONO_XL    = ("Consolas", 24, "bold")     # Large gauge values
+FONT_MONO_LG    = ("Consolas", 13, "bold")     # Bottom KPI values (18px)
+FONT_MONO_MD    = ("Consolas", 11, "bold")     # Sensor values (15px SemiBold)
+FONT_MONO_SM    = ("Consolas", 10)             # Sensor labels / Eq Status (13px)
 
 # Sans-serif for labels and titles
-FONT_TITLE      = ("Segoe UI", 20, "bold")    # Section titles (26px approx)
-FONT_SUBTITLE   = ("Segoe UI", 13, "bold")    # Sub-headers
-FONT_LABEL      = ("Segoe UI", 10)            # Widget labels
-FONT_LABEL_SM   = ("Segoe UI", 9)             # Small labels
-FONT_HEADER_BAR = ("Segoe UI", 13, "bold")    # Top status bar
+FONT_TITLE      = ("Segoe UI", 21)             # Page title (28px)
+FONT_SUBTITLE   = ("Segoe UI", 13, "bold")     # Equipment / Panel titles (18px Bold)
+FONT_LABEL      = ("Segoe UI", 10)             # Generic widget labels
+FONT_LABEL_SM   = ("Segoe UI", 9)              # Card titles (12px)
+FONT_HEADER_BAR = ("Segoe UI", 13, "bold")     # Top status bar
 
 
 # ─── Sizes ────────────────────────────────────────────────────────────────────

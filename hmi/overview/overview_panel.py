@@ -21,7 +21,7 @@ class DashboardKPICard(tk.Frame):
     def __init__(self, parent, title, initial_value="-", unit="", icon="■", **kwargs):
         super().__init__(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1, **kwargs)
         self.pack_propagate(False)
-        self.config(height=115)
+        self.config(height=120)
         
         def on_enter(e):
             self.config(highlightbackground="#3b82f6", highlightthickness=1)
@@ -133,7 +133,7 @@ class OverviewPanel(tk.Frame):
         for i, (name, unit, icon) in enumerate(kpi_specs):
             self.kpi_bar.columnconfigure(i, weight=1, uniform="kpi")
             card = DashboardKPICard(self.kpi_bar, name, unit=unit, icon=icon)
-            card.grid(row=0, column=i, sticky="nsew", padx=15, pady=4)
+            card.grid(row=0, column=i, sticky="nsew", padx=3, pady=4)
             self.kpis[name] = card
 
         # Right Side (AI Insights + Layer Control)
@@ -171,7 +171,8 @@ class OverviewPanel(tk.Frame):
         self._add_ai_card("AI Prediction", "Predicted outcome", 5)
         self._add_ai_card("Recommendation", "Prescriptive actions", 6, rowspan=2, val_font=FONT_LABEL)
         
-        self.cards_frame.rowconfigure(6, weight=1)
+        for i in range(8):
+            self.cards_frame.rowconfigure(i, weight=1)
 
     def _add_ai_card(self, title, desc, row, with_progress=False, rowspan=1, val_font=None):
         card = tk.Frame(self.cards_frame, bg=BG_TERTIARY, highlightbackground=BORDER, highlightthickness=1)
@@ -192,13 +193,15 @@ class OverviewPanel(tk.Frame):
         lbl_desc.pack(side="right")
         
         v_font = val_font if val_font else (FONT_MONO_MD if not title in ["Current Prediction", "Recommendation"] else FONT_LABEL)
-        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=v_font, anchor="w", justify="left")
+        val_anchor = "nw" if title == "Recommendation" else "w"
+        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=v_font, anchor=val_anchor, justify="left", wraplength=250)
         val.pack(fill="both", expand=True, padx=12, pady=(0, 8))
         
         def _on_resize(event, label=val):
             label.config(wraplength=max(50, event.width - 24))
             
-        card.bind("<Configure>", _on_resize)
+        if title == "Recommendation":
+            card.bind("<Configure>", _on_resize)
         
         self.ai_cards[title] = {"lbl": val, "body": card, "card": card}
         
