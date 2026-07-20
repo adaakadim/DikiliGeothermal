@@ -650,8 +650,14 @@ class SCADAGuiApp:
             
         is_new = False
         if key not in self._panels and key in getattr(self, '_panel_factories', {}):
-            self._panels[key] = self._panel_factories[key]()
-            is_new = True
+            try:
+                self._panels[key] = self._panel_factories[key]()
+                is_new = True
+            except Exception as e:
+                import traceback
+                print(f"ROOT CAUSE EXCEPTION in panel factory for '{key}': {e}")
+                traceback.print_exc()
+                return
             
         if key not in self._panels:
             return
