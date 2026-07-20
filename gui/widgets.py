@@ -120,45 +120,59 @@ class GaugeWidget(tk.Frame):
 # ═════════════════════════════════════════════════════════════════════════════
 
 class KPICard(tk.Frame):
-    def __init__(self, parent: tk.Widget, label: str = "KPI", unit: str = "",
+    def __init__(self, parent: tk.Widget, label: str = "KPI", unit: str = "", icon: str = "■",
                  card_width: int = KPI_CARD_W, card_height: int = KPI_CARD_H, **kwargs):
-        super().__init__(parent, bg=BG_TERTIARY, **kwargs)
-        self.canvas = tk.Canvas(self, width=card_width, height=card_height,
-                                bg=BG_TERTIARY, highlightthickness=1, highlightbackground=BORDER)
-        self.canvas.pack()
+        super().__init__(parent, bg=BG_TERTIARY, highlightbackground=BORDER, highlightthickness=1, **kwargs)
+        self.pack_propagate(False)
+        self.config(width=card_width, height=card_height)
 
-        self._width = card_width
-        self._height = card_height
         self._label = label
         self._unit  = unit
         self._prev_value: float | None = None
-
-        self.canvas.create_text(self._width // 2, 14, text=label, fill=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="center", width=self._width - 10, justify="center")
-        self._val_id = self.canvas.create_text(self._width // 2, self._height // 2 + 2, text="---",
-                                               fill=TEXT_PRIMARY, font=FONT_MONO_LG, anchor="center")
-        self._unit_id = self.canvas.create_text(self._width // 2, self._height - 14, text=unit,
-                                                fill=TEXT_MUTED, font=FONT_LABEL_SM, anchor="center")
-        self._trend_id = None
+        
+        hdr = tk.Frame(self, bg=BG_TERTIARY)
+        hdr.pack(side="top", fill="x", padx=10, pady=(8, 0))
+        tk.Label(hdr, text=icon, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL).pack(side="left", padx=(0, 4))
+        tk.Label(hdr, text=label, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="w").pack(side="left", fill="x", expand=True)
+        self.lbl_trend = tk.Label(hdr, text="--", bg=BG_TERTIARY, fg=TEXT_MUTED, font=FONT_LABEL_SM)
+        self.lbl_trend.pack(side="right")
+        
+        val_frame = tk.Frame(self, bg=BG_TERTIARY)
+        val_frame.pack(side="top", fill="both", expand=True, padx=10, pady=(0, 8))
+        self.lbl_val = tk.Label(val_frame, text="---", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=("Consolas", 20, "bold"), anchor="sw")
+        self.lbl_val.pack(side="left", anchor="sw")
+        self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_TERTIARY, fg=TEXT_MUTED, font=FONT_LABEL_SM, anchor="sw")
+        self.lbl_unit.pack(side="left", padx=(4, 0), pady=(0, 4), anchor="sw")
 
     def set_value(self, value: float, color: str = TEXT_PRIMARY):
-        # Format dynamically but pad to 7 characters for visual stability
-        if value >= 1000:
-            val_str = f"{value:>7,.0f}"
-        elif value >= 100:
-            val_str = f"{value:>7.1f}"
-        else:
-            val_str = f"{value:>7.2f}"
+        if value >= 1000: val_str = f"{value:,.0f}"
+        elif value >= 100: val_str = f"{value:.1f}"
+        else: val_str = f"{value:.2f}"
             
-        self.canvas.itemconfig(self._val_id, text=val_str, fill=color)
+        self.lbl_val.config(text=val_str, fg=color)
 
         if self._prev_value is not None:
             diff = value - self._prev_value
-            self.canvas.delete(self._trend_id)
             if abs(diff) > 0.01:
-                icon = "▲" if diff > 0 else "▼"
+                t_icon = "▲" if diff > 0 else "▼"
                 tcolor = CLR_CRITICAL if diff > 0 and color == CLR_CRITICAL else (CLR_NORMAL if diff > 0 else CLR_WARNING)
-                self._trend_id = self.canvas.create_text(self._width - 14, self._height // 2 + 2, text=icon, fill=tcolor, font=FONT_LABEL_SM)
+                self.lbl_trend.config(text=t_icon, fg=tcolor)
         self._prev_value = value
+        
+        if color == CLR_CRITICAL:
+            self.config(bg="#7f1d1d", highlightbackground="#b91c1c")
+            for w in self.winfo_children():
+                w.config(bg="#7f1d1d")
+                for c in w.winfo_children(): c.config(bg="#7f1d1d")
+            self.lbl_val.config(fg="#ffffff")
+            self.lbl_unit.config(fg="#fca5a5")
+        else:
+            self.config(bg=BG_TERTIARY, highlightbackground=BORDER)
+            for w in self.winfo_children():
+                w.config(bg=BG_TERTIARY)
+                for c in w.winfo_children(): c.config(bg=BG_TERTIARY)
+            self.lbl_val.config(fg=color)
+            self.lbl_unit.config(fg=TEXT_MUTED)
 
 # ═════════════════════════════════════════════════════════════════════════════
 #  PUMP ICON

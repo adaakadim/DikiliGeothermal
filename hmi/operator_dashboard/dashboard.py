@@ -6,8 +6,9 @@ High-level Operator Dashboard showing plant status and critical KPIs.
 
 import tkinter as tk
 import collections
-from gui.theme import BG_PRIMARY, BG_SECONDARY, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, FONT_SUBTITLE, FONT_TITLE, FONT_LABEL_SM, CLR_NORMAL, CLR_WARNING, CLR_CRITICAL
-from gui.widgets import KPICard, StatusIndicator
+from gui.theme import BG_PRIMARY, BG_SECONDARY, BG_TERTIARY, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, FONT_SUBTITLE, FONT_TITLE, FONT_LABEL_SM, FONT_LABEL, CLR_NORMAL, CLR_WARNING, CLR_CRITICAL, CLR_RUNNING, CLR_STOPPED
+from gui.widgets import KPICard, StatusIndicator, GaugeWidget
+import matplotlib.ticker as ticker
 
 import matplotlib
 matplotlib.use("TkAgg")
@@ -25,45 +26,65 @@ class OperatorDashboard(tk.Frame):
         self.frm_status = tk.Frame(self, bg=BG_SECONDARY, highlightthickness=1, highlightbackground=BORDER)
         self.frm_status.pack(fill="x", padx=20, pady=5)
         
+        self.frm_status.columnconfigure(0, weight=3)
+        self.frm_status.columnconfigure(1, weight=1)
+        
         frm_indicators = tk.Frame(self.frm_status, bg=BG_SECONDARY)
-        frm_indicators.pack(fill="x")
+        frm_indicators.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+        
+        frm_health = tk.Frame(self.frm_status, bg=BG_SECONDARY)
+        frm_health.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+        
+        self.health_gauge = GaugeWidget(frm_health, label="Plant Health", unit="%", min_val=0, max_val=100, warn_lo=60, warn_hi=85, crit_lo=0, crit_hi=60, size=110)
+        self.health_gauge.pack(anchor="center", pady=10)
         
         self.status_indicators = {}
         status_keys = [("health", "Plant Health"), ("comms", "Communications"), ("watchdog", "Watchdog"), 
                        ("historian", "Historian"), ("scheduler", "Scheduler"), ("ai", "AI Engine")]
         
+        for i in range(3): frm_indicators.columnconfigure(i, weight=1)
+        
         for i, (key, title) in enumerate(status_keys):
-            f = tk.Frame(frm_indicators, bg=BG_SECONDARY)
-            f.pack(side="left", expand=True, fill="both", pady=(10, 5))
-            ind = StatusIndicator(f, size=20)
-            ind.pack(side="left", padx=(20, 10))
-            tk.Label(f, text=title, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=FONT_SUBTITLE).pack(side="left")
-            self.status_indicators[key] = ind
+            row = i // 3
+            col = i % 3
+            card = tk.Frame(frm_indicators, bg=BG_TERTIARY, highlightbackground=BORDER, highlightthickness=1)
+            card.grid(row=row, column=col, sticky="nsew", padx=8, pady=8)
             
-        self._build_horizontal_legend()
+            top_frm = tk.Frame(card, bg=BG_TERTIARY)
+            top_frm.pack(fill="x", padx=10, pady=(8, 2))
+            tk.Label(top_frm, text=title, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM).pack(side="left")
+            
+            bot_frm = tk.Frame(card, bg=BG_TERTIARY)
+            bot_frm.pack(fill="x", padx=10, pady=(2, 8))
+            ind = StatusIndicator(bot_frm, size=16)
+            ind.pack(side="left", padx=(0, 6))
+            lbl_stat = tk.Label(bot_frm, text="UNKNOWN", bg=BG_TERTIARY, fg=TEXT_MUTED, font=FONT_LABEL)
+            lbl_stat.pack(side="left")
+            
+            self.status_indicators[key] = {"ind": ind, "lbl": lbl_stat, "card": card}
+            
         # 2. Middle Band: KPI Cards
         self.frm_kpi = tk.Frame(self, bg=BG_PRIMARY)
         self.frm_kpi.pack(fill="x", padx=20, pady=10)
         
         self.kpis = {}
-        # We will use 5 KPIs
         for i in range(5):
             self.frm_kpi.columnconfigure(i, weight=1, uniform="kpi")
             
-        self.kpis["power"] = KPICard(self.frm_kpi, label="Total Production", unit="MW")
-        self.kpis["power"].grid(row=0, column=0, sticky="nsew", padx=5)
+        self.kpis["power"] = KPICard(self.frm_kpi, label="Total Production", unit="MW", icon="⚡")
+        self.kpis["power"].grid(row=0, column=0, sticky="nsew", padx=10)
         
-        self.kpis["efficiency"] = KPICard(self.frm_kpi, label="System Efficiency", unit="%")
-        self.kpis["efficiency"].grid(row=0, column=1, sticky="nsew", padx=5)
+        self.kpis["efficiency"] = KPICard(self.frm_kpi, label="System Efficiency", unit="%", icon="⟳")
+        self.kpis["efficiency"].grid(row=0, column=1, sticky="nsew", padx=10)
         
-        self.kpis["wells"] = KPICard(self.frm_kpi, label="Active Wells", unit="Wells")
-        self.kpis["wells"].grid(row=0, column=2, sticky="nsew", padx=5)
+        self.kpis["wells"] = KPICard(self.frm_kpi, label="Active Wells", unit="Wells", icon="🌊")
+        self.kpis["wells"].grid(row=0, column=2, sticky="nsew", padx=10)
         
-        self.kpis["pumps"] = KPICard(self.frm_kpi, label="Pump Availability", unit="%")
-        self.kpis["pumps"].grid(row=0, column=3, sticky="nsew", padx=5)
+        self.kpis["pumps"] = KPICard(self.frm_kpi, label="Pump Availability", unit="%", icon="⚙")
+        self.kpis["pumps"].grid(row=0, column=3, sticky="nsew", padx=10)
         
-        self.kpis["alarms"] = KPICard(self.frm_kpi, label="Active Alarms", unit="Count")
-        self.kpis["alarms"].grid(row=0, column=4, sticky="nsew", padx=5)
+        self.kpis["alarms"] = KPICard(self.frm_kpi, label="Active Alarms", unit="Count", icon="⚠")
+        self.kpis["alarms"].grid(row=0, column=4, sticky="nsew", padx=10)
 
         # 3. Bottom Band: Trend & Analytics
         self.frm_trend = tk.Frame(self, bg=BG_SECONDARY, highlightthickness=1, highlightbackground=BORDER)
@@ -85,13 +106,20 @@ class OperatorDashboard(tk.Frame):
         otherwise fallback to sensible defaults based on the old arguments.
         """
         # 1. Update Status Indicators
-        # Backward compatibility mapping
-        self.status_indicators["health"].set_status("CRITICAL" if health < 60 else ("WARNING" if health < 80 else "GOOD"))
-        self.status_indicators["comms"].set_status(kwargs.get("status_comms", "GOOD"))
-        self.status_indicators["watchdog"].set_status(kwargs.get("status_watchdog", "GOOD"))
-        self.status_indicators["historian"].set_status(kwargs.get("status_historian", "GOOD"))
-        self.status_indicators["scheduler"].set_status(kwargs.get("status_scheduler", "GOOD"))
-        self.status_indicators["ai"].set_status(kwargs.get("status_ai", "GOOD"))
+        def _set_stat(key, health_str, text_str):
+            color_map = {"GOOD": CLR_RUNNING, "WARNING": CLR_WARNING, "CRITICAL": CLR_CRITICAL, "OFFLINE": CLR_STOPPED}
+            c = color_map.get(health_str, CLR_STOPPED)
+            self.status_indicators[key]["ind"].set_status(health_str)
+            self.status_indicators[key]["lbl"].config(text=text_str, fg=c)
+            
+        _set_stat("health", "CRITICAL" if health < 60 else ("WARNING" if health < 80 else "GOOD"), "HEALTHY" if health >= 80 else "DEGRADED")
+        _set_stat("comms", kwargs.get("status_comms", "GOOD"), "CONNECTED" if kwargs.get("status_comms", "GOOD") == "GOOD" else "DISCONNECTED")
+        _set_stat("watchdog", kwargs.get("status_watchdog", "GOOD"), "ONLINE" if kwargs.get("status_watchdog", "GOOD") == "GOOD" else "OFFLINE")
+        _set_stat("historian", kwargs.get("status_historian", "GOOD"), "RUNNING" if kwargs.get("status_historian", "GOOD") == "GOOD" else "STOPPED")
+        _set_stat("scheduler", kwargs.get("status_scheduler", "GOOD"), "RUNNING" if kwargs.get("status_scheduler", "GOOD") == "GOOD" else "STOPPED")
+        _set_stat("ai", kwargs.get("status_ai", "GOOD"), "ONLINE" if kwargs.get("status_ai", "GOOD") == "GOOD" else "OFFLINE")
+        
+        self.health_gauge.set_value(health)
         
         # 2. Update KPIs
         self.kpis["power"].set_value(power)
@@ -106,62 +134,37 @@ class OperatorDashboard(tk.Frame):
         self._history_power.append(power)
         self._history_eff.append(health)
         
-        self.ax.clear()
+        self.fig.clear()
+        self.ax = self.fig.add_subplot(111)
         self.ax.set_facecolor(BG_SECONDARY)
         self.ax.tick_params(colors=TEXT_SECONDARY)
         for spine in self.ax.spines.values():
             spine.set_color(BORDER)
             
-        self.ax.plot(self._history_power, color="#0ea5e9", label="Power (MW)", linewidth=2)
+        self.ax.plot(self._history_power, color="#0ea5e9", label="Power", linewidth=2.5, antialiased=True)
+        self.ax.yaxis.set_major_locator(ticker.MaxNLocator(6))
+        
+        def _power_eng_fmt(x, pos):
+            if x >= 1.0: return f"{x:.1f} MW"
+            if x >= 0.001: return f"{x*1000:.1f} kW"
+            return f"{x*1000000:.1f} W"
+            
+        self.ax.yaxis.set_major_formatter(ticker.FuncFormatter(_power_eng_fmt))
+        self.ax.grid(True, linestyle="--", alpha=0.2, color=TEXT_MUTED)
         
         ax2 = self.ax.twinx()
-        ax2.plot(self._history_eff, color="#10b981", label="Efficiency (%)", linewidth=2, alpha=0.7, linestyle="--")
+        ax2.plot(self._history_eff, color="#10b981", label="Efficiency (%)", linewidth=2.5, alpha=0.8, antialiased=True)
+        ax2.yaxis.set_major_locator(ticker.MaxNLocator(6))
         ax2.tick_params(colors=TEXT_SECONDARY)
-        ax2.spines["right"].set_color(BORDER)
+        for spine in ax2.spines.values(): spine.set_color(BORDER)
         ax2.spines["top"].set_color(BG_SECONDARY)
         
-        self.ax.set_title("Real-Time Plant Performance", color=TEXT_SECONDARY, pad=10)
+        self.ax.set_title("Real-Time Plant Performance", color=TEXT_SECONDARY, pad=20, fontdict={'fontsize': 14, 'fontweight': 'bold'})
         
-        # Merge legends
         lines, labels = self.ax.get_legend_handles_labels()
         lines2, labels2 = ax2.get_legend_handles_labels()
-        self.ax.legend(lines + lines2, labels + labels2, loc="upper left", facecolor=BG_PRIMARY, edgecolor=BORDER, labelcolor=TEXT_PRIMARY)
+        self.ax.legend(lines + lines2, labels + labels2, loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2, frameon=False, labelcolor=TEXT_PRIMARY)
+        
+        self.fig.subplots_adjust(left=0.1, right=0.9, top=0.82, bottom=0.1)
         
         self.canvas.draw_idle()
-
-    def _build_horizontal_legend(self):
-        legend_container = tk.Frame(self.frm_status, bg=BG_SECONDARY)
-        legend_container.pack(fill="x", padx=20, pady=(0, 10))
-        
-        # Create a row for the legend items, centered
-        items_frm = tk.Frame(legend_container, bg=BG_SECONDARY)
-        items_frm.pack(anchor="center")
-        
-        items = [
-            ("Green", "Normal (Health ≥ 85%)", CLR_NORMAL),
-            ("Yellow", "Warning (70–84%)", CLR_WARNING),
-            ("Red", "Critical (60–69%)", CLR_CRITICAL),
-            ("Diamond", "Emergency (< 60%)", CLR_CRITICAL)
-        ]
-        
-        for shape, text, color in items:
-            item_frm = tk.Frame(items_frm, bg=BG_SECONDARY)
-            item_frm.pack(side="left", padx=15)
-            
-            icon_canvas = tk.Canvas(item_frm, width=16, height=16, bg=BG_SECONDARY, highlightthickness=0)
-            icon_canvas.pack(side="left", pady=2)
-            
-            s = 12
-            m = 2
-            if shape in ["Green", "Yellow", "Red"]:
-                icon_canvas.create_oval(m, m, s+m, s+m, fill=color, outline=BORDER, width=1)
-            elif shape == "Diamond":
-                cx, cy = m + s/2, m + s/2
-                r = s/2
-                icon_canvas.create_polygon(cx, cy-r, cx+r, cy, cx, cy+r, cx-r, cy, fill=color, outline=BORDER, width=1)
-                
-            tk.Label(item_frm, text=text, bg=BG_SECONDARY, fg=TEXT_MUTED, font=("Segoe UI", 9)).pack(side="left", padx=(5, 0))
-            
-        # Explanatory note
-        note_text = "Health Score is calculated from AI risk analysis, sensor telemetry, alarm conditions, and equipment operating status."
-        tk.Label(legend_container, text=note_text, bg=BG_SECONDARY, fg=TEXT_MUTED, font=("Segoe UI", 8, "italic")).pack(pady=(5, 0))
