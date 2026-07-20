@@ -155,7 +155,7 @@ KPI_CARD_W      = 180    # px — KPI card width
 KPI_CARD_H      = 100     # px — KPI card height
 PUMP_ICON_SIZE  = 60     # px — pump icon diameter
 VALVE_ICON_SIZE = 44     # px — valve icon size
-PIPE_WIDTH      = 12      # px — pipe line width
+PIPE_WIDTH      = 18      # px — pipe line width
 CHEVRON_SIZE    = 14     # px — animated flow chevron size
 STATUS_LED_R    = 10      # px — status LED radius
 

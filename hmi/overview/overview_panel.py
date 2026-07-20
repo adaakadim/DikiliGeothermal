@@ -13,6 +13,7 @@ from gui.widgets import KPICard
 from gui.i18n import tr
 from digital_twin.visualization.diagram import ProcessDiagram
 from gui.search_bar import EquipmentSearchBar
+from gui.widgets import ToggleSwitch
 
 logger = logging.getLogger(__name__)
 
@@ -75,20 +76,21 @@ class OverviewPanel(tk.Frame):
         self.lbl_title = tk.Label(header, text=tr("Plant Overview"), bg=BG_HEADER, fg=TEXT_PRIMARY, font=FONT_SUBTITLE)
         self.lbl_title.pack(side="left", padx=15, pady=10)
         
+        # Center search bar using expand/fill or careful packing
         self.search_bar = EquipmentSearchBar(
             header,
             facility_provider=self._get_facility,
             on_select=self._on_search_select
         )
-        self.search_bar.pack(side="left", padx=40, pady=5)
+        self.search_bar.pack(side="left", padx=(100, 20), pady=12)
+        
+        sim_frame = tk.Frame(header, bg=BG_HEADER)
+        sim_frame.pack(side="right", padx=20, pady=12)
+        tk.Label(sim_frame, text="SIMULATION MODE", bg=BG_HEADER, fg=TEXT_PRIMARY, font=FONT_SUBTITLE).pack(side="left", padx=10)
         
         self.sim_var = tk.BooleanVar(value=False)
-        self.chk_sim = tk.Checkbutton(
-            header, text="SIMULATION MODE", variable=self.sim_var, 
-            bg=BG_HEADER, fg=TEXT_PRIMARY, selectcolor=BG_SECONDARY, font=FONT_SUBTITLE,
-            command=self._on_sim_toggle
-        )
-        self.chk_sim.pack(side="right", padx=20)
+        self.chk_sim = ToggleSwitch(sim_frame, is_on=False, command=self._on_sim_toggle, width=44, height=22)
+        self.chk_sim.pack(side="left")
         self.on_sim_toggle_cb = None
         
         # ── Main Content Area ──
@@ -131,7 +133,7 @@ class OverviewPanel(tk.Frame):
         for i, (name, unit, icon) in enumerate(kpi_specs):
             self.kpi_bar.columnconfigure(i, weight=1, uniform="kpi")
             card = DashboardKPICard(self.kpi_bar, name, unit=unit, icon=icon)
-            card.grid(row=0, column=i, sticky="nsew", padx=10, pady=4)
+            card.grid(row=0, column=i, sticky="nsew", padx=15, pady=4)
             self.kpis[name] = card
 
         # Right Side (AI Insights + Layer Control)
@@ -164,7 +166,7 @@ class OverviewPanel(tk.Frame):
         self._add_ai_card("Confidence Score", "Model confidence", 2, with_progress=True)
         self._add_ai_card("Equipment Health", "Remaining health", 3, with_progress=True)
         self._add_ai_card("Remaining Useful Life", "Estimated by AI", 4, with_progress=True)
-        self._add_ai_card("Current Prediction", "Predicted outcome", 5)
+        self._add_ai_card("AI Prediction", "Predicted outcome", 5)
         self._add_ai_card("Recommendation", "Prescriptive actions", 6, rowspan=2, val_font=FONT_LABEL)
         
         self.cards_frame.rowconfigure(6, weight=1)
@@ -243,14 +245,12 @@ class OverviewPanel(tk.Frame):
         if self._current_facility and self._current_facility.get_equipment(eq_id):
             self.diagram.focus_equipment(eq_id)
         
-    def _on_sim_toggle(self):
-        is_sim = self.sim_var.get()
+    def _on_sim_toggle(self, is_sim: bool):
+        self.sim_var.set(is_sim)
         if is_sim:
-            self.lbl_title.config(text=tr("Plant Overview [SIMULATION MODE]"), fg="#f59e0b")
-            self.chk_sim.config(fg="#f59e0b")
+            self.lbl_title.config(text=tr("Plant Overview (SIMULATION)"), fg="#f59e0b")
         else:
             self.lbl_title.config(text=tr("Plant Overview"), fg=TEXT_PRIMARY)
-            self.chk_sim.config(fg=TEXT_PRIMARY)
             
         if self.on_sim_toggle_cb:
             self.on_sim_toggle_cb(is_sim)
@@ -343,7 +343,7 @@ class OverviewPanel(tk.Frame):
                 cvs.create_rectangle(0, 0, w * fill_pct, 6, fill=r_col, outline="")
                 
         if "Prediction" in ai_insights:
-            self.ai_cards["Current Prediction"]["lbl"].config(text=str(ai_insights["Prediction"]), fg=CLR_CRITICAL if "Failure" in str(ai_insights["Prediction"]) else TEXT_PRIMARY)
+            self.ai_cards["AI Prediction"]["lbl"].config(text=str(ai_insights["Prediction"]), fg=CLR_CRITICAL if "Failure" in str(ai_insights["Prediction"]) else TEXT_PRIMARY)
             
         if "Recommendation" in ai_insights:
             rec_raw = str(ai_insights["Recommendation"])

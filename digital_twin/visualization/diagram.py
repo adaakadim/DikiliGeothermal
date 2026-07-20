@@ -150,8 +150,8 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 270
-        h = 48
+        w = 310
+        h = 60
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
             cx + w // 2, cy + h // 2,
@@ -159,8 +159,8 @@ class ProcessDiagram(tk.Frame):
         )
         self._equip_boxes[wid] = box
         self._register_interactive(tag, wid, name)
-        self.canvas.create_text(cx, cy - 16, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="center", tags=(tag,))
-        lbl = self.canvas.create_text(cx, cy + 16, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "bold"), anchor="center", tags=(tag,))
+        self.canvas.create_text(cx, cy - 22, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="center", tags=(tag,))
+        lbl = self.canvas.create_text(cx, cy + 22, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "normal"), anchor="center", tags=(tag,))
         
         # Layer labels - Placed on left/right flanks to prevent vertical overlap
         sensor_lbl = self.canvas.create_text(cx - w // 2 - 15, cy - 12, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="e", justify="left", tags=(tag, "layer_sensor"))
@@ -186,7 +186,7 @@ class ProcessDiagram(tk.Frame):
         return box
 
     def _draw_pump(self, cx, cy, pid, name, tag):
-        r = 35
+        r = 40
         box = self.canvas.create_oval(
             cx - r, cy - r, cx + r, cy + r,
             fill=BG_TERTIARY, outline=CLR_NORMAL, width=2, tags=("equip", tag)
@@ -200,8 +200,8 @@ class ProcessDiagram(tk.Frame):
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
         # Text to right
-        self.canvas.create_text(cx + r + 18, cy - 16, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 18, cy + 16, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "bold"), anchor="w", tags=(tag,))
+        self.canvas.create_text(cx + r + 18, cy - 22, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 18, cy + 22, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 10, "normal"), anchor="w", tags=(tag,))
         
         # Layer labels
         sensor_lbl = self.canvas.create_text(cx - r - 18, cy - 12, text="", fill=TEXT_SECONDARY, font=("Consolas", 10), anchor="e", justify="left", tags=(tag, "layer_sensor"))
@@ -410,15 +410,15 @@ class ProcessDiagram(tk.Frame):
                     s_txt = "OFFLINE"
                 else:
                     if eq.type == "WELL":
-                        s_txt = f"{'Temperature':<12} {eq.sensors.get('Temperature', 0):>6.1f} °C\n{'Pressure':<12} {eq.sensors.get('Pressure', 0):>6.1f} bar\n{'Flow Rate':<12} {eq.sensors.get('Flow Rate', 0):>6.1f} m³/h"
+                        s_txt = f"{'Temperature':<16} {eq.sensors.get('Temperature', 0):>7.1f} °C\n{'Pressure':<16} {eq.sensors.get('Pressure', 0):>7.1f} bar\n{'Flow Rate':<16} {eq.sensors.get('Flow Rate', 0):>7.1f} m³/h"
                     elif eq.type == "PUMP":
-                        s_txt = f"{'Flow Rate':<12} {eq.sensors.get('Flow Rate', 0):>6.1f} m³/h\n{'Current':<12} {eq.motor_current:>6.1f} A\n{'Power':<12} {eq.power_consumption:>6.1f} kW"
+                        s_txt = f"{'Flow Rate':<16} {eq.sensors.get('Flow Rate', 0):>7.1f} m³/h\n{'Current':<16} {eq.motor_current:>7.1f} A\n{'Power':<16} {eq.power_consumption:>7.1f} kW"
                     elif eq.type == "SEPARATOR":
-                        s_txt = f"{'Pressure':<12} {eq.sensors.get('Pressure', 0):>6.1f} bar"
+                        s_txt = f"{'Pressure':<16} {eq.sensors.get('Pressure', 0):>7.1f} bar"
                     elif eq.type == "HX":
-                        s_txt = f"{'Efficiency':<12} {eq.sensors.get('Efficiency', 0):>6.1f} %"
+                        s_txt = f"{'Efficiency':<16} {eq.sensors.get('Efficiency', 0):>7.1f} %"
                     elif eq.type == "NETWORK":
-                        s_txt = f"{'Delta T':<12} {eq.sensors.get('Delta T', 0):>6.1f} K"
+                        s_txt = f"{'ΔT':<16} {eq.sensors.get('Delta T', 0):>7.1f} K\n{'Thermal Power':<16} {eq.sensors.get('Thermal Power', eq.sensors.get('ThermPwr', 0)):>7.1f} MW\n{'Heat Flow':<16} {eq.sensors.get('Heat Flow', eq.sensors.get('HeatFlow', 0)):>7.1f} MW"
                     else:
                         s_txt = ""
                 
