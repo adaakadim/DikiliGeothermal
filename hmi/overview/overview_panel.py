@@ -17,19 +17,33 @@ from gui.search_bar import EquipmentSearchBar
 logger = logging.getLogger(__name__)
 
 class DashboardKPICard(tk.Frame):
-    def __init__(self, parent, title, initial_value="-", **kwargs):
+    def __init__(self, parent, title, initial_value="-", unit="", icon="■", **kwargs):
         super().__init__(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1, **kwargs)
-        self.lbl_title = tk.Label(self, text=title, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="w")
-        self.lbl_title.pack(side="top", fill="x", padx=10, pady=(10, 2))
-        self.lbl_val = tk.Label(self, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="w")
-        self.lbl_val.pack(side="top", fill="x", padx=10, pady=(0, 10))
+        self.pack_propagate(False)
+        self.config(height=80)
+        
+        hdr = tk.Frame(self, bg=BG_SECONDARY)
+        hdr.pack(side="top", fill="x", padx=10, pady=(8, 0))
+        tk.Label(hdr, text=icon, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL).pack(side="left", padx=(0, 4))
+        self.lbl_title = tk.Label(hdr, text=title, bg=BG_SECONDARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="w")
+        self.lbl_title.pack(side="left", fill="x", expand=True)
+        
+        self.lbl_trend = tk.Label(hdr, text="► Stable", bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL_SM)
+        self.lbl_trend.pack(side="right")
+        
+        val_frame = tk.Frame(self, bg=BG_SECONDARY)
+        val_frame.pack(side="top", fill="x", padx=10, pady=(2, 8))
+        self.lbl_val = tk.Label(val_frame, text=initial_value, bg=BG_SECONDARY, fg=TEXT_PRIMARY, font=("Consolas", 18, "bold"), anchor="w")
+        self.lbl_val.pack(side="left")
+        self.lbl_unit = tk.Label(val_frame, text=unit, bg=BG_SECONDARY, fg=TEXT_MUTED, font=FONT_LABEL, anchor="w")
+        self.lbl_unit.pack(side="left", padx=(4, 0), side="bottom", pady=(0, 2))
 
-    def set_value(self, val, color=None):
+    def set_value(self, val, color=None, trend=None, trend_color=None):
         self.lbl_val.config(text=str(val))
-        if color:
-            self.lbl_val.config(fg=color)
-        else:
-            self.lbl_val.config(fg=TEXT_PRIMARY)
+        if color: self.lbl_val.config(fg=color)
+        else: self.lbl_val.config(fg=TEXT_PRIMARY)
+        if trend: self.lbl_trend.config(text=trend)
+        if trend_color: self.lbl_trend.config(fg=trend_color)
 
 class OverviewPanel(tk.Frame):
     def __init__(self, parent: tk.Widget, well_ids: list, on_equip_click=None, **kwargs):
@@ -63,8 +77,8 @@ class OverviewPanel(tk.Frame):
         main_content.pack(side="top", fill="both", expand=True, padx=10, pady=10)
         
         # Grid layout for main content
-        main_content.columnconfigure(0, weight=7) # Digital Twin (70%)
-        main_content.columnconfigure(1, weight=3) # AI Insights (30%)
+        main_content.columnconfigure(0, weight=8) # Digital Twin (80%)
+        main_content.columnconfigure(1, weight=2) # AI Insights (20%)
         main_content.rowconfigure(0, weight=1)
         
         # Left Side (Twin + KPIs)
@@ -84,13 +98,21 @@ class OverviewPanel(tk.Frame):
         
         # Create KPI Cards
         self.kpis = {}
-        kpi_names = ["Production", "Steam Flow", "Temperature", "Pressure", "Power", "Efficiency", "Energy", "Active Alarms", "AI Status"]
+        kpi_specs = [
+            ("Production", "t/h", "📦"),
+            ("Steam Flow", "t/h", "💨"),
+            ("Temperature", "°C", "🌡️"),
+            ("Pressure", "bar", "⏱️"),
+            ("Power", "MW", "⚡"),
+            ("Efficiency", "%", "⚙️"),
+            ("Active Alarms", "", "⚠️"),
+            ("AI Status", "", "🧠")
+        ]
         
-        # Using a grid inside kpi_bar to distribute cards equally
-        for i, name in enumerate(kpi_names):
-            self.kpi_bar.columnconfigure(i, weight=1)
-            card = DashboardKPICard(self.kpi_bar, name)
-            card.grid(row=0, column=i, sticky="nsew", padx=2)
+        for i, (name, unit, icon) in enumerate(kpi_specs):
+            self.kpi_bar.columnconfigure(i, weight=1, uniform="kpi")
+            card = DashboardKPICard(self.kpi_bar, name, unit=unit, icon=icon)
+            card.grid(row=0, column=i, sticky="nsew", padx=4)
             self.kpis[name] = card
 
         # Right Side (AI Insights + Layer Control)
@@ -112,55 +134,47 @@ class OverviewPanel(tk.Frame):
         lbl_ai_title.pack(side="top", fill="x")
         
         self.cards_frame = tk.Frame(insights_panel, bg=BG_PRIMARY)
-        self.cards_frame.pack(fill="both", expand=True, padx=8, pady=8)
+        self.cards_frame.pack(fill="both", expand=True, padx=4, pady=4)
         
-        for i in range(2):
-            self.cards_frame.columnconfigure(i, weight=1, uniform="col")
-        for i in range(4):
-            self.cards_frame.rowconfigure(i, weight=1)
+        self.cards_frame.columnconfigure(0, weight=1)
             
         self.ai_cards = {}
         
-        self._add_ai_card("Overall AI Status", 0, 0)
-        
-        # Risk Score with Canvas
-        self._add_ai_card("Risk Score", 0, 1)
-        self.risk_canvas = tk.Canvas(self.ai_cards["Risk Score"]["body"], bg=BG_TERTIARY, height=6, highlightthickness=0)
-        self.risk_canvas.pack(side="bottom", fill="x", pady=(5,0))
-        
-        self._add_ai_card("Confidence Score", 1, 0)
-        self._add_ai_card("Equipment Health", 1, 1)
-        self._add_ai_card("Remaining Useful Life", 2, 0)
-        self._add_ai_card("Top Features (SHAP)", 2, 1)
-        self._add_ai_card("Current Prediction", 3, 0)
-        self._add_ai_card("Recommendation", 3, 1)
-        
-        self.ai_cards["Top Features (SHAP)"]["lbl"].config(
-            text="Explainable AI module will display the most influential features.",
-            font=FONT_LABEL_SM, fg=TEXT_MUTED
-        )
+        self._add_ai_card("Overall AI Status", "System Status", 0)
+        self._add_ai_card("Risk Score", "Current failure risk", 1, with_progress=True)
+        self._add_ai_card("Confidence Score", "Model confidence", 2)
+        self._add_ai_card("Equipment Health", "Remaining health", 3)
+        self._add_ai_card("Remaining Useful Life", "Estimated by AI", 4)
+        self._add_ai_card("Current Prediction", "Predicted outcome", 5)
+        self._add_ai_card("Recommendation", "Prescriptive actions", 6)
 
-    def _add_ai_card(self, title, r, c, rowspan=1, colspan=1):
+    def _add_ai_card(self, title, desc, row, with_progress=False):
         card = tk.Frame(self.cards_frame, bg=BG_TERTIARY, highlightbackground=BORDER, highlightthickness=1)
-        card.grid(row=r, column=c, rowspan=rowspan, columnspan=colspan, sticky="nsew", padx=4, pady=4)
+        card.grid(row=row, column=0, sticky="nsew", padx=4, pady=4)
         
-        lbl = tk.Label(card, text=title, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="w")
-        lbl.pack(side="top", fill="x", padx=8, pady=(6, 2))
+        top = tk.Frame(card, bg=BG_TERTIARY)
+        top.pack(fill="x", padx=10, pady=(8, 2))
         
-        body = tk.Frame(card, bg=BG_TERTIARY)
-        body.pack(side="top", fill="both", expand=True, padx=8, pady=(0, 6))
+        lbl_title = tk.Label(top, text=title, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM)
+        lbl_title.pack(side="left")
         
-        val = tk.Label(body, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=("Segoe UI", 10, "bold"), anchor="nw", justify="left")
-        val.pack(side="top", fill="both", expand=True)
+        lbl_desc = tk.Label(top, text=desc, bg=BG_TERTIARY, fg=TEXT_MUTED, font=("Segoe UI", 8))
+        lbl_desc.pack(side="right")
         
-        def _on_resize(event, label=val, title_label=lbl):
-            wrap = max(50, event.width - 20)
-            label.config(wraplength=wrap)
-            title_label.config(wraplength=wrap)
+        val_font = FONT_MONO_MD if not title in ["Current Prediction", "Recommendation"] else FONT_LABEL
+        val = tk.Label(card, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=val_font, anchor="w", justify="left")
+        val.pack(fill="x", padx=10, pady=(0, 8))
+        
+        def _on_resize(event, label=val):
+            label.config(wraplength=max(50, event.width - 20))
             
         card.bind("<Configure>", _on_resize)
         
-        self.ai_cards[title] = {"lbl": val, "body": body, "card": card}
+        self.ai_cards[title] = {"lbl": val, "body": card, "card": card}
+        
+        if with_progress:
+            self.risk_canvas = tk.Canvas(card, bg=BG_SECONDARY, height=6, highlightthickness=0)
+            self.risk_canvas.pack(side="bottom", fill="x", padx=10, pady=(0, 8))
 
     def _build_layer_control(self, parent):
         layer_frame = tk.Frame(parent, bg=BG_SECONDARY, highlightbackground=BORDER, highlightthickness=1)
@@ -219,74 +233,60 @@ class OverviewPanel(tk.Frame):
         for k, v in kpis.items():
             if k in self.kpis:
                 color = None
+                trend_txt = "► Stable"
+                trend_col = TEXT_MUTED
+                
                 if k == "Active Alarms":
                     color = CLR_CRITICAL if int(v) > 0 else CLR_NORMAL
+                    trend_txt = f"{v} Active" if int(v) > 0 else "All Clear"
+                    trend_col = color
                 elif k == "AI Status":
                     color = CLR_CRITICAL if v in ["CRITICAL", "FAILURE"] else (CLR_WARNING if v == "WARNING" else CLR_NORMAL)
+                    trend_txt = v
+                    trend_col = color
                 
-                self.kpis[k].set_value(v, color)
+                self.kpis[k].set_value(v, color, trend_txt, trend_col)
                 
         # Update AI Insights
-        # Overall AI Status
         if "Overall AI Status" in ai_insights:
             status_val = ai_insights["Overall AI Status"]
-            # Map NORMAL to Healthy
             if status_val == "NORMAL": status_disp = "Healthy"
             elif status_val == "WARNING": status_disp = "Warning"
             elif status_val in ["CRITICAL", "FAILURE"]: status_disp = "Critical"
             else: status_disp = status_val
-            
             color = CLR_CRITICAL if status_disp == "Critical" else (CLR_WARNING if status_disp == "Warning" else CLR_NORMAL)
-            self.ai_cards["Overall AI Status"]["lbl"].config(text=status_disp, fg=color)
+            self.ai_cards["Overall AI Status"]["lbl"].config(text=f"● {status_disp.upper()}", fg=color)
 
-        # Risk Score
         if "Risk Score" in ai_insights:
             risk = float(ai_insights["Risk Score"])
-            if risk > 70:
-                color = "#ef4444" # Red
-                sev = "Red"
-            elif risk > 50:
-                color = "#f97316" # Orange
-                sev = "Orange"
-            elif risk > 30:
-                color = "#eab308" # Yellow
-                sev = "Yellow"
-            else:
-                color = "#10b981" # Green
-                sev = "Green"
-            
-            self.ai_cards["Risk Score"]["lbl"].config(text=f"{risk:.1f}% ({sev})", fg=color)
-            
+            if risk > 70: color = CLR_CRITICAL
+            elif risk > 50: color = "#f97316"
+            elif risk > 30: color = CLR_WARNING
+            else: color = CLR_NORMAL
+            self.ai_cards["Risk Score"]["lbl"].config(text=f"{risk:.1f}%", fg=color)
             self.risk_canvas.delete("all")
             w = self.risk_canvas.winfo_width()
-            if w <= 1: w = 150 # fallback
+            if w <= 1: w = 150
             self.risk_canvas.create_rectangle(0, 0, w, 6, fill=BG_SECONDARY, outline="")
             self.risk_canvas.create_rectangle(0, 0, w * (risk/100.0), 6, fill=color, outline="")
 
-        # Confidence Score
         if "Confidence" in ai_insights:
             conf = float(ai_insights["Confidence"])
             self.ai_cards["Confidence Score"]["lbl"].config(text=f"{conf:.1f}%", fg=TEXT_PRIMARY)
             
-        # Equipment Health
         if "Equipment Health" in ai_insights:
             hlth = float(ai_insights["Equipment Health"])
-            h_str = "Healthy" if hlth > 80 else ("Warning" if hlth > 50 else "Critical")
             h_col = CLR_NORMAL if hlth > 80 else (CLR_WARNING if hlth > 50 else CLR_CRITICAL)
-            self.ai_cards["Equipment Health"]["lbl"].config(text=f"{hlth:.0f}% - {h_str}", fg=h_col)
+            self.ai_cards["Equipment Health"]["lbl"].config(text=f"{hlth:.0f}%", fg=h_col)
             
-        # Remaining Useful Life
         if "RUL" in ai_insights:
             rul = float(ai_insights["RUL"])
-            if rul > 0:
-                self.ai_cards["Remaining Useful Life"]["lbl"].config(text=f"{rul:.0f} hrs", fg=TEXT_PRIMARY)
-            else:
-                self.ai_cards["Remaining Useful Life"]["lbl"].config(text="Not available", fg=TEXT_MUTED)
+            if rul > 0: self.ai_cards["Remaining Useful Life"]["lbl"].config(text=f"{rul:.0f} hrs", fg=TEXT_PRIMARY)
+            else: self.ai_cards["Remaining Useful Life"]["lbl"].config(text="Not available", fg=TEXT_MUTED)
                 
-        # Current Prediction
         if "Prediction" in ai_insights:
-            self.ai_cards["Current Prediction"]["lbl"].config(text=str(ai_insights["Prediction"]), fg=TEXT_PRIMARY)
+            self.ai_cards["Current Prediction"]["lbl"].config(text=str(ai_insights["Prediction"]), fg=CLR_CRITICAL if "Failure" in str(ai_insights["Prediction"]) else TEXT_PRIMARY)
             
-        # Recommendation
         if "Recommendation" in ai_insights:
-            self.ai_cards["Recommendation"]["lbl"].config(text=str(ai_insights["Recommendation"]), fg=TEXT_PRIMARY)
+            recs = str(ai_insights["Recommendation"]).replace(". ", "\n")
+            self.ai_cards["Recommendation"]["lbl"].config(text=recs, fg=TEXT_PRIMARY)

@@ -58,13 +58,14 @@ if CURRENT_MODE == "light":
     CLR_PIPE_BG    = "#cbd5e1"  # Pipe outline
     
     # Status colours (equipment, gauges, indicators)
-    CLR_NORMAL   = "#94a3b8"    # Gray — operating normally (ISA-101 neutral)
-    CLR_RUNNING  = "#94a3b8"    # Gray
-    CLR_STOPPED  = "#cbd5e1"    # Light Gray
-    CLR_WARNING  = "#d97706"    # Amber/yellow
-    CLR_CRITICAL = "#dc2626"    # Red
-    CLR_OFFLINE  = "#cbd5e1"    # Light Gray
-    CLR_INFO     = "#0284c7"    # Blue
+    CLR_NORMAL   = "#10b981"    # Green — operating normally
+    CLR_RUNNING  = "#10b981"    # Green
+    CLR_STOPPED  = "#94a3b8"    # Gray
+    CLR_WARNING  = "#f59e0b"    # Amber/yellow
+    CLR_CRITICAL = "#ef4444"    # Red
+    CLR_OFFLINE  = "#94a3b8"    # Gray
+    CLR_STANDBY  = "#3b82f6"    # Blue
+    CLR_INFO     = "#3b82f6"    # Blue
     CLR_COMMS_LOSS = "#d946ef"  # Magenta
     CLR_MAINTENANCE = "#0ea5e9" # Light Blue
 
@@ -90,13 +91,14 @@ else:
     CLR_PIPE_BG    = "#30363d"  # Pipe outline
 
     # Status colours (equipment, gauges, indicators)
-    CLR_NORMAL   = "#8b949e"    # Gray — operating normally (ISA-101 neutral)
-    CLR_RUNNING  = "#8b949e"    # Gray
+    CLR_NORMAL   = "#10b981"    # Green — operating normally
+    CLR_RUNNING  = "#10b981"    # Green
     CLR_STOPPED  = "#484f58"    # Dark Gray
-    CLR_WARNING  = "#ffc107"    # Amber/yellow — operator attention
-    CLR_CRITICAL = "#ff1744"    # Red — immediate action required
+    CLR_WARNING  = "#f59e0b"    # Amber/yellow — operator attention
+    CLR_CRITICAL = "#ef4444"    # Red — immediate action required
     CLR_OFFLINE  = "#484f58"    # Dark Gray — offline / disabled
-    CLR_INFO     = "#2196f3"    # Blue — informational
+    CLR_STANDBY  = "#3b82f6"    # Blue
+    CLR_INFO     = "#3b82f6"    # Blue — informational
     CLR_COMMS_LOSS = "#d946ef"  # Magenta
     CLR_MAINTENANCE = "#0284c7" # Blue
 
@@ -133,29 +135,29 @@ ALARM_COLORS = {
 # ─── Fonts ────────────────────────────────────────────────────────────────────
 
 # Monospace for numeric readouts
-FONT_MONO_XL    = ("Consolas", 22, "bold")    # Large gauge values
-FONT_MONO_LG    = ("Consolas", 16, "bold")    # KPI card values
-FONT_MONO_MD    = ("Consolas", 12)            # Table values, process labels
-FONT_MONO_SM    = ("Consolas", 10)            # Small annotations
+FONT_MONO_XL    = ("Consolas", 24, "bold")    # Large gauge values
+FONT_MONO_LG    = ("Consolas", 20, "bold")    # KPI card values
+FONT_MONO_MD    = ("Consolas", 14)            # Table values, process labels
+FONT_MONO_SM    = ("Consolas", 12)            # Small annotations
 
 # Sans-serif for labels and titles
-FONT_TITLE      = ("Segoe UI", 14, "bold")    # Section titles
-FONT_SUBTITLE   = ("Segoe UI", 11, "bold")    # Sub-headers
-FONT_LABEL      = ("Segoe UI", 10)            # Widget labels
-FONT_LABEL_SM   = ("Segoe UI", 9)             # Small labels
-FONT_HEADER_BAR = ("Segoe UI", 12, "bold")    # Top status bar
+FONT_TITLE      = ("Segoe UI", 18, "bold")    # Section titles
+FONT_SUBTITLE   = ("Segoe UI", 16, "bold")    # Sub-headers
+FONT_LABEL      = ("Segoe UI", 12)            # Widget labels
+FONT_LABEL_SM   = ("Segoe UI", 11)             # Small labels
+FONT_HEADER_BAR = ("Segoe UI", 14, "bold")    # Top status bar
 
 
 # ─── Sizes ────────────────────────────────────────────────────────────────────
 
 GAUGE_SIZE      = 160    # px — diameter of circular gauges
-KPI_CARD_W      = 160    # px — KPI card width
-KPI_CARD_H      = 90     # px — KPI card height
-PUMP_ICON_SIZE  = 50     # px — pump icon diameter
-VALVE_ICON_SIZE = 36     # px — valve icon size
-PIPE_WIDTH      = 8      # px — pipe line width
-CHEVRON_SIZE    = 12     # px — animated flow chevron size
-STATUS_LED_R    = 8      # px — status LED radius
+KPI_CARD_W      = 180    # px — KPI card width
+KPI_CARD_H      = 100     # px — KPI card height
+PUMP_ICON_SIZE  = 60     # px — pump icon diameter
+VALVE_ICON_SIZE = 44     # px — valve icon size
+PIPE_WIDTH      = 12      # px — pipe line width
+CHEVRON_SIZE    = 14     # px — animated flow chevron size
+STATUS_LED_R    = 10      # px — status LED radius
 
 # Refresh interval (milliseconds) — matches SCADA scan cycle
 REFRESH_MS      = 2000

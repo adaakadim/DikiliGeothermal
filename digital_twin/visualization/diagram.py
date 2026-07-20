@@ -150,8 +150,8 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 240
-        h = 48
+        w = 276
+        h = 56
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
             cx + w // 2, cy + h // 2,
@@ -159,14 +159,14 @@ class ProcessDiagram(tk.Frame):
         )
         self._equip_boxes[wid] = box
         self._register_interactive(tag, wid, name)
-        self.canvas.create_text(cx, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=FONT_LABEL, anchor="center", tags=(tag,))
-        lbl = self.canvas.create_text(cx, cy + 12, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="center", tags=(tag,))
+        self.canvas.create_text(cx, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="center", tags=(tag,))
+        lbl = self.canvas.create_text(cx, cy + 12, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="center", tags=(tag,))
         
         # Layer labels - Placed on left/right flanks to prevent vertical overlap
-        sensor_lbl = self.canvas.create_text(cx - w // 2 - 15, cy - 8, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="e", justify="right", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx - w // 2 - 15, cy + 12, text="", fill=CLR_CRITICAL, font=FONT_LABEL_SM, anchor="e", justify="right", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + w // 2 + 15, cy - 8, text="", fill="#34d399", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + w // 2 + 15, cy + 12, text="", fill="#f87171", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_thermal"))
+        sensor_lbl = self.canvas.create_text(cx - w // 2 - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx, cy + h // 2 + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="center", justify="center", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + w // 2 + 20, cy - 15, text="", fill="#34d399", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + w // 2 + 20, cy + 15, text="", fill="#f87171", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_thermal"))
         
         self._labels[wid] = {
             "info": lbl,
@@ -186,7 +186,7 @@ class ProcessDiagram(tk.Frame):
         return box
 
     def _draw_pump(self, cx, cy, pid, name, tag):
-        r = 30
+        r = 35
         box = self.canvas.create_oval(
             cx - r, cy - r, cx + r, cy + r,
             fill=BG_TERTIARY, outline=CLR_NORMAL, width=2, tags=("equip", tag)
@@ -200,14 +200,14 @@ class ProcessDiagram(tk.Frame):
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
         # Text to right (still fine if horizontal pipes go top/bottom or left)
-        self.canvas.create_text(cx + r + 15, cy - 10, text=name.upper(), fill=TEXT_PRIMARY, font=FONT_LABEL_SM, anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 15, cy + 10, text="---", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", tags=(tag,))
+        self.canvas.create_text(cx + r + 20, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 14, "bold"), anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 20, cy + 12, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="w", tags=(tag,))
         
         # Layer labels
-        sensor_lbl = self.canvas.create_text(cx - r - 15, cy - 8, text="", fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="e", justify="right", tags=(tag, "layer_sensor"))
-        alarm_lbl = self.canvas.create_text(cx - r - 15, cy + 12, text="", fill=CLR_CRITICAL, font=FONT_LABEL_SM, anchor="e", justify="right", tags=(tag, "layer_alarm"))
-        maint_lbl = self.canvas.create_text(cx + r + 110, cy - 8, text="", fill="#34d399", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_maintenance"))
-        thermal_lbl = self.canvas.create_text(cx + r + 110, cy + 12, text="", fill="#f87171", font=FONT_MONO_SM, anchor="w", tags=(tag, "layer_thermal"))
+        sensor_lbl = self.canvas.create_text(cx - r - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="e", justify="left", tags=(tag, "layer_sensor"))
+        alarm_lbl = self.canvas.create_text(cx + r + 20, cy + r + 15, text="", fill=CLR_CRITICAL, font=("Segoe UI", 11, "bold"), anchor="w", justify="left", tags=(tag, "layer_alarm"))
+        maint_lbl = self.canvas.create_text(cx + r + 160, cy - 15, text="", fill="#34d399", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_maintenance"))
+        thermal_lbl = self.canvas.create_text(cx + r + 160, cy + 15, text="", fill="#f87171", font=FONT_MONO_MD, anchor="w", tags=(tag, "layer_thermal"))
 
         self._labels[pid] = {
             "info": lbl,
@@ -228,9 +228,9 @@ class ProcessDiagram(tk.Frame):
     def _draw_static(self):
         # Dynamic responsive vertical scaling
         eff_height = max(self._height, 800)
-        start_y = 50 # Roughly 2 lines below the title
-        total_span = eff_height - 110 # End ~60px from bottom
-        s = total_span / 750.0
+        start_y = 80 # Down slightly to center vertically
+        total_span = eff_height - 140 # Increase spacing span
+        s = total_span / 650.0
 
         # Store for animation
         p101_meta = self._layout_engine.get_equipment("P-101")
@@ -270,18 +270,18 @@ class ProcessDiagram(tk.Frame):
 
 
     def _draw_valve(self, cx, cy, vid, name, tag):
-        w = 20
-        h = 16
+        w = 24
+        h = 20
         # Bowtie shape
         bg = self.canvas.create_polygon(cx-w, cy-h, cx-w, cy+h, cx+w, cy-h, cx+w, cy+h, fill=BG_SECONDARY, outline=BORDER, width=2, tags=(tag, "valve_bg", vid))
         # Center circle
         c = self.canvas.create_oval(cx-5, cy-5, cx+5, cy+5, fill=TEXT_PRIMARY, tags=(tag, "valve_center", vid))
         
-        lbl = self.canvas.create_text(cx + w + 15, cy, text=name, fill=TEXT_SECONDARY, font=FONT_MONO_SM, anchor="w", justify="left", tags=(tag,))
+        lbl = self.canvas.create_text(cx + w + 15, cy, text=name, fill=TEXT_SECONDARY, font=FONT_MONO_MD, anchor="w", justify="left", tags=(tag,))
         self._equip_boxes[vid] = bg
         
         # Flap for animation
-        flap = self.canvas.create_line(cx, cy - 8, cx, cy + 8, fill=CLR_CRITICAL, width=3, tags=(tag, "valve_flap", vid))
+        flap = self.canvas.create_line(cx, cy - 10, cx, cy + 10, fill=CLR_CRITICAL, width=3, tags=(tag, "valve_flap", vid))
         
         # Status icon
         icon = self.canvas.create_text(cx - 30, cy, text="", fill=TEXT_PRIMARY, font=FONT_LABEL_SM, anchor="e", tags=(tag, "status_icon", vid))
@@ -410,15 +410,15 @@ class ProcessDiagram(tk.Frame):
                     s_txt = "OFFLINE"
                 else:
                     if eq.type == "WELL":
-                        s_txt = f"T: {eq.sensors.get('Temperature', 0):.1f}°C | P: {eq.sensors.get('Pressure', 0):.1f}bar\nF: {eq.sensors.get('Flow Rate', 0):.1f}m³/h"
+                        s_txt = f"{'Temp':<7}: {eq.sensors.get('Temperature', 0):>5.1f} °C\n{'Press':<7}: {eq.sensors.get('Pressure', 0):>5.1f} bar\n{'Flow':<7}: {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h"
                     elif eq.type == "PUMP":
-                        s_txt = f"F: {eq.sensors.get('Flow Rate', 0):.1f}m³/h | I: {eq.motor_current:.1f}A\nP: {eq.power_consumption:.1f}kW"
+                        s_txt = f"{'Flow':<7}: {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h\n{'Current':<7}: {eq.motor_current:>5.1f} A\n{'Power':<7}: {eq.power_consumption:>5.1f} kW"
                     elif eq.type == "SEPARATOR":
-                        s_txt = f"P: {eq.sensors.get('Pressure', 0):.1f}bar"
+                        s_txt = f"{'Press':<7}: {eq.sensors.get('Pressure', 0):>5.1f} bar"
                     elif eq.type == "HX":
-                        s_txt = f"Eff: {eq.sensors.get('Efficiency', 0):.1f}%"
+                        s_txt = f"{'Eff':<7}: {eq.sensors.get('Efficiency', 0):>5.1f} %"
                     elif eq.type == "NETWORK":
-                        s_txt = f"ΔT: {eq.sensors.get('Delta T', 0):.1f}K"
+                        s_txt = f"{'Delta T':<7}: {eq.sensors.get('Delta T', 0):>5.1f} K"
                     else:
                         s_txt = ""
                 
