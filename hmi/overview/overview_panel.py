@@ -131,7 +131,7 @@ class OverviewPanel(tk.Frame):
         for i, (name, unit, icon) in enumerate(kpi_specs):
             self.kpi_bar.columnconfigure(i, weight=1, uniform="kpi")
             card = DashboardKPICard(self.kpi_bar, name, unit=unit, icon=icon)
-            card.grid(row=0, column=i, sticky="nsew", padx=4)
+            card.grid(row=0, column=i, sticky="nsew", padx=10, pady=4)
             self.kpis[name] = card
 
         # Right Side (AI Insights + Layer Control)
@@ -163,7 +163,7 @@ class OverviewPanel(tk.Frame):
         self._add_ai_card("Risk Score", "Current failure risk", 1, with_progress=True)
         self._add_ai_card("Confidence Score", "Model confidence", 2, with_progress=True)
         self._add_ai_card("Equipment Health", "Remaining health", 3, with_progress=True)
-        self._add_ai_card("Remaining Useful Life", "Estimated by AI", 4)
+        self._add_ai_card("Remaining Useful Life", "Estimated by AI", 4, with_progress=True)
         self._add_ai_card("Current Prediction", "Predicted outcome", 5)
         self._add_ai_card("Recommendation", "Prescriptive actions", 6, rowspan=2, val_font=FONT_LABEL)
         
@@ -328,12 +328,28 @@ class OverviewPanel(tk.Frame):
             
         if "RUL" in ai_insights:
             rul = float(ai_insights["RUL"])
-            if rul > 0: self.ai_cards["Remaining Useful Life"]["lbl"].config(text=f"{rul:.0f} hrs", fg=TEXT_PRIMARY)
-            else: self.ai_cards["Remaining Useful Life"]["lbl"].config(text="Not available", fg=TEXT_MUTED)
+            # Assuming RUL is 0-100% or similar. If it's hours, we need a max to scale against.
+            # Let's assume max is 100 for simplicity of progress bar.
+            r_col = CLR_NORMAL if rul > 50 else (CLR_WARNING if rul > 20 else CLR_CRITICAL)
+            self.ai_cards["Remaining Useful Life"]["lbl"].config(text=f"{rul:.0f} hrs", fg=r_col)
+            if "canvas" in self.ai_cards["Remaining Useful Life"]:
+                cvs = self.ai_cards["Remaining Useful Life"]["canvas"]
+                cvs.delete("all")
+                w = cvs.winfo_width()
+                if w <= 1: w = 150
+                cvs.create_rectangle(0, 0, w, 6, fill=BG_SECONDARY, outline="")
+                # Cap RUL at 100 for progress bar drawing
+                fill_pct = min(1.0, rul / 100.0)
+                cvs.create_rectangle(0, 0, w * fill_pct, 6, fill=r_col, outline="")
                 
         if "Prediction" in ai_insights:
             self.ai_cards["Current Prediction"]["lbl"].config(text=str(ai_insights["Prediction"]), fg=CLR_CRITICAL if "Failure" in str(ai_insights["Prediction"]) else TEXT_PRIMARY)
             
         if "Recommendation" in ai_insights:
-            recs = str(ai_insights["Recommendation"]).replace(". ", "\n")
-            self.ai_cards["Recommendation"]["lbl"].config(text=recs, fg=TEXT_PRIMARY)
+            rec_raw = str(ai_insights["Recommendation"])
+            sentences = [s.strip() for s in rec_raw.split('.') if s.strip()]
+            if len(sentences) > 1:
+                rec_text = "\n".join(f"• {s}." for s in sentences)
+            else:
+                rec_text = rec_raw
+            self.ai_cards["Recommendation"]["lbl"].config(text=rec_text, fg=TEXT_PRIMARY)

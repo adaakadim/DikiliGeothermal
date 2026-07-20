@@ -150,7 +150,7 @@ class ProcessDiagram(tk.Frame):
         self._tooltips.append(HoverTooltip(self.canvas, tag, make_tooltip_text))
 
     def _draw_box(self, cx, cy, wid, name, tag):
-        w = 276
+        w = 320
         h = 56
         box = self.canvas.create_rectangle(
             cx - w // 2, cy - h // 2,
@@ -159,8 +159,8 @@ class ProcessDiagram(tk.Frame):
         )
         self._equip_boxes[wid] = box
         self._register_interactive(tag, wid, name)
-        self.canvas.create_text(cx, cy - 12, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="center", tags=(tag,))
-        lbl = self.canvas.create_text(cx, cy + 12, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="center", tags=(tag,))
+        self.canvas.create_text(cx, cy - 20, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="center", tags=(tag,))
+        lbl = self.canvas.create_text(cx, cy + 20, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="center", tags=(tag,))
         
         # Layer labels - Placed on left/right flanks to prevent vertical overlap
         sensor_lbl = self.canvas.create_text(cx - w // 2 - 20, cy - 15, text="", fill=TEXT_SECONDARY, font=("Consolas", 11), anchor="e", justify="left", tags=(tag, "layer_sensor"))
@@ -200,8 +200,8 @@ class ProcessDiagram(tk.Frame):
         self._pump_rotors[pid] = [l1, l2, cx, cy]
         
         # Text to right
-        self.canvas.create_text(cx + r + 24, cy - 14, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="w", tags=(tag,))
-        lbl = self.canvas.create_text(cx + r + 24, cy + 14, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="w", tags=(tag,))
+        self.canvas.create_text(cx + r + 24, cy - 20, text=name.upper(), fill=TEXT_PRIMARY, font=("Segoe UI", 16, "bold"), anchor="w", tags=(tag,))
+        lbl = self.canvas.create_text(cx + r + 24, cy + 20, text="---", fill=TEXT_SECONDARY, font=("Segoe UI", 12, "bold"), anchor="w", tags=(tag,))
         
         # Layer labels
         sensor_lbl = self.canvas.create_text(cx - r - 24, cy - 15, text="", fill=TEXT_SECONDARY, font=("Consolas", 11), anchor="e", justify="left", tags=(tag, "layer_sensor"))
@@ -410,15 +410,15 @@ class ProcessDiagram(tk.Frame):
                     s_txt = "OFFLINE"
                 else:
                     if eq.type == "WELL":
-                        s_txt = f"{'Temp:':<7} {eq.sensors.get('Temperature', 0):>5.1f} °C\n{'Press:':<7} {eq.sensors.get('Pressure', 0):>5.1f} bar\n{'Flow:':<7} {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h"
+                        s_txt = f"{'Temperature':<12} {eq.sensors.get('Temperature', 0):>6.1f} °C\n{'Pressure':<12} {eq.sensors.get('Pressure', 0):>6.1f} bar\n{'Flow Rate':<12} {eq.sensors.get('Flow Rate', 0):>6.1f} m³/h"
                     elif eq.type == "PUMP":
-                        s_txt = f"{'Flow:':<9} {eq.sensors.get('Flow Rate', 0):>5.1f} m³/h\n{'Current:':<9} {eq.motor_current:>5.1f} A\n{'Power:':<9} {eq.power_consumption:>5.1f} kW"
+                        s_txt = f"{'Flow Rate':<12} {eq.sensors.get('Flow Rate', 0):>6.1f} m³/h\n{'Current':<12} {eq.motor_current:>6.1f} A\n{'Power':<12} {eq.power_consumption:>6.1f} kW"
                     elif eq.type == "SEPARATOR":
-                        s_txt = f"{'Press:':<7} {eq.sensors.get('Pressure', 0):>5.1f} bar"
+                        s_txt = f"{'Pressure':<12} {eq.sensors.get('Pressure', 0):>6.1f} bar"
                     elif eq.type == "HX":
-                        s_txt = f"{'Eff:':<5} {eq.sensors.get('Efficiency', 0):>5.1f} %"
+                        s_txt = f"{'Efficiency':<12} {eq.sensors.get('Efficiency', 0):>6.1f} %"
                     elif eq.type == "NETWORK":
-                        s_txt = f"{'DeltaT:':<7} {eq.sensors.get('Delta T', 0):>5.1f} K"
+                        s_txt = f"{'Delta T':<12} {eq.sensors.get('Delta T', 0):>6.1f} K"
                     else:
                         s_txt = ""
                 
