@@ -117,7 +117,7 @@ class OverviewPanel(tk.Frame):
         for i in range(2):
             self.cards_frame.columnconfigure(i, weight=1, uniform="col")
         for i in range(4):
-            self.cards_frame.rowconfigure(i, weight=1, uniform="row")
+            self.cards_frame.rowconfigure(i, weight=1)
             
         self.ai_cards = {}
         
@@ -143,7 +143,6 @@ class OverviewPanel(tk.Frame):
     def _add_ai_card(self, title, r, c, rowspan=1, colspan=1):
         card = tk.Frame(self.cards_frame, bg=BG_TERTIARY, highlightbackground=BORDER, highlightthickness=1)
         card.grid(row=r, column=c, rowspan=rowspan, columnspan=colspan, sticky="nsew", padx=4, pady=4)
-        card.pack_propagate(False)
         
         lbl = tk.Label(card, text=title, bg=BG_TERTIARY, fg=TEXT_SECONDARY, font=FONT_LABEL_SM, anchor="w")
         lbl.pack(side="top", fill="x", padx=8, pady=(6, 2))
@@ -151,8 +150,15 @@ class OverviewPanel(tk.Frame):
         body = tk.Frame(card, bg=BG_TERTIARY)
         body.pack(side="top", fill="both", expand=True, padx=8, pady=(0, 6))
         
-        val = tk.Label(body, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=("Segoe UI", 10, "bold"), anchor="nw", justify="left", wraplength=140)
+        val = tk.Label(body, text="-", bg=BG_TERTIARY, fg=TEXT_PRIMARY, font=("Segoe UI", 10, "bold"), anchor="nw", justify="left")
         val.pack(side="top", fill="both", expand=True)
+        
+        def _on_resize(event, label=val, title_label=lbl):
+            wrap = max(50, event.width - 20)
+            label.config(wraplength=wrap)
+            title_label.config(wraplength=wrap)
+            
+        card.bind("<Configure>", _on_resize)
         
         self.ai_cards[title] = {"lbl": val, "body": body, "card": card}
 
