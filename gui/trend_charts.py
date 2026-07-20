@@ -65,9 +65,8 @@ class TrendChartPanel(tk.Frame):
         }
 
         # ── Create matplotlib figure ──────────────────────────────────────
-        self._fig = Figure(figsize=(8, 4.5), dpi=85)
-        # Give more vertical space for stacked KPIs and use tight layout internally
-        self._fig.subplots_adjust(hspace=0.80, wspace=0.30, left=0.08, right=0.98, top=0.92, bottom=0.18)
+        self._fig = Figure(figsize=(14, 8), dpi=100, constrained_layout=True)
+
 
         # Create 2x3 subplot grid
         specs = [
@@ -95,38 +94,41 @@ class TrendChartPanel(tk.Frame):
             ax = self._fig.add_subplot(2, 3, idx + 1)
             ax.set_facecolor(BG_SECONDARY)
             ax.set_ylim(*ylim)
-            ax.set_title(title, fontsize=8, fontweight="bold", color=TEXT_PRIMARY, pad=4, loc="left")
-            ax.set_ylabel(unit, fontsize=7, color=TEXT_SECONDARY, labelpad=2)
-            ax.tick_params(colors=TEXT_MUTED, labelsize=6)
+            ax.set_title(title, fontsize=11, fontweight="bold", color=TEXT_PRIMARY, pad=8, loc="left")
+            ax.set_ylabel(unit, fontsize=10, color=TEXT_SECONDARY, labelpad=4)
+            ax.tick_params(colors=TEXT_MUTED, labelsize=9)
             ax.xaxis.set_major_locator(locator)
             ax.xaxis.set_major_formatter(self._date_formatter)
-            ax.grid(True, color=GRID_LINE, linestyle="--", linewidth=0.4, alpha=0.3)
+            ax.grid(True, color=GRID_LINE, linestyle="--", linewidth=0.5, alpha=0.2)
             for spine in ax.spines.values():
                 spine.set_color(BORDER)
+
+            # Add invisible x-label to reserve space for the text below the chart
+            ax.set_xlabel("\n\n\n\n\n", fontsize=9)
 
             # Thresholds
             for level, color in thresholds:
                 label_txt = f"Warning Threshold ({level} {unit})" if color == CLR_WARNING else f"Critical Threshold ({level} {unit})"
-                ax.axhline(level, color=color, linewidth=0.7, linestyle="--", alpha=0.5, label=label_txt)
+                ax.axhline(level, color=color, linewidth=1.5, linestyle="--", alpha=0.6, label=label_txt)
 
             self._lines[key] = {}
             for wid in well_ids:
                 color = WELL_COLORS.get(wid, "#ffffff")
                 # Add markers for data points
-                line, = ax.plot([], [], color=color, linewidth=2.0, alpha=0.85, label=wid, antialiased=True)
+                line, = ax.plot([], [], color=color, linewidth=2.5, alpha=0.9, label=wid, antialiased=True)
                 self._lines[key][wid] = line
 
             # Legend
-            if idx == 0:
-                ax.legend(fontsize=7, loc="upper right", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.8)
+            # Put legends in the upper left, so they don't cover latest data which is typically on the right
+            ax.legend(fontsize=8, loc="upper left", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.5)
 
             # KPI Text placeholders (stacked vertically underneath X axis)
             self._kpi_texts[key] = {}
             for i, wid in enumerate(well_ids):
                 color = WELL_COLORS.get(wid, TEXT_PRIMARY)
-                # Stack them: W-01 on top, W-02 middle, W-03 bottom
-                y_pos = -0.22 - (i * 0.15)
-                txt = ax.text(0.0, y_pos, "", transform=ax.transAxes, fontsize=6.5, color=color, va="top", ha="left")
+                txt = ax.annotate("", xy=(0.0, 0.0), xytext=(0, -30 - (i * 15)),
+                                  xycoords="axes fraction", textcoords="offset points",
+                                  fontfamily="monospace", fontsize=9, color=color, va="top", ha="left", annotation_clip=False)
                 self._kpi_texts[key][wid] = txt
                 
             self._axes[key] = ax
@@ -240,7 +242,7 @@ class TrendChartPanel(tk.Frame):
                 ax.get_legend().remove()
                 
             if handles:
-                ax.legend(handles, labels, fontsize=7, loc="upper right", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.8)
+                ax.legend(handles, labels, fontsize=8, loc="upper left", facecolor=BG_HEADER, edgecolor=BORDER, labelcolor=TEXT_SECONDARY, framealpha=0.5)
                 
         self._canvas.draw_idle()
 
@@ -268,8 +270,8 @@ class TrendChartPanel(tk.Frame):
             elif slope < (-0.01 * cur_val): trend = "▼"
             
         unit = next((u for k, t, u, l, th in self._specs if k == key), "")
-        stat_text = (f"{wid} | Cur: {cur_val:.1f} {unit} {trend}\\n"
-                     f"Avg: {avg_val:.1f} | Min: {min_val:.1f} | Max: {max_val:.1f} | σ: {std_val:.2f}")
+        unit_str = f" {unit}" if unit else ""
+        stat_text = f"{wid}  Cur: {cur_val:6.1f}{unit_str:<4} {trend}  Avg: {avg_val:6.1f}  Min: {min_val:6.1f}  Max: {max_val:6.1f}  Std: {std_val:5.2f}"
         self._kpi_texts[key][wid].set_text(stat_text)
 
     def initialize_history(self, history_data: list[dict]):
@@ -293,7 +295,9 @@ class TrendChartPanel(tk.Frame):
         # let's extract unique times, sort them, and fill the deques.
         times_map = {}
         for row in history_data:
-            dt = datetime.fromisoformat(row['timestamp'].replace("Z", "+00:00"))
+            ts_str = row['timestamp'].replace("Z", "")
+            if "+" in ts_str: ts_str = ts_str.split("+")[0]
+            dt = datetime.fromisoformat(ts_str)
             t = mdates.date2num(dt)
             if t not in times_map:
                 times_map[t] = {}
@@ -387,7 +391,9 @@ class TrendChartPanel(tk.Frame):
             wid = row.get('well_id')
             if wid in hist_data:
                 # Convert ISO string to matplotlib date float
-                dt = datetime.fromisoformat(row['timestamp'].replace("Z", "+00:00"))
+                ts_str = row['timestamp'].replace("Z", "")
+                if "+" in ts_str: ts_str = ts_str.split("+")[0]
+                dt = datetime.fromisoformat(ts_str)
                 t = mdates.date2num(dt)
                 
                 if len(hist_data[wid]["times"]) > 0:
